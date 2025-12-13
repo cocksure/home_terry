@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{{ product.name }} - HomeTerry{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/product-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumb -->
+<section class="py-2 bg-light-turquoise">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'main:home' %}">{% trans "Главная" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'main:catalog' %}">{% trans "Каталог" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'main:category_detail' product.category.slug %}">{{ product.category.name }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Product Detail Section -->
+<section class="py-2">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <!-- Main Image -->
+                    <div class="main-image mb-3">
+                        {% if product.main_image %}
+                        <img src="{{ product.main_image.image.url }}"
+                             alt="{{ product.name }}"
+                             id="mainImage"
+                             class="img-fluid rounded shadow">
+                        {% else %}
+                        <div style="height: 500px; background: var(--turquoise-gradient-soft); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-image fa-5x" style="color: var(--primary-turquoise); opacity: 0.3;"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Thumbnail Images -->
+                    {% if product.images.count > 1 %}
+                    <div class="thumbnail-images">
+                        {% for image in product.images.all %}
+                        <div class="thumbnail {% if image.is_main %}active{% endif %}"
+                             onclick="changeMainImage('{{ image.image.url }}', this)">
+                            <img src="{{ image.image.url }}" alt="{{ product.name }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    {% if product.is_featured %}
+                    <span class="badge bg-gradient me-2">
+                        <i class="fas fa-star me-1"></i>{% trans "Рекомендуем" %}
+                    </span>
+                    {% endif %}
+                    {% if product.in_stock %}
+                    <span class="badge" style="background: #10B981;">
+                        <i class="fas fa-check me-1"></i>{% trans "В наличии" %}
+                    </span>
+                    {% else %}
+{#                    <span class="badge" style="background: #EF4444;">#}
+{#                        <i class="fas fa-times me-1"></i>{% trans "Нет в наличии" %}#}
+{#                    </span>#}
+                    {% endif %}
+                </div>
+
+                <h1 class="display-5 fw-bold mb-3">{{ product.name }}</h1>
+
+
+                <!-- Product Specs -->
+                <div class="product-specs mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-info-circle me-2 text-gradient"></i>
+                        {% trans "Характеристики" %}
+                    </h5>
+                    <div class="spec-item d-flex justify-content-between">
+                        <span class="fw-semibold">{% trans "Материал:" %}</span>
+                        <span>{{ product.get_material_display }}</span>
+                    </div>
+                    <div class="spec-item d-flex justify-content-between">
+                        <span class="fw-semibold">{% trans "Размер:" %}</span>
+                        <span>{{ product.size }}</span>
+                    </div>
+                    <div class="spec-item d-flex justify-content-between">
+                        <span class="fw-semibold">{% trans "Цвет:" %}</span>
+                        <span>{{ product.color }}</span>
+                    </div>
+                    <div class="spec-item d-flex justify-content-between">
+                        <span class="fw-semibold">{% trans "Категория:" %}</span>
+                        <span>{{ product.category.name }}</span>
+                    </div>
+                    <div class="spec-item d-flex justify-content-between">
+                        <span class="fw-semibold">{% trans "Наличие:" %}</span>
+                        <span>{{ product.stock }} {% trans "шт." %}</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-align-left me-2 text-gradient"></i>
+                        {% trans "Описание" %}
+                    </h5>
+                    <p class="text-muted">{{ product.description }}</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-flex gap-3 flex-wrap mb-4">
+                    <a href="{% url 'main:contact' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart me-2"></i>
+                        {% trans "Заказать" %}
+                    </a>
+                    <a href="{% url 'main:catalog' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        {% trans "Назад к каталогу" %}
+                    </a>
+                </div>
+
+                <!-- Share -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">{% trans "Поделиться:" %}</h6>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-sm btn-outline-primary">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="#" class="btn btn-sm btn-outline-primary">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Products -->
+{% if related_products %}
+<section class="py-2 bg-light-turquoise">
+    <div class="container">
+        <h2 class="section-title">{% trans "Похожие товары" %}</h2>
+        <div class="section-divider"></div>
+
+        <div class="row g-4 mt-3">
+            {% for related in related_products %}
+            <div class="col-lg-3 col-md-6">
+                <div class="card product-card hover-lift h-100">
+                    {% if related.is_featured %}
+                    <span class="product-badge">
+                        <i class="fas fa-star me-1"></i>{% trans "Хит" %}
+                    </span>
+                    {% endif %}
+
+                    <a href="{% url 'main:product_detail' related.slug %}" class="text-decoration-none">
+                        {% if related.main_image %}
+                        <img src="{{ related.main_image.image.url }}"
+                             class="card-img-top"
+                             alt="{{ related.name }}">
+                        {% else %}
+                        <div class="card-img-top"
+                             style="background: var(--turquoise-gradient-soft); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-image fa-3x" style="color: var(--primary-turquoise); opacity: 0.3;"></i>
+                        </div>
+                        {% endif %}
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{% url 'main:product_detail' related.slug %}"
+                               class="text-decoration-none text-dark">
+                                {{ related.name }}
+                            </a>
+                        </h5>
+                        <p class="card-text text-muted small">
+                            <i class="fas fa-tag me-1"></i>{{ related.get_material_display }}
+                            <span class="mx-2">|</span>
+                            <i class="fas fa-ruler me-1"></i>{{ related.size }}
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+{#                            <span class="product-price">${{ related.price }}</span>#}
+                            <a href="{% url 'main:product_detail' related.slug %}"
+                               class="btn btn-sm btn-primary">
+                                {% trans "Подробнее" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/product-detail.js' %}"></script>
+{% endblock %}

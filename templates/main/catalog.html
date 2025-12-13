@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Каталог" %} - HomeTerry{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="py-4 bg-gradient text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold">{% trans "Каталог продукции" %}</h1>
+        <p class="lead mb-0">{% trans "Широкий выбор качественных полотенец" %}</p>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">{% trans "Выберите категорию" %}</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                {% trans "Найдите идеальные полотенца для ваших нужд" %}
+            </p>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="row g-4">
+            {% for category in categories %}
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'main:category_detail' category.slug %}" class="text-decoration-none">
+                    <div class="category-card">
+                        {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                        {% else %}
+                        <div style="height: 300px; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-image fa-5x" style="color: rgba(255, 255, 255, 0.3);"></i>
+                        </div>
+                        {% endif %}
+                        <div class="category-card-content">
+                            <h3 class="category-card-title">
+                                <i class="fas fa-tag me-2"></i>{{ category.name }}
+                            </h3>
+                            {% if category.description %}
+                            <p class="mb-2" style="font-size: 0.95rem; opacity: 0.9;">
+                                {{ category.description|truncatewords:12 }}
+                            </p>
+                            {% endif %}
+                            <p class="mb-0 fw-bold">
+                                <i class="fas fa-arrow-right me-2"></i>
+                                {% trans "Посмотреть товары" %}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="fas fa-inbox fa-4x text-muted mb-3"></i>
+                    <h3 class="text-muted">{% trans "Категории скоро появятся" %}</h3>
+                    <p class="text-muted">
+                        {% trans "Мы работаем над наполнением каталога" %}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

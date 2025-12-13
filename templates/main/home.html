@@ -1,0 +1,318 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}HomeTerry - {% trans "Качественные полотенца из натуральных материалов" %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<!-- Заменить существующий hero section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content order-2 order-lg-1">
+                <div class="hero-badge">
+                    <span>{% trans "Премиум качество с 2015" %}</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">{% trans "Искусство комфорта" %}</span><br>
+                    {% trans "в каждой нити" %}
+                </h1>
+                <p class="hero-subtitle">
+                    {% trans "Роскошные полотенца ручной работы из египетского хлопка с гарантией качества для отелей и дома" %}
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5000">0</div>
+                        <div class="stat-label">{% trans "довольных клиентов" %}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="45">0</div>
+                        <div class="stat-label">{% trans "стран экспорта" %}</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-label">{% trans "лет опыта" %}</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="{% url 'main:catalog' %}" class="btn btn-primary btn-glow">
+                        <i class="fas fa-sparkles me-2"></i>
+                        {% trans "Исследовать коллекцию" %}
+                    </a>
+                    <a href="{% url 'main:contact' %}" class="btn btn-video">
+                        <i class="fas fa-play-circle me-2"></i>
+                        {% trans "Смотреть видео" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+                <div class="hero-image-wrapper">
+                    <!-- Floating product cards - скрываем на мобильных -->
+                    <div class="floating-card card-1 d-none d-lg-block">
+                        <img src="{% static 'images/towel-2.png' %}" alt="">
+                        <div class="floating-badge">-30%</div>
+                    </div>
+                    <div class="floating-card card-2 d-none d-lg-block">
+                        <img src="{% static 'images/towel-3.png' %}" alt="">
+                    </div>
+                    <div class="floating-card card-3 d-none d-lg-block">
+                        <img src="{% static 'images/towel-1.png' %}" alt="">
+                        <div class="floating-badge">New</div>
+                    </div>
+
+                    <!-- Main hero image -->
+                    <div class="main-hero-image">
+                        <img src="{% static 'images/hero-towel.png' %}"
+                             alt="{% trans 'Премиальные полотенца HomeTerry' %}"
+                             class="hero-main-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator d-none d-md-block">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>{% trans "Листайте вниз" %}</span>
+        </div>
+    </div>
+
+    <!-- Animated background elements -->
+    <div class="hero-shape shape-1 d-none d-lg-block"></div>
+    <div class="hero-shape shape-2 d-none d-lg-block"></div>
+    <div class="hero-shape shape-3 d-none d-lg-block"></div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-5 my-5">
+    <div class="container">
+        <h2 class="section-title">{% trans "Наши категории" %}</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+            {% trans "Широкий ассортимент полотенец для любых нужд" %}
+        </p>
+
+        <div class="row g-4">
+            {% for category in categories %}
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'main:category_detail' category.slug %}" class="text-decoration-none">
+                    <div class="category-card">
+                        {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                        {% else %}
+                        <div style="height: 300px; background: var(--turquoise-gradient);"></div>
+                        {% endif %}
+                        <div class="category-card-content">
+                            <h3 class="category-card-title">{{ category.name }}</h3>
+                            <p class="mb-0">
+                                <i class="fas fa-arrow-right me-2"></i>
+                                {% trans "Посмотреть товары" %}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">{% trans "Категории скоро появятся" %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="py-5 bg-light-turquoise">
+    <div class="container">
+        <h2 class="section-title">{% trans "Рекомендуемые товары" %}</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+            {% trans "Наши самые популярные и качественные полотенца" %}
+        </p>
+
+        <div class="row g-4">
+            {% for product in featured_products %}
+            <div class="col-lg-3 col-md-6">
+                <div class="card product-card hover-lift">
+                    {% if product.is_featured %}
+                    <span class="product-badge">
+                        <i class="fas fa-star me-1"></i>{% trans "Хит" %}
+                    </span>
+                    {% endif %}
+
+                    {% if product.main_image %}
+                    <img src="{{ product.main_image.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    {% else %}
+                    <div class="card-img-top" style="background: var(--turquoise-gradient-soft);"></div>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted small">
+                            <i class="fas fa-tag me-1"></i>{{ product.get_material_display }}
+                            <span class="mx-2">|</span>
+                            <i class="fas fa-ruler me-1"></i>{{ product.size }}
+                        </p>
+                        <p class="card-text">{{ product.description|truncatewords:15 }}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <a href="{% url 'main:product_detail' product.slug %}" class="btn btn-sm btn-primary">
+                                {% trans "Подробнее" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">{% trans "Товары скоро появятся" %}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if featured_products %}
+        <div class="text-center mt-5">
+            <a href="{% url 'main:catalog' %}" class="btn btn-primary btn-lg">
+                <i class="fas fa-th-large me-2"></i>
+                {% trans "Смотреть весь каталог" %}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 my-5">
+    <div class="container">
+        <h2 class="section-title">{% trans "Почему выбирают нас" %}</h2>
+        <div class="section-divider"></div>
+
+        <div class="row g-4 mt-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-certificate fa-3x text-gradient"></i>
+                        </div>
+                        <h5 class="card-title">{% trans "100% Качество" %}</h5>
+                        <p class="card-text">
+                            {% trans "Только натуральные материалы и строгий контроль качества" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-shipping-fast fa-3x text-gradient"></i>
+                        </div>
+                        <h5 class="card-title">{% trans "Быстрая доставка" %}</h5>
+                        <p class="card-text">
+                            {% trans "Экспорт по всему миру с гарантией сроков" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-leaf fa-3x text-gradient"></i>
+                        </div>
+                        <h5 class="card-title">{% trans "Эко-материалы" %}</h5>
+                        <p class="card-text">
+                            {% trans "Забота об окружающей среде и вашем здоровье" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-headset fa-3x text-gradient"></i>
+                        </div>
+                        <h5 class="card-title">{% trans "Поддержка 24/7" %}</h5>
+                        <p class="card-text">
+                            {% trans "Всегда на связи для решения любых вопросов" %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+{% if latest_posts %}
+<section class="py-5 bg-light-turquoise">
+    <div class="container">
+        <h2 class="section-title">{% trans "Последние статьи" %}</h2>
+        <div class="section-divider"></div>
+
+        <div class="row g-4">
+            {% for post in latest_posts %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 hover-lift">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="text-muted small mb-2">
+                            <i class="far fa-calendar me-2"></i>{{ post.published_at|date:"d.m.Y" }}
+                        </div>
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.excerpt|truncatewords:20 }}</p>
+                        <a href="{% url 'main:blog_detail' post.slug %}" class="btn btn-outline-primary btn-sm">
+                            {% trans "Читать далее" %} <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'main:blog_list' %}" class="btn btn-primary">
+                <i class="fas fa-newspaper me-2"></i>
+                {% trans "Все статьи" %}
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title mb-4">
+                    {% trans "Готовы сотрудничать?" %}
+                </h2>
+                <p class="section-subtitle mb-4">
+                    {% trans "Свяжитесь с нами для обсуждения сотрудничества и получения коммерческого предложения" %}
+                </p>
+                <a href="{% url 'main:contact' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope me-2"></i>
+                    {% trans "Связаться с нами" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,615 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Контакты" %} - HomeTerry{% endblock %}
+
+{% block extra_css %}
+	<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+	<!-- Enhanced Page Header -->
+	<section class="contact-hero py-5 position-relative overflow-hidden">
+		<div class="floating-contact contact-1">
+			<i class="fas fa-envelope-open-text fa-3x text-white opacity-25"></i>
+		</div>
+		<div class="floating-contact contact-2">
+			<i class="fas fa-headset fa-3x text-white opacity-25"></i>
+		</div>
+
+		<div class="container position-relative z-1">
+			<div class="row align-items-center min-vh-50">
+				<div class="col-lg-8 mx-auto text-center">
+					<div class="hero-badge mb-4">
+						<span>{% trans "Служба поддержки 24/7" %}</span>
+					</div>
+					<h1 class="display-3 fw-bold mb-4 text-white">
+						{% trans "Свяжитесь с нами" %}
+					</h1>
+					<p class="lead mb-4 text-white opacity-90">
+						{% trans "Мы готовы помочь вам с выбором продукции, ответить на вопросы и обсудить сотрудничество" %}
+					</p>
+
+					{#                <div class="contact-stats">#}
+					{#                    <div class="stat-item">#}
+					{#                        <div class="stat-number">15</div>#}
+					{#                        <div class="stat-label">{% trans "минут" %}</div>#}
+					{#                        <div class="stat-text">{% trans "среднее время ответа" %}</div>#}
+					{#                    </div>#}
+					{#                    <div class="stat-item">#}
+					{#                        <div class="stat-number">98%</div>#}
+					{#                        <div class="stat-label">{% trans "клиентов" %}</div>#}
+					{#                        <div class="stat-text">{% trans "довольны поддержкой" %}</div>#}
+					{#                    </div>#}
+					{#                    <div class="stat-item">#}
+					{#                        <div class="stat-number">24/7</div>#}
+					{#                        <div class="stat-label">{% trans "поддержка" %}</div>#}
+					{#                        <div class="stat-text">{% trans "для оптовых клиентов" %}</div>#}
+					{#                    </div>#}
+					{#                </div>#}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section class="py-5 my-5 reveal-element">
+		<div class="container">
+			<div class="row g-5">
+				<!-- Enhanced Contact Information -->
+				<div class="col-lg-5">
+					<div class="contact-card h-100">
+						<div class="card-body p-4 p-md-5">
+							<div class="contact-badge">
+								<i class="fas fa-info-circle me-2"></i>
+								{% trans "Контактная информация" %}
+							</div>
+
+							<h2 class="display-6 fw-bold mb-4">
+								{% trans "Наши контакты" %}
+							</h2>
+
+							<p class="text-muted mb-5">
+								{% trans "Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с выбором продукции и ответить на все вопросы." %}
+							</p>
+
+							<!-- Contact Items with Hover Effects -->
+							<div class="contact-info mb-4 pb-4 border-bottom">
+								<div class="contact-icon">
+									<i class="fas fa-map-marker-alt"></i>
+								</div>
+								<h4 class="fw-bold mb-3">{% trans "Адрес офиса" %}</h4>
+								<p class="mb-2 text-muted">
+									<i class="fas fa-building me-2"></i>
+									<strong>{% trans "ул. Буюк Ипак Йули 7, Самарканд, Самаркандская область, Узбекистан" %}</strong>
+								</p>
+								<a href="#map" class="btn btn-sm btn-outline-primary mt-3">
+									<i class="fas fa-directions me-1"></i>
+									{% trans "Проложить маршрут" %}
+								</a>
+							</div>
+
+							<div class="contact-info mb-4 pb-4 border-bottom">
+								<div class="contact-icon">
+									<i class="fas fa-phone-volume"></i>
+								</div>
+								<h4 class="fw-bold mb-3">{% trans "Телефоны" %}</h4>
+								<div class="contact-numbers">
+									<div class="d-flex align-items-center mb-2">
+										<div class="number-badge">{% trans "Общие вопросы" %}</div>
+									</div>
+									<p class="mb-2">
+										<a href="tel:+998978950702"
+										   class="text-decoration-none text-dark hover-text-turquoise">
+											<i class="fas fa-phone-alt me-2"></i>
+											<strong>+998 (97) 895 07 02</strong>
+										</a>
+									</p>
+
+									<div class="d-flex align-items-center mb-2 mt-3">
+										<div class="number-badge">{% trans "Отдел продаж" %}</div>
+									</div>
+									<p class="mb-2">
+										<a href="tel:+998937230505"
+										   class="text-decoration-none text-dark hover-text-turquoise">
+											<i class="fas fa-phone-alt me-2"></i>
+											<strong>+99893 723 05 05</strong>
+										</a>
+									</p>
+
+									<div class="d-flex align-items-center mb-2 mt-3">
+										<div class="number-badge">{% trans "Вайбер/Телеграм" %}</div>
+									</div>
+									<p class="mb-0">
+										<a href="https://wa.me/998901234567"
+										   class="text-decoration-none text-dark hover-text-turquoise">
+											<i class="fab fa-whatsapp me-2"></i>
+											<strong>+998 90 123 45 67</strong>
+										</a>
+									</p>
+								</div>
+							</div>
+
+							<div class="contact-info mb-4 pb-4 border-bottom">
+								<div class="contact-icon">
+									<i class="fas fa-envelope-open-text"></i>
+								</div>
+								<h4 class="fw-bold mb-3">{% trans "Электронная почта" %}</h4>
+								<p class="mb-2">
+									<a href="mailto:info@hometerry.uz"
+									   class="text-decoration-none text-dark hover-text-turquoise">
+										<i class="fas fa-envelope me-2"></i>
+										<strong>info@hometerry.uz</strong>
+									</a>
+									<br>
+									<small class="text-muted">{% trans "Для общих вопросов" %}</small>
+								</p>
+								<p class="mb-2">
+									<a href="mailto:sales@hometerry.uz"
+									   class="text-decoration-none text-dark hover-text-turquoise">
+										<i class="fas fa-envelope me-2"></i>
+										<strong>sales@hometerry.uz</strong>
+									</a>
+									<br>
+									<small class="text-muted">{% trans "Для заказов и прайсов" %}</small>
+								</p>
+								<p class="mb-0">
+									<a href="mailto:support@hometerry.uz"
+									   class="text-decoration-none text-dark hover-text-turquoise">
+										<i class="fas fa-envelope me-2"></i>
+										<strong>support@hometerry.uz</strong>
+									</a>
+									<br>
+									<small class="text-muted">{% trans "Техническая поддержка" %}</small>
+								</p>
+							</div>
+
+							<div class="contact-info">
+								<div class="contact-icon">
+									<i class="fas fa-clock"></i>
+								</div>
+								<h4 class="fw-bold mb-3">{% trans "Режим работы" %}</h4>
+								<div class="schedule">
+									<div class="schedule-item">
+										<span class="schedule-day">{% trans "Пн-Пт" %}</span>
+										<span class="schedule-time">9:00 - 18:00</span>
+									</div>
+									<div class="schedule-item">
+										<span class="schedule-day">{% trans "Суббота" %}</span>
+										<span class="schedule-time">10:00 - 16:00</span>
+									</div>
+									<div class="schedule-item">
+										<span class="schedule-day">{% trans "Воскресенье" %}</span>
+										<span class="schedule-time">{% trans "Выходной" %}</span>
+									</div>
+								</div>
+							</div>
+
+							<!-- Social Media Enhanced -->
+							<div class="mt-5 pt-5 border-top">
+								<h4 class="fw-bold mb-4">
+									<i class="fas fa-hashtag me-2 text-gradient"></i>
+									{% trans "Присоединяйтесь к нам" %}
+								</h4>
+								<p class="text-muted mb-4">
+									{% trans "Подписывайтесь на наши социальные сети, чтобы быть в курсе новинок и акций" %}
+								</p>
+								<div class="social-grid">
+									<a href="#" class="social-card facebook">
+										<i class="fab fa-facebook-f"></i>
+										<span>Facebook</span>
+									</a>
+									<a href="#" class="social-card instagram">
+										<i class="fab fa-instagram"></i>
+										<span>Instagram</span>
+									</a>
+									<a href="#" class="social-card telegram">
+										<i class="fab fa-telegram-plane"></i>
+										<span>Telegram</span>
+									</a>
+									<a href="#" class="social-card linkedin">
+										<i class="fab fa-linkedin-in"></i>
+										<span>LinkedIn</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Enhanced Contact Form -->
+				<div class="col-lg-7">
+					<div class="contact-card">
+						<div class="card-body p-4 p-md-5">
+							<div class="contact-badge">
+								<i class="fas fa-paper-plane me-2"></i>
+								{% trans "Форма обратной связи" %}
+							</div>
+
+							<h2 class="display-6 fw-bold mb-1">
+								{% trans "Отправьте нам сообщение" %}
+							</h2>
+							<p class="text-muted mb-4">
+								{% trans "Заполните форму ниже, и мы свяжемся с вами в ближайшее время" %}
+							</p>
+
+							<!-- Quick Contact Buttons -->
+							<div class="quick-contacts mb-4">
+								<div class="btn-group" role="group">
+									<button type="button" class="btn btn-outline-primary active" data-type="general">
+										<i class="fas fa-question-circle me-2"></i>
+										{% trans "Общий вопрос" %}
+									</button>
+									<button type="button" class="btn btn-outline-primary" data-type="wholesale">
+										<i class="fas fa-boxes me-2"></i>
+										{% trans "Оптовый заказ" %}
+									</button>
+									<button type="button" class="btn btn-outline-primary" data-type="cooperation">
+										<i class="fas fa-handshake me-2"></i>
+										{% trans "Сотрудничество" %}
+									</button>
+								</div>
+							</div>
+
+							<form id="contactForm" class="needs-validation" novalidate>
+								<div class="row g-3">
+									<div class="col-md-6">
+										<div class="form-floating-custom">
+											<input type="text"
+											       class="form-control"
+											       id="name"
+											       required
+											       placeholder="{% trans 'Ваше имя' %}">
+											<label for="name">
+												<i class="fas fa-user me-2"></i>
+												{% trans "Ваше имя" %} *
+											</label>
+											<div class="invalid-feedback">
+												{% trans "Пожалуйста, введите ваше имя" %}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-floating-custom">
+											<input type="tel"
+											       class="form-control"
+											       id="phone"
+											       required
+											       placeholder="+998 90 123 45 67"
+											       pattern="^\+998\d{9}$">
+											<label for="phone">
+												<i class="fas fa-phone me-2"></i>
+												{% trans "Телефон" %} *
+											</label>
+											<div class="invalid-feedback">
+												{% trans "Пожалуйста, введите правильный номер телефона" %}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-floating-custom">
+											<input type="email"
+											       class="form-control"
+											       id="email"
+											       required
+											       placeholder="your@email.com">
+											<label for="email">
+												<i class="fas fa-envelope me-2"></i>
+												{% trans "Email" %} *
+											</label>
+											<div class="invalid-feedback">
+												{% trans "Пожалуйста, введите правильный email" %}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-floating-custom">
+											<input type="text"
+											       class="form-control"
+											       id="company"
+											       placeholder="{% trans 'Название компании' %}">
+											<label for="company">
+												<i class="fas fa-building me-2"></i>
+												{% trans "Компания" %}
+											</label>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form-floating-custom">
+											<input type="text"
+											       class="form-control"
+											       id="subject"
+											       required
+											       placeholder="{% trans 'Тема сообщения' %}">
+											<label for="subject">
+												<i class="fas fa-tag me-2"></i>
+												{% trans "Тема сообщения" %} *
+											</label>
+											<div class="invalid-feedback">
+												{% trans "Пожалуйста, введите тему сообщения" %}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form-floating-custom">
+                                        <textarea class="form-control"
+                                                  id="message"
+                                                  rows="5"
+                                                  required
+                                                  placeholder="{% trans 'Ваше сообщение' %}"></textarea>
+											<label for="message">
+												<i class="fas fa-comment-alt me-2"></i>
+												{% trans "Сообщение" %} *
+											</label>
+											<div class="invalid-feedback">
+												{% trans "Пожалуйста, напишите ваше сообщение" %}
+											</div>
+											<div class="form-text mt-2">
+												<small class="text-muted">
+													<i class="fas fa-info-circle me-1"></i>
+													{% trans "Максимум 500 символов" %}
+													<span id="charCount" class="float-end">0/500</span>
+												</small>
+											</div>
+										</div>
+									</div>
+
+
+									<!-- Submit Button with Loading -->
+									<div class="col-12">
+										<button type="submit"
+										        class="btn btn-primary btn-lg w-100 py-3"
+										        id="submitBtn">
+                                        <span class="submit-text">
+                                            <i class="fas fa-paper-plane me-2"></i>
+                                            {% trans "Отправить сообщение" %}
+                                        </span>
+											<span class="loading-spinner d-none">
+                                            <span class="spinner-border spinner-border-sm me-2"></span>
+                                            {% trans "Отправка..." %}
+                                        </span>
+										</button>
+									</div>
+
+									<div class="col-12">
+										<div class="form-check">
+											<input class="form-check-input"
+											       type="checkbox"
+											       id="privacyPolicy"
+											       required>
+											<label class="form-check-label small text-muted" for="privacyPolicy">
+												{% trans "Я согласен с" %}
+												<a href="#"
+												   class="text-decoration-none">{% trans "политикой конфиденциальности" %}</a>
+												{% trans "и даю согласие на обработку персональных данных" %}
+											</label>
+										</div>
+									</div>
+								</div>
+							</form>
+
+							<!-- Success/Error Messages -->
+							<div id="formMessages" class="mt-4">
+								<div id="successMessage" class="alert alert-success d-none" role="alert">
+									<div class="d-flex align-items-center">
+										<i class="fas fa-check-circle fa-2x me-3"></i>
+										<div>
+											<h5 class="alert-heading mb-1">{% trans "Сообщение отправлено!" %}</h5>
+											<p class="mb-0">{% trans "Мы свяжемся с вами в течение 15 минут в рабочее время" %}</p>
+										</div>
+									</div>
+								</div>
+
+								<div id="errorMessage" class="alert alert-danger d-none" role="alert">
+									<div class="d-flex align-items-center">
+										<i class="fas fa-exclamation-circle fa-2x me-3"></i>
+										<div>
+											<h5 class="alert-heading mb-1">{% trans "Ошибка отправки" %}</h5>
+											<p class="mb-0">{% trans "Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону" %}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Interactive Map Section -->
+	<section class="py-5 bg-light" id="map">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="display-5 fw-bold mb-3">
+						<i class="fas fa-map-marked-alt me-3 text-gradient"></i>
+						{% trans "Как нас найти" %}
+					</h2>
+					<p class="lead text-muted">
+						{% trans "Наш офис находится в Самарканде. Приезжайте к нам для личной консультации" %}
+					</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="map-container">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240.38304431416233!2d66.92235254013025!3d39.65772960911706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d196bcacda8f9%3A0xfca2fad7677c843b!2z0YPQu9C40YbQsCDQkdGD0Y7QuiDQmNC_0LDQuiDQmdGD0LvQuCA3LCDQodCw0LzQsNGA0LrQsNC90LQsINCh0LDQvNCw0YDQutCw0L3QtNGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C30LHQtdC60LjRgdGC0LDQvQ!5e0!3m2!1sru!2s!4v1765620393473!5m2!1sru!2s"
+						        width="100%"
+						        height="100%"
+						        style="border:0;"
+						        allowfullscreen=""
+						        loading="lazy"
+						        referrerpolicy="no-referrer-when-downgrade">
+						</iframe>
+
+						<div class="map-overlay">
+							<h5 class="fw-bold mb-3">
+								<i class="fas fa-map-pin me-2 text-gradient"></i>
+								{% trans "Офис HomeTerry" %}
+							</h5>
+							<p class="mb-2">
+								<i class="fas fa-location-dot me-2"></i>
+								{% trans "ул. Буюк Ипак Йули 7" %}<br>
+								<small class="text-muted">{% trans "Самарканд, Самаркандская область, Узбекистан" %}</small>
+							</p>
+							<p class="mb-3">
+								<i class="fas fa-clock me-2"></i>
+								{% trans "Пн-Пт: 9:00-18:00" %}<br>
+								<small class="text-muted">{% trans "Сб: 10:00-16:00" %}</small>
+							</p>
+							<a href="https://goo.gl/maps/example"
+							   target="_blank"
+							   class="btn btn-primary btn-sm">
+								<i class="fas fa-directions me-2"></i>
+								{% trans "Проложить маршрут" %}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Departments Section -->
+	<section class="py-5">
+		<div class="container">
+			<h2 class="section-title text-center mb-5">
+				<i class="fas fa-users me-3 text-gradient"></i>
+				{% trans "Наши отделы" %}
+			</h2>
+
+			<div class="row g-4">
+				<div class="col-md-4">
+					<div class="department-card">
+						<div class="department-icon sales">
+							<i class="fas fa-chart-line"></i>
+						</div>
+						<h4 class="department-title">{% trans "Отдел продаж" %}</h4>
+						<p class="department-description">
+							{% trans "Консультации, коммерческие предложения, работа с оптовыми клиентами" %}
+						</p>
+						<div class="department-contact">
+							<a href="tel:+998937230505" class="btn btn-outline-primary btn-sm">
+								<i class="fas fa-phone-alt me-1"></i>
+								+998 93 723 05 05
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="department-card">
+						<div class="department-icon support">
+							<i class="fas fa-headset"></i>
+						</div>
+						<h4 class="department-title">{% trans "Техподдержка" %}</h4>
+						<p class="department-description">
+							{% trans "Консультации по продукции, гарантийное обслуживание, решение проблем" %}
+						</p>
+						<div class="department-contact">
+							<a href="mailto:support@hometerry.uz" class="btn btn-outline-primary btn-sm">
+								<i class="fas fa-envelope me-1"></i>
+								support@hometerry.uz
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="department-card">
+						<div class="department-icon logistics">
+							<i class="fas fa-shipping-fast"></i>
+						</div>
+						<h4 class="department-title">{% trans "Логистика" %}</h4>
+						<p class="department-description">
+							{% trans "Доставка, отслеживание заказов, таможенное оформление, экспедирование" %}
+						</p>
+						<div class="department-contact">
+							<a href="tel:+998978950702" class="btn btn-outline-primary btn-sm">
+								<i class="fas fa-phone-alt me-1"></i>
+								+998 97 895 07 02
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ Section -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<h2 class="section-title text-center mb-5">
+				<i class="fas fa-question-circle me-3 text-gradient"></i>
+				{% trans "Частые вопросы" %}
+			</h2>
+
+			<div class="row justify-content-center">
+				<div class="col-lg-10">
+					<div class="accordion" id="faqAccordion">
+						<div class="accordion-item">
+							<h3 class="accordion-header">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse"
+								        data-bs-target="#faq1">
+									{% trans "Какой срок изготовления заказа?" %}
+								</button>
+							</h3>
+							<div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+								<div class="accordion-body">
+									{% trans "Стандартный срок изготовления - 5-10 рабочих дней. Для индивидуальных заказов срок согласовывается отдельно." %}
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item">
+							<h3 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								        data-bs-target="#faq2">
+									{% trans "Есть ли доставка в регионы?" %}
+								</button>
+							</h3>
+							<div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+								<div class="accordion-body">
+									{% trans "Да, мы осуществляем доставку по всему Узбекистану и экспорт в другие страны. Стоимость и сроки доставки рассчитываются индивидуально." %}
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion-item">
+							<h3 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+								        data-bs-target="#faq3">
+									{% trans "Можно ли получить образцы продукции?" %}
+								</button>
+							</h3>
+							<div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+								<div class="accordion-body">
+									{% trans "Да, для оптовых клиентов мы предоставляем образцы материалов. Стоимость образцов и условия доставки обсуждаются индивидуально." %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Chat Bubble -->
+	<div class="chat-bubble" data-bs-toggle="tooltip" data-bs-placement="left"
+	     title="{% trans 'Написать в WhatsApp' %}">
+		<i class="fab fa-whatsapp"></i>
+	</div>
+
+{% endblock %}
+
+{% block extra_js %}
+	<script src="{% static 'js/pages/contact.js' %}"></script>
+{% endblock %}

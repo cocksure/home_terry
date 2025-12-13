@@ -1,0 +1,45 @@
+# Python/Django
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+*.log
+#.db.sqlite3
+#db.sqlite3
+
+# Environment files (секретные данные)
+.env
+.env.*
+.env.local
+
+# AI сервисы (API ключи)
+services/claude_service.py
+**/claude_service.py
+
+# Тестовые файлы (временные)
+test_*.py
+
+# Django collectstatic / медиа
+#/static/
+#/staticfiles/
+#/media/
+
+# Виртуальные окружения
+.venv/
+venv/
+ENV/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+
+# Node (если есть фронт)
+node_modules/
+dist/
+build/
+
+# Исключение: примеры .env файлов ДОЛЖНЫ быть в Git
+!.env.*.example
+/.claude_ignore
