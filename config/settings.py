@@ -145,7 +145,13 @@ TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID', default='')
 # CSRF настройки (должны быть ДО блока if not DEBUG)
 CSRF_COOKIE_SAMESITE = 'Lax'  # Изменено с 'Strict' на 'Lax' для работы с формами
 CSRF_COOKIE_HTTPONLY = False  # Позволить JavaScript читать CSRF токен
+CSRF_USE_SESSIONS = False  # Не использовать сессии для CSRF
+CSRF_COOKIE_SECURE = False if DEBUG else True  # HTTP cookies в dev, HTTPS в prod
 CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['http://localhost:8000'])
+
+# Дополнительные настройки для PythonAnywhere
+SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_HTTPONLY = True
 
 # HTTPS настройки (раскомментировать для продакшена с HTTPS)
 if not DEBUG:

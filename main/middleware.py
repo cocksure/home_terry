@@ -16,33 +16,37 @@ class RateLimitMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Применяем только к API контактной формы
+        # Применяем только к API контактной формы (НЕ к set-language!)
         if request.path == '/api/submit-contact/' and request.method == 'POST':
-            # Получаем IP пользователя
-            ip_address = self.get_client_ip(request)
+            try:
+                # Получаем IP пользователя
+                ip_address = self.get_client_ip(request)
 
-            # Ключ для кэша
-            cache_key = f'rate_limit_contact_{ip_address}'
+                # Ключ для кэша
+                cache_key = f'rate_limit_contact_{ip_address}'
 
-            # Получаем историю запросов
-            request_history = cache.get(cache_key, [])
-            current_time = time.time()
+                # Получаем историю запросов
+                request_history = cache.get(cache_key, [])
+                current_time = time.time()
 
-            # Очищаем старые запросы (старше 60 секунд)
-            request_history = [t for t in request_history if current_time - t < 60]
+                # Очищаем старые запросы (старше 60 секунд)
+                request_history = [t for t in request_history if current_time - t < 60]
 
-            # Проверяем лимит
-            if len(request_history) >= 3:
-                return JsonResponse({
-                    'success': False,
-                    'error': '⚠️ Слишком много запросов. Пожалуйста, подождите минуту перед следующей отправкой.'
-                }, status=429)
+                # Проверяем лимит
+                if len(request_history) >= 3:
+                    return JsonResponse({
+                        'success': False,
+                        'error': '⚠️ Слишком много запросов. Пожалуйста, подождите минуту перед следующей отправкой.'
+                    }, status=429)
 
-            # Добавляем текущий запрос
-            request_history.append(current_time)
+                # Добавляем текущий запрос
+                request_history.append(current_time)
 
-            # Сохраняем в кэш на 60 секунд
-            cache.set(cache_key, request_history, 60)
+                # Сохраняем в кэш на 60 секунд
+                cache.set(cache_key, request_history, 60)
+            except Exception:
+                # Если возникла ошибка с кэшем, просто пропускаем rate limiting
+                pass
 
         response = self.get_response(request)
         return response
