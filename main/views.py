@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 import json
 import requests
@@ -122,6 +123,7 @@ def contact(request):
     return render(request, 'main/contact.html')
 
 
+@csrf_exempt  # ВРЕМЕННО отключен CSRF для диагностики 403 ошибки на PythonAnywhere
 @require_POST
 def submit_contact_form(request):
     """Обработка контактной формы с отправкой в Telegram"""

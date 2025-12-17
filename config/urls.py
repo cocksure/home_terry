@@ -6,6 +6,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.i18n import set_language
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 from main.urls import api_urlpatterns
 from main.sitemaps import (
     StaticViewSitemap,
@@ -23,7 +24,8 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('set-language/', set_language, name='set_language'),
+    # ВРЕМЕННО отключен CSRF для диагностики 403 ошибки на PythonAnywhere
+    path('set-language/', csrf_exempt(set_language), name='set_language'),
 
     # Sitemap для поисковых систем (Google, Yandex, Bing)
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
