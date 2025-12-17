@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hometerry.uz/sitemap.xml
+
+# Запретить индексацию служебных страниц
+Disallow: /admin/
+Disallow: /set-language/
+Disallow: /api/
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: bingbot
+Allow: /
+
+# Время между запросами (в секундах)
+Crawl-delay: 1

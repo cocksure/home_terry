@@ -1,6 +1,6 @@
 {% load i18n static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +12,37 @@
     <meta name="description" content="HomeTerry - производство и экспорт качественных полотенец из натуральных материалов. Хлопок, бамбук, микрофибра.">
     {% endblock %}
 
+    <!-- Keywords -->
+    <meta name="keywords" content="{% block meta_keywords %}полотенца, хлопковые полотенца, махровые полотенца, банные полотенца, пляжные полотенца, купить полотенца, полотенца оптом, производство полотенец, Узбекистан{% endblock %}">
+    <meta name="author" content="HomeTerry">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}HomeTerry - Качественные полотенца из натуральных материалов{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Производство и экспорт качественных полотенец из хлопка, бамбука и микрофибры. Оптовые поставки по всему миру.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}{% endblock %}">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE }}_{{ LANGUAGE_CODE|upper }}">
+    <meta property="og:site_name" content="HomeTerry">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:title" content="{% block twitter_title %}HomeTerry - Качественные полотенца{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Производство и экспорт качественных полотенец из натуральных материалов{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}{% endblock %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Оптимизировано: только 2 шрифта -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,13 +50,78 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     {% block extra_css %}{% endblock %}
+
+    <!-- Schema.org structured data для поисковых систем -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HomeTerry",
+      "description": "Производство и экспорт качественных полотенец из натуральных материалов",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}",
+      "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}",
+      "telephone": "+998937230505",
+      "email": "info@hometerry.uz",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ташкент",
+        "addressCountry": "UZ"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61585364337020",
+        "https://www.instagram.com/hometerryuz/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998937230505",
+        "contactType": "Customer Service",
+        "availableLanguage": ["Russian", "English", "Uzbek"]
+      }
+    }
+    </script>
+
+    {% block schema_org %}{% endblock %}
+
+    <!-- Google Analytics - раскомментируйте и добавьте ваш GA4 ID -->
+    {% comment %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    {% endcomment %}
+
+    <!-- Yandex.Metrika - раскомментируйте и добавьте ваш счетчик -->
+    {% comment %}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(XXXXXXXX, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    {% endcomment %}
 </head>
 <body>
     <!-- Enhanced Loader -->
@@ -101,16 +190,34 @@
                         </a>
                     </li>
 
-                    <!-- Language Switcher (Optional) -->
+                    <!-- Language Switcher -->
                     <li class="nav-item dropdown ms-2 d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-globe me-2"></i>
-                            <span class="nav-text">{{ LANGUAGE_CODE|upper }}</span>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex; align-items: center;">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% if LANGUAGE_CODE == 'ru' %}
+                                <span class="fi fi-ru" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                            {% elif LANGUAGE_CODE == 'en' %}
+                                <span class="fi fi-gb" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                            {% else %}
+                                <span class="fi fi-uz" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                            {% endif %}
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'set_language' %}?language=ru">Русский</a></li>
-                            <li><a class="dropdown-item" href="{% url 'set_language' %}?language=en">English</a></li>
-                            <li><a class="dropdown-item" href="{% url 'set_language' %}?language=uz">O'zbekcha</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button onclick="changeLanguage('ru')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
+                                    <span class="fi fi-ru me-2" style="font-size: 1.2rem;"></span> Русский
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="changeLanguage('en')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
+                                    <span class="fi fi-gb me-2" style="font-size: 1.2rem;"></span> English
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="changeLanguage('uz')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
+                                    <span class="fi fi-uz me-2" style="font-size: 1.2rem;"></span> O'zbekcha
+                                </button>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -137,10 +244,10 @@
                         {% trans "Производство и экспорт качественных полотенец из натуральных материалов. Мы заботимся о вашем комфорте и качестве продукции." %}
                     </p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61585364337020" target="_blank" class="social-link" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="https://www.instagram.com/hometerryuz/" target="_blank" class="social-link" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="social-link" aria-label="Telegram">
@@ -232,11 +339,65 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS - defer для лучшей производительности -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}"></script>
+    <!-- Custom JS - defer для лучшей производительности -->
+    <script defer src="{% static 'js/main.js' %}"></script>
+
+    <!-- Language Switcher Script -->
+    <script>
+        function changeLanguage(langCode) {
+            // Получаем текущий путь без языкового префикса
+            let currentPath = window.location.pathname;
+
+            // Убираем языковой префикс если есть (/en/, /uz/, /ru/)
+            currentPath = currentPath.replace(/^\/(en|uz|ru)\//, '/');
+
+            // Формируем новый URL с выбранным языком
+            let newPath;
+            if (langCode === 'ru') {
+                // Русский - дефолтный язык, без префикса
+                newPath = currentPath;
+            } else {
+                // Английский и узбекский - с префиксом
+                newPath = '/' + langCode + currentPath;
+            }
+
+            // Создаем и отправляем форму
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/set-language/';
+
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value ||
+                             getCsrfToken();
+
+            form.innerHTML = `
+                <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
+                <input type="hidden" name="language" value="${langCode}">
+                <input type="hidden" name="next" value="${newPath}">
+            `;
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function getCsrfToken() {
+            const name = 'csrftoken';
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
 
     <!-- Enhanced JavaScript -->
     <script>
@@ -262,18 +423,6 @@
         function initEnhancedNavbar() {
             const navbar = document.getElementById('mainNavbar');
             const navLinks = navbar.querySelectorAll('.nav-link');
-
-            // Add hover effect for dropdown
-            const dropdowns = navbar.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function() {
-                    this.querySelector('.dropdown-menu').classList.add('show');
-                });
-
-                dropdown.addEventListener('mouseleave', function() {
-                    this.querySelector('.dropdown-menu').classList.remove('show');
-                });
-            });
 
             // Add active state animation
             navLinks.forEach(link => {

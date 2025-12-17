@@ -5,24 +5,20 @@
 
 {% block content %}
 
-<!-- Page Header -->
+<!-- Compact Page Header -->
 <section class="py-4 bg-gradient text-white">
     <div class="container">
-        <h1 class="display-4 fw-bold">{% trans "Каталог продукции" %}</h1>
-        <p class="lead mb-0">{% trans "Широкий выбор качественных полотенец" %}</p>
+        <div class="text-center">
+            <h1 class="display-5 fw-bold mb-3">{% trans "Каталог продукции" %}</h1>
+            <p class="lead mb-2">{% trans "Широкий выбор качественных полотенец" %}</p>
+            <p class="mb-0 opacity-90">{% trans "Выберите категорию" %}</p>
+        </div>
     </div>
 </section>
 
 <!-- Categories Section -->
 <section class="py-5">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="section-title">{% trans "Выберите категорию" %}</h2>
-            <div class="section-divider"></div>
-            <p class="section-subtitle">
-                {% trans "Найдите идеальные полотенца для ваших нужд" %}
-            </p>
-        </div>
 
         <!-- Categories Grid -->
         <div class="row g-4">

@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact Form Elements
     // ========================================
     const contactForm = document.getElementById('contactForm');
-    if (!contactForm) return;
+    if (!contactForm) {
+        return;
+    }
 
     const submitBtn = document.getElementById('submitBtn');
     const submitText = submitBtn.querySelector('.submit-text');
@@ -15,6 +17,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('errorMessage');
     const charCount = document.getElementById('charCount');
     const messageInput = document.getElementById('message');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const subjectInput = document.getElementById('subject');
+    const privacyCheckbox = document.getElementById('privacyPolicy');
+
+    // ========================================
+    // CSRF Token Helper
+    // ========================================
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // ========================================
+    // Phone Input Mask - Автоматическое форматирование номера
+    // ========================================
+    if (typeof IMask !== 'undefined' && phoneInput) {
+        const phoneMask = IMask(phoneInput, {
+            mask: '+998 00 000 00 00',
+            lazy: false,  // Показывать маску всегда
+            placeholderChar: '_'
+        });
+
+        // Обновляем значение для валидации
+        phoneInput.addEventListener('blur', function() {
+            const unmasked = phoneMask.unmaskedValue;
+            if (unmasked.length === 12) { // +998 + 9 цифр
+                phoneInput.value = '+998' + unmasked.slice(3);
+            }
+        });
+    }
 
     // ========================================
     // Character Counter for Message
@@ -40,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Quick Contact Type Selection
     // ========================================
     const quickContactBtns = document.querySelectorAll('.quick-contacts .btn');
-    const subjectInput = document.getElementById('subject');
 
     quickContactBtns.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -63,14 +106,82 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========================================
+    // Custom Validation Messages
+    // ========================================
+    function showValidationError(field, message) {
+        field.classList.add('is-invalid');
+        const feedback = field.nextElementSibling;
+        if (feedback && feedback.classList.contains('invalid-feedback')) {
+            feedback.textContent = message;
+        }
+
+        // Прокрутить к первому ошибочному полю
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function validateForm() {
+        // Сбросить предыдущие ошибки
+        contactForm.querySelectorAll('.is-invalid').forEach(el => {
+            el.classList.remove('is-invalid');
+        });
+
+        // Проверка имени
+        if (!nameInput.value.trim()) {
+            showValidationError(nameInput, '❌ Пожалуйста, введите ваше имя');
+            return false;
+        }
+
+        // Проверка телефона
+        const phoneValue = phoneInput.value.replace(/\s/g, '');
+        if (!phoneValue || phoneValue.length < 13) {
+            showValidationError(phoneInput, '❌ Введите правильный номер телефона в формате +998 XX XXX XX XX');
+            return false;
+        }
+
+        // Проверка email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailInput.value.trim() || !emailRegex.test(emailInput.value)) {
+            showValidationError(emailInput, '❌ Введите правильный email адрес (например: example@mail.com)');
+            return false;
+        }
+
+        // Проверка темы
+        if (!subjectInput.value.trim()) {
+            showValidationError(subjectInput, '❌ Пожалуйста, укажите тему сообщения');
+            return false;
+        }
+
+        // Проверка сообщения
+        if (!messageInput.value.trim()) {
+            showValidationError(messageInput, '❌ Пожалуйста, напишите ваше сообщение');
+            return false;
+        }
+
+        // Проверка чекбокса согласия
+        if (!privacyCheckbox.checked) {
+            const checkboxParent = privacyCheckbox.parentElement;
+            checkboxParent.classList.add('text-danger');
+            checkboxParent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Показать alert
+            setTimeout(() => {
+                alert('⚠️ Пожалуйста, примите политику конфиденциальности и дайте согласие на обработку персональных данных');
+                checkboxParent.classList.remove('text-danger');
+            }, 300);
+            return false;
+        }
+
+        return true;
+    }
+
+    // ========================================
     // Form Submission with Validation
     // ========================================
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        if (!this.checkValidity()) {
-            e.stopPropagation();
-            this.classList.add('was-validated');
+        // Используем нашу кастомную валидацию
+        if (!validateForm()) {
             return;
         }
 
@@ -84,8 +195,39 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.classList.add('d-none');
 
         try {
-            // Simulate API call (replace with actual submission)
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Get active contact type for smart routing
+            const activeBtn = document.querySelector('.quick-contacts .btn.active');
+            const contactType = activeBtn ? activeBtn.dataset.type : 'general';
+
+            // Prepare form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                type: contactType  // Smart routing: general, wholesale, cooperation
+            };
+
+            // Получаем CSRF токен для безопасности
+            const csrfToken = getCookie('csrftoken');
+
+            // Send to server
+            const response = await fetch('/api/submit-contact/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Ошибка отправки');
+            }
 
             // Show success message
             successMessage.classList.remove('d-none');

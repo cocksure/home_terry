@@ -1,12 +1,24 @@
 from pathlib import Path
+import environ
 
+# Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-h0y6@aq8uo36!pbw!(8_b6eu_i=h(vk59d95z!q^y&1y6r+^no'
+# Initialize environ
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
-DEBUG = True
+# Read .env file
+environ.Env.read_env(BASE_DIR / '.env')
 
-ALLOWED_HOSTS = ["*"]
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env('DEBUG')
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
 
 INSTALLED_APPS = [
@@ -28,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'main.middleware.RateLimitMiddleware',  # Rate limiting для защиты от спама
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -97,6 +110,10 @@ MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
 
 LANGUAGE_COOKIE_NAME = 'django_language'
 
+# Locale paths for translations
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -116,3 +133,35 @@ MEDIA_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Telegram Bot configuration
+TELEGRAM_BOT_TOKEN = env('TELEGRAM_BOT_TOKEN', default='')
+TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID', default='')
+
+# =============================================================================
+# SECURITY SETTINGS (для продакшена)
+# =============================================================================
+
+# HTTPS настройки (раскомментировать для продакшена с HTTPS)
+if not DEBUG:
+    # Перенаправление HTTP на HTTPS
+    SECURE_SSL_REDIRECT = True
+
+    # HSTS - браузер будет использовать только HTTPS
+    SECURE_HSTS_SECONDS = 31536000  # 1 год
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
+    # Cookie security
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_HTTPONLY = True
+
+    # Дополнительные headers безопасности
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'  # Защита от clickjacking
+
+# CSRF настройки
+CSRF_COOKIE_SAMESITE = 'Strict'
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['http://localhost:8000'])

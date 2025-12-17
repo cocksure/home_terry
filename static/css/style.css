@@ -832,7 +832,7 @@ img {
 .hero-section {
     position: relative;
     min-height: auto;
-    padding: 80px 0 40px;
+    padding: 80px 0 120px;
     background: var(--dark-gradient);
     overflow: hidden;
     display: flex;
