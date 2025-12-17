@@ -24,21 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const privacyCheckbox = document.getElementById('privacyPolicy');
 
     // ========================================
-    // CSRF Token Helper
+    // CSRF Token Helper - берём токен из DOM (не из cookie)
     // ========================================
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
+    function getCSRFToken() {
+        const csrfInput = document.querySelector('[name=csrfmiddlewaretoken]');
+        return csrfInput ? csrfInput.value : '';
     }
 
     // ========================================
@@ -210,8 +200,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 type: contactType  // Smart routing: general, wholesale, cooperation
             };
 
-            // Получаем CSRF токен для безопасности
-            const csrfToken = getCookie('csrftoken');
+            // Получаем CSRF токен из формы (как в вашем рабочем проекте)
+            const csrfToken = getCSRFToken();
 
             // Send to server
             const response = await fetch('/api/submit-contact/', {
