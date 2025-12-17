@@ -142,6 +142,11 @@ TELEGRAM_CHAT_ID = env('TELEGRAM_CHAT_ID', default='')
 # SECURITY SETTINGS (для продакшена)
 # =============================================================================
 
+# CSRF настройки (должны быть ДО блока if not DEBUG)
+CSRF_COOKIE_SAMESITE = 'Lax'  # Изменено с 'Strict' на 'Lax' для работы с формами
+CSRF_COOKIE_HTTPONLY = False  # Позволить JavaScript читать CSRF токен
+CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['http://localhost:8000'])
+
 # HTTPS настройки (раскомментировать для продакшена с HTTPS)
 if not DEBUG:
     # Перенаправление HTTP на HTTPS
@@ -155,13 +160,8 @@ if not DEBUG:
     # Cookie security
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    CSRF_COOKIE_HTTPONLY = True
 
     # Дополнительные headers безопасности
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = 'DENY'  # Защита от clickjacking
-
-# CSRF настройки
-CSRF_COOKIE_SAMESITE = 'Strict'
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS', default=['http://localhost:8000'])
