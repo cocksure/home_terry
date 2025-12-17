@@ -123,7 +123,6 @@ def contact(request):
     return render(request, 'main/contact.html')
 
 
-@csrf_exempt  # ВРЕМЕННО отключен CSRF для диагностики 403 ошибки на PythonAnywhere
 @require_POST
 def submit_contact_form(request):
     """Обработка контактной формы с отправкой в Telegram"""

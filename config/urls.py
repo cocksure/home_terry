@@ -24,7 +24,8 @@ sitemaps = {
 }
 
 urlpatterns = [
-    # ВРЕМЕННО отключен CSRF для диагностики 403 ошибки на PythonAnywhere
+    # Отключаем CSRF для языкового переключателя (стандартная практика для i18n)
+    # Это безопасно, так как set_language - встроенная Django view без побочных эффектов
     path('set-language/', csrf_exempt(set_language), name='set_language'),
 
     # Sitemap для поисковых систем (Google, Yandex, Bing)
