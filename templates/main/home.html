@@ -94,7 +94,7 @@
 </section>
 
 <!-- Categories Section -->
-<section class="py-5 my-5">
+<section class="py-4 my-3">
     <div class="container">
         <h2 class="section-title">{% trans "Наши категории" %}</h2>
         <div class="section-divider"></div>
@@ -132,7 +132,7 @@
 </section>
 
 <!-- Featured Products Section -->
-<section class="py-5 bg-light-turquoise">
+<section class="py-4 bg-light-turquoise">
     <div class="container">
         <h2 class="section-title">{% trans "Рекомендуемые товары" %}</h2>
         <div class="section-divider"></div>
@@ -180,7 +180,7 @@
         </div>
 
         {% if featured_products %}
-        <div class="text-center mt-5">
+        <div class="text-center mt-4">
             <a href="{% url 'main:catalog' %}" class="btn btn-primary btn-lg">
                 <i class="fas fa-th-large me-2"></i>
                 {% trans "Смотреть весь каталог" %}
@@ -191,7 +191,7 @@
 </section>
 
 <!-- Why Choose Us Section -->
-<section class="py-5 my-5">
+<section class="py-4 my-3">
     <div class="container">
         <h2 class="section-title">{% trans "Почему выбирают нас" %}</h2>
         <div class="section-divider"></div>
@@ -258,7 +258,7 @@
 
 <!-- Blog Section -->
 {% if latest_posts %}
-<section class="py-5 bg-light-turquoise">
+<section class="py-4 bg-light-turquoise">
     <div class="container">
         <h2 class="section-title">{% trans "Последние статьи" %}</h2>
         <div class="section-divider"></div>
@@ -285,7 +285,7 @@
             {% endfor %}
         </div>
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-4">
             <a href="{% url 'main:blog_list' %}" class="btn btn-primary">
                 <i class="fas fa-newspaper me-2"></i>
                 {% trans "Все статьи" %}
@@ -296,7 +296,7 @@
 {% endif %}
 
 <!-- CTA Section -->
-<section class="py-5 my-5">
+<section class="py-4 my-3">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">

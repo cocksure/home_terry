@@ -1,0 +1,76 @@
+/* ========================================
+   Product Detail Page Styles
+   ======================================== */
+
+.breadcrumb {
+    background: transparent;
+    padding: 1rem 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--primary-turquoise);
+}
+
+.product-specs {
+    background: var(--off-white);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.spec-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+/* Product Gallery */
+.product-gallery .main-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.product-gallery .main-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.product-gallery .main-image:hover img {
+    transform: scale(1.05);
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+    opacity: 0.6;
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+    border-color: var(--primary-turquoise);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
