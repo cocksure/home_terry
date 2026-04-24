@@ -40,6 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const loader = document.getElementById('pageLoader');
     if (loader) {
         const progressBar = loader.querySelector('.loading-progress-bar');
+        const loaderStartTime = Date.now();
+        const LOADER_THRESHOLD_MS = 300; // only show loader if page takes longer than this
+        let loaderVisible = false;
+
+        // Show loader only if loading takes more than threshold
+        const showLoaderTimer = setTimeout(() => {
+            loaderVisible = true;
+            loader.style.opacity = '1';
+            loader.style.visibility = 'visible';
+        }, LOADER_THRESHOLD_MS);
+
+        // Hide loader initially until threshold is passed
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        loader.style.transition = 'opacity 0.3s ease';
 
         // Fake incremental progress for feel
         let progress = 0;
@@ -49,16 +64,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if (progressBar) progressBar.style.width = progress + '%';
         }, 200);
 
-        window.addEventListener('load', function() {
+        function hideLoader() {
             clearInterval(fakeProgress);
+            clearTimeout(showLoaderTimer);
             if (progressBar) progressBar.style.width = '100%';
 
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
+            if (loaderVisible) {
+                // Was shown — animate out nicely
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                    document.body.style.overflow = 'visible';
+                }, 650);
+            } else {
+                // Never became visible — just ensure body scroll is enabled
                 document.body.style.overflow = 'visible';
-            }, 650);
-        });
+            }
+        }
+
+        window.addEventListener('load', hideLoader);
     }
 
     // ========================================

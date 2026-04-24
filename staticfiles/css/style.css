@@ -1991,8 +1991,10 @@ footer::before {
     align-items: center;
     justify-content: center;
     z-index: 99999;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* Ambient rings behind loader */
