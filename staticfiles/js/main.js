@@ -2,36 +2,75 @@
 // Professional interactions and animations with modern effects
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    // ========================================
+    // Cursor Ambient Glow
+    // ========================================
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let glowX = mouseX;
+        let glowY = mouseY;
+        let rafId;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth follow with lerp
+        function animateGlow() {
+            glowX += (mouseX - glowX) * 0.1;
+            glowY += (mouseY - glowY) * 0.1;
+            cursorGlow.style.left = glowX + 'px';
+            cursorGlow.style.top  = glowY + 'px';
+            rafId = requestAnimationFrame(animateGlow);
+        }
+        animateGlow();
+
+        // Fade out when mouse leaves window
+        document.addEventListener('mouseleave', () => { cursorGlow.style.opacity = '0'; });
+        document.addEventListener('mouseenter', () => { cursorGlow.style.opacity = '1'; });
+    }
+
     // ========================================
     // Page Loader with Enhanced Animation
     // ========================================
     const loader = document.getElementById('pageLoader');
     if (loader) {
-        // Create enhanced loader if not exists
-        if (!loader.querySelector('.loading-progress')) {
-            loader.innerHTML = `
-                <div class="loading-logo">HomeTerry</div>
-                <div class="spinner"></div>
-                <div class="loading-progress">
-                    <div class="loading-progress-bar"></div>
-                </div>
-            `;
-        }
+        const progressBar = loader.querySelector('.loading-progress-bar');
+
+        // Fake incremental progress for feel
+        let progress = 0;
+        const fakeProgress = setInterval(() => {
+            progress += Math.random() * 18;
+            if (progress > 85) { clearInterval(fakeProgress); progress = 85; }
+            if (progressBar) progressBar.style.width = progress + '%';
+        }, 200);
 
         window.addEventListener('load', function() {
-            // Animate progress bar
-            const progressBar = loader.querySelector('.loading-progress-bar');
-            if (progressBar) {
-                progressBar.style.width = '100%';
-            }
+            clearInterval(fakeProgress);
+            if (progressBar) progressBar.style.width = '100%';
 
-            // Hide loader after animation
             setTimeout(() => {
                 loader.style.opacity = '0';
                 loader.style.visibility = 'hidden';
                 document.body.style.overflow = 'visible';
-            }, 800);
+            }, 650);
         });
+    }
+
+    // ========================================
+    // Scroll Progress Bar
+    // ========================================
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const total   = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+        }, { passive: true });
     }
 
     // ========================================
@@ -292,38 +331,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Enhanced Card Hover Effects with 3D
+    // Enhanced Card Hover Effects with 3D + Inner Glow
     // ========================================
     function init3DCards() {
         const cards = document.querySelectorAll('.product-card-3d, .card');
 
         cards.forEach(card => {
-            // Store original transform
+            // Inject glow layer once
+            if (!card.querySelector('.card-glow')) {
+                const glowEl = document.createElement('div');
+                glowEl.className = 'card-glow';
+                card.appendChild(glowEl);
+            }
+
             const originalTransform = card.style.transform;
 
             card.addEventListener('mousemove', (e) => {
-                if (!card.classList.contains('product-card-3d')) return;
-
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
+                const pctX = (x / rect.width  * 100).toFixed(1) + '%';
+                const pctY = (y / rect.height * 100).toFixed(1) + '%';
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+                // Update inner glow position
+                const glowEl = card.querySelector('.card-glow');
+                if (glowEl) {
+                    glowEl.style.setProperty('--cx', pctX);
+                    glowEl.style.setProperty('--cy', pctY);
+                }
 
-                const rotateY = ((x - centerX) / centerX) * 5;
-                const rotateX = ((centerY - y) / centerY) * 5;
-
-                card.style.transform = `${originalTransform} perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                // 3D tilt only for product-card-3d
+                if (card.classList.contains('product-card-3d')) {
+                    const cx = rect.width / 2;
+                    const cy = rect.height / 2;
+                    const rotateY = ((x - cx) / cx) * 5;
+                    const rotateX = ((cy - y) / cy) * 5;
+                    card.style.transform = `${originalTransform} perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+                }
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transform = originalTransform;
-                card.style.transition = 'transform 0.5s ease';
+                if (card.classList.contains('product-card-3d')) {
+                    card.style.transform = originalTransform;
+                    card.style.transition = 'transform 0.5s ease';
+                }
             });
 
             card.addEventListener('mouseenter', () => {
-                card.style.transition = 'transform 0.2s ease';
+                if (card.classList.contains('product-card-3d')) {
+                    card.style.transition = 'transform 0.2s ease';
+                }
             });
         });
     }

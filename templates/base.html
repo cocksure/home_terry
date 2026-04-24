@@ -97,6 +97,8 @@
             if (s === 'dark' || (!s && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
+            var fs = localStorage.getItem('fontSize') || 'normal';
+            document.documentElement.setAttribute('data-font-size', fs);
         })();
     </script>
 
@@ -134,12 +136,26 @@
     {% endcomment %}
 </head>
 <body>
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Cursor ambient glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
     <!-- Enhanced Loader -->
     <div class="loading-screen" id="pageLoader">
-        <div class="loading-logo">HomeTerry</div>
-        <div class="spinner"></div>
-        <div class="loading-progress">
-            <div class="loading-progress-bar"></div>
+        <div class="loader-content">
+            <div class="loader-logo-wrap">
+                <div class="loader-glow-orb"></div>
+                <div class="loading-logo">HomeTerry</div>
+            </div>
+            <div class="loader-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar"></div>
+            </div>
+            <p class="loader-tagline">{% trans "Качество в каждом волокне" %}</p>
         </div>
     </div>
 
@@ -198,8 +214,39 @@
                         </a>
                     </li>
 
+                    <!-- Font Size Switcher -->
+                    <li class="nav-item">
+                        <span class="nav-divider d-none d-lg-flex"></span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="theme-toggle font-size-toggle" id="fontSizeToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Page zoom">
+                            <i class="fas fa-magnifying-glass-plus"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end font-size-menu">
+                            <li class="font-size-menu-label">{% trans "Масштаб текста" %}</li>
+                            <li>
+                                <button onclick="setFontSize('compact')" class="dropdown-item font-size-item" data-size="compact">
+                                    <span class="fs-preview fs-compact">A</span>
+                                    <span>{% trans "Компактный" %}</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="setFontSize('normal')" class="dropdown-item font-size-item" data-size="normal">
+                                    <span class="fs-preview fs-normal">A</span>
+                                    <span>{% trans "Нормальный" %}</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button onclick="setFontSize('large')" class="dropdown-item font-size-item" data-size="large">
+                                    <span class="fs-preview fs-large">A</span>
+                                    <span>{% trans "Крупный" %}</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+
                     <!-- Theme Toggle -->
-                    <li class="nav-item ms-1">
+                    <li class="nav-item">
                         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                             <i class="fas fa-moon"></i>
                             <i class="fas fa-sun"></i>
@@ -207,31 +254,31 @@
                     </li>
 
                     <!-- Language Switcher -->
-                    <li class="nav-item dropdown ms-2 d-none d-lg-block">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="display: flex; align-items: center;">
+                    <li class="nav-item dropdown d-none d-lg-block">
+                        <a class="nav-link lang-toggle dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% get_current_language as LANGUAGE_CODE %}
                             {% if LANGUAGE_CODE == 'ru' %}
-                                <span class="fi fi-ru" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                                <span class="fi fi-ru"></span>
                             {% elif LANGUAGE_CODE == 'en' %}
-                                <span class="fi fi-gb" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                                <span class="fi fi-gb"></span>
                             {% else %}
-                                <span class="fi fi-uz" style="font-size: 1.5rem; margin-right: 0.5rem;"></span>
+                                <span class="fi fi-uz"></span>
                             {% endif %}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <button onclick="changeLanguage('ru')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
-                                    <span class="fi fi-ru me-2" style="font-size: 1.2rem;"></span> Русский
+                                <button onclick="changeLanguage('ru')" class="dropdown-item">
+                                    <span class="fi fi-ru me-2"></span> Русский
                                 </button>
                             </li>
                             <li>
-                                <button onclick="changeLanguage('en')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
-                                    <span class="fi fi-gb me-2" style="font-size: 1.2rem;"></span> English
+                                <button onclick="changeLanguage('en')" class="dropdown-item">
+                                    <span class="fi fi-gb me-2"></span> English
                                 </button>
                             </li>
                             <li>
-                                <button onclick="changeLanguage('uz')" class="dropdown-item" style="border: none; background: none; width: 100%; text-align: left; cursor: pointer; padding: 0.5rem 1rem; display: flex; align-items: center;">
-                                    <span class="fi fi-uz me-2" style="font-size: 1.2rem;"></span> O'zbekcha
+                                <button onclick="changeLanguage('uz')" class="dropdown-item">
+                                    <span class="fi fi-uz me-2"></span> O'zbekcha
                                 </button>
                             </li>
                         </ul>
@@ -432,6 +479,22 @@
                     }
                 });
             }
+        });
+
+        // Font Size Switcher
+        function setFontSize(size) {
+            document.documentElement.setAttribute('data-font-size', size);
+            localStorage.setItem('fontSize', size);
+            document.querySelectorAll('.font-size-item').forEach(function(el) {
+                el.classList.toggle('active', el.dataset.size === size);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const current = localStorage.getItem('fontSize') || 'normal';
+            document.querySelectorAll('.font-size-item').forEach(function(el) {
+                el.classList.toggle('active', el.dataset.size === current);
+            });
         });
 
         // Enhanced current year

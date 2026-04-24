@@ -5,8 +5,23 @@
 /* Hero Image with Floating Cards */
 .hero-image-wrapper {
     position: relative;
-    height: 500px;
+    /* aspect-ratio by default on mobile */
+    aspect-ratio: 1 / 1;
     perspective: 1000px;
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .hero-image-wrapper {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-image-wrapper {
+        aspect-ratio: auto;
+        height: 500px;
+    }
 }
 
 .main-hero-image {
@@ -30,13 +45,30 @@
     pointer-events: none;
 }
 
+/* На мобильном — нижний градиент чтобы текст не мешал */
+@media (max-width: 991px) {
+    .main-hero-image::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 35%;
+        background: linear-gradient(to top, rgba(0,0,0,0.18), transparent);
+        z-index: 2;
+        pointer-events: none;
+    }
+}
+
 .hero-main-img {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    opacity: 0.85;
+    object-position: center 15%;
+    opacity: 0.9;
     transition: all 0.5s ease;
     z-index: 0;
 }
@@ -267,10 +299,6 @@
 
 /* Responsive adjustments for home page */
 @media (max-width: 1200px) {
-    .hero-image-wrapper {
-        height: 420px;
-    }
-
     .floating-card {
         width: 130px;
         height: 130px;
@@ -279,8 +307,7 @@
 
 @media (max-width: 992px) {
     .hero-image-wrapper {
-        margin-top: 2rem;
-        height: 360px;
+        margin-top: 1.5rem;
     }
 
     .floating-card {
@@ -290,13 +317,8 @@
 }
 
 @media (max-width: 768px) {
-    .hero-image-wrapper {
-        height: 280px;
-        margin-top: 1.5rem;
-    }
-
     .main-hero-image {
-        border-radius: 14px;
+        border-radius: 16px;
     }
 
     .floating-card {
@@ -306,23 +328,15 @@
 
 @media (max-width: 576px) {
     .hero-image-wrapper {
-        height: 220px;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
 
     .main-hero-image {
-        border-radius: 12px;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+        border-radius: 14px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
     }
 
     .scroll-indicator {
         display: none;
-    }
-}
-
-@media (max-width: 400px) {
-    .hero-image-wrapper {
-        height: 180px;
     }
 }
