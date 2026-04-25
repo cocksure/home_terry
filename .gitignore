@@ -21,9 +21,9 @@ services/claude_service.py
 test_*.py
 
 # Django collectstatic / медиа
-#/static/
-#/staticfiles/
-#/media/
+/static/
+/staticfiles/
+/media/
 
 # Виртуальные окружения
 .venv/
