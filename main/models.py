@@ -69,7 +69,7 @@ class ProductCategory(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('category_detail', kwargs={'slug': self.slug})
+        return reverse('main:category_detail', kwargs={'slug': self.slug})
 
 
 class Product(models.Model):
@@ -115,7 +115,7 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('product_detail', kwargs={'slug': self.slug})
+        return reverse('main:product_detail', kwargs={'slug': self.slug})
 
     @property
     def main_image(self):
@@ -207,4 +207,4 @@ class BlogPost(models.Model):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'slug': self.slug})
+        return reverse('main:blog_detail', kwargs={'slug': self.slug})
