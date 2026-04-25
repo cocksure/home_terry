@@ -98,30 +98,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Navbar Scroll Effect with Parallax
+    // Navbar Scroll — rAF throttled (no jank)
     // ========================================
     const navbar = document.getElementById('mainNavbar');
     if (navbar) {
+        let scrollTicking = false;
+        const heroContentEl = document.querySelector('.hero-content');
+
         window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTicking) return;
+            scrollTicking = true;
 
-            // Add/remove scrolled class
-            if (scrollTop > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            requestAnimationFrame(() => {
+                const scrollTop = window.pageYOffset;
 
-            // Navbar always stays visible
-            navbar.style.transform = 'translateY(0)';
+                navbar.classList.toggle('scrolled', scrollTop > 50);
 
-            // Parallax effect for hero elements
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent && scrollTop < window.innerHeight) {
-                const scrolled = scrollTop * 0.5;
-                heroContent.style.transform = `translateY(${scrolled}px)`;
-            }
-        });
+                // Soft hero parallax — desktop only, GPU layer
+                if (heroContentEl && window.innerWidth >= 992 && scrollTop < window.innerHeight) {
+                    heroContentEl.style.transform = `translate3d(0, ${scrollTop * 0.18}px, 0)`;
+                }
+
+                scrollTicking = false;
+            });
+        }, { passive: true });
     }
 
     // ========================================
@@ -157,10 +157,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Parallax Effects
+    // Parallax Effects — desktop only
     // ========================================
     function initParallax() {
-        const parallaxElements = document.querySelectorAll('.parallax-element, .floating-card');
+        if (window.innerWidth < 768) return;
+
+        const parallaxElements = document.querySelectorAll('.parallax-element');
 
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
@@ -171,13 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.transform = `translateY(${yPos}px)`;
             });
 
-            // Parallax for hero shapes
+            // Soft parallax for hero shapes
             const shapes = document.querySelectorAll('.hero-shape');
             shapes.forEach((shape, index) => {
-                const speed = 0.1 + (index * 0.05);
+                const speed = 0.06 + (index * 0.03);
                 shape.style.transform = `translateY(${scrolled * speed}px)`;
             });
-        });
+        }, { passive: true });
     }
 
     // ========================================
@@ -225,37 +227,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Enhanced Scroll Reveal Animation
+    // Scroll Reveal — fixed: visible elements never hidden
     // ========================================
     function initScrollReveal() {
-        const revealElements = document.querySelectorAll('.reveal-element, .card, .category-card, .section-title, .feature-card');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('revealed');
-
-                        // Staggered animation for children
-                        const childElements = entry.target.querySelectorAll('.stagger-element');
-                        childElements.forEach((child, childIndex) => {
-                            setTimeout(() => {
-                                child.classList.add('revealed');
-                            }, childIndex * 100);
-                        });
-                    }, index * 100);
-
-                    revealObserver.unobserve(entry.target);
-                }
+        // Stagger delays for grid children
+        document.querySelectorAll('.row.g-3, .row.g-4').forEach(row => {
+            const cardCols = Array.from(row.children).filter(c =>
+                c.querySelector('.card, .category-card, .feature-card')
+            );
+            cardCols.forEach((col, i) => {
+                const el = col.querySelector('.card, .category-card, .feature-card');
+                if (el && i > 0 && i <= 4) el.dataset.delay = String(i * 75);
             });
-        }, {
-            threshold: 0.1,
-            rootMargin: '50px'
         });
 
-        revealElements.forEach(el => {
-            el.classList.add('reveal-element');
-            revealObserver.observe(el);
+        const vh = window.innerHeight;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.dataset.delay || '0');
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                        entry.target.querySelectorAll('.stagger-element').forEach((c, i) =>
+                            setTimeout(() => c.classList.add('revealed'), i * 75)
+                        );
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
+
+        // Section divider: separate observer (scaleX animation, not opacity)
+        const divObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('divider-ready');
+                    divObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.section-divider').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < vh * 0.95) {
+                el.classList.add('divider-ready'); // already visible
+            } else {
+                divObs.observe(el);
+            }
+        });
+
+        // Generic elements
+        document.querySelectorAll('.card, .category-card, .section-title, .section-subtitle, .feature-card').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < vh * 0.92) {
+                // Already in viewport on load — show immediately, no animation
+                el.classList.add('revealed');
+            } else {
+                el.classList.add('reveal-element');
+                observer.observe(el);
+            }
         });
     }
 
@@ -679,10 +710,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
+    // Magnetic button effect — desktop only
+    // ========================================
+    function initMagneticButtons() {
+        if (window.innerWidth < 992) return;
+
+        document.querySelectorAll('.btn-glow, .hero-buttons .btn, .btn-pulse').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r  = btn.getBoundingClientRect();
+                const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+                const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+                btn.style.transition = 'transform 0.08s ease';
+                btn.style.transform  = `translate3d(${dx}px, ${dy}px, 0) translateY(-2px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+                btn.style.transform  = '';
+            });
+        });
+    }
+
+    // ========================================
     // Initialize all effects
     // ========================================
     function initializeEffects() {
-        // Initialize in order
         initLazyLoading();
         initScrollReveal();
         animateCounter();
@@ -691,6 +743,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initFloatingCards();
         initGlowButtons();
         initMobileMenu();
+        initMagneticButtons();
     }
 
     // Start initialization
@@ -800,28 +853,8 @@ enhancedStyles.textContent = `
         }
     }
     
-    /* Scroll reveal classes */
-    .reveal-element {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .reveal-element.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .stagger-element {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .stagger-element.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    /* Scroll reveal classes — defer to style.css for the real definitions */
+    /* This block intentionally left minimal to avoid overriding CSS */
     
     /* Loading animation */
     .loading-progress-bar {

@@ -6,9 +6,36 @@
 /* Currently using common styles from main style.css */
 
 .catalog-header {
-    background: var(--turquoise-gradient);
+    background: linear-gradient(135deg, #00CFE8 0%, #00B4D8 45%, #0096A8 100%);
     color: var(--white);
     padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Page header (bg-gradient class used in templates) */
+.bg-gradient.text-white {
+    background: linear-gradient(135deg, #00CFE8 0%, #00B4D8 50%, #0084A8 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-gradient.text-white::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 70% at 75% 40%, rgba(255,255,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 50% at 20% 80%, rgba(0,0,0,0.08) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .filter-sidebar {

@@ -214,13 +214,17 @@
                         </a>
                     </li>
 
-                    <!-- Font Size Switcher -->
+                    <!-- Divider: separator line on mobile, vertical bar on desktop -->
                     <li class="nav-item">
+                        <hr class="nav-mobile-sep d-lg-none">
                         <span class="nav-divider d-none d-lg-flex"></span>
                     </li>
+
+                    <!-- Font Size Switcher -->
                     <li class="nav-item dropdown">
                         <button class="theme-toggle font-size-toggle" id="fontSizeToggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Page zoom">
                             <i class="fas fa-magnifying-glass-plus"></i>
+                            <span class="nav-mobile-label">{% trans "Масштаб текста" %}</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end font-size-menu">
                             <li class="font-size-menu-label">{% trans "Масштаб текста" %}</li>
@@ -250,6 +254,8 @@
                         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                             <i class="fas fa-moon"></i>
                             <i class="fas fa-sun"></i>
+                            <span class="nav-mobile-label theme-label-light">{% trans "Тёмная тема" %}</span>
+                            <span class="nav-mobile-label theme-label-dark">{% trans "Светлая тема" %}</span>
                         </button>
                     </li>
 
