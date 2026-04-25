@@ -947,7 +947,109 @@ img {
     background: linear-gradient(to bottom, transparent, rgba(30, 41, 59, 0.8));
 }
 
-.product-badge {
+.product-card > a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.product-card .card-img-top {
+    width: 100%;
+    transition: transform 0.36s ease, opacity 0.36s ease;
+    will-change: transform, opacity, clip-path;
+    display: block;
+}
+
+.product-card-animated .card-title a,
+.product-card-animated .card-title {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.product-title-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+.product-card-search-icon {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--primary-turquoise);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    transform: translateY(10px) scale(0.88);
+    transition: transform 0.26s ease, opacity 0.26s ease;
+    z-index: 12;
+    pointer-events: none;
+}
+
+.product-card-lens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+    background-repeat: no-repeat;
+    background-size: 240%;
+    background-position: 50% 50%;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 8;
+    backdrop-filter: blur(4px);
+}
+
+.product-card-lens::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.24);
+}
+
+.product-card-lens.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.product-card-search-icon.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.product-card-touch .card-img-top {
+    transition: transform 0.24s ease;
+}
+
+.product-card-touch:active .card-img-top {
+    transform: scale(1.03);
+}
+
+/* On touch devices / small screens: always show title and content */
+@media (hover: none), (max-width: 767px) {
+    .category-card-title {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .category-card-content {
+        transform: translateY(0);
+    }
+}
     position: absolute;
     top: 12px;
     right: 12px;
@@ -1096,6 +1198,67 @@ img {
     .category-card:hover .category-card-title {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes soft-grid-enter {
+    from {
+        opacity: 0;
+        transform: translate3d(var(--grid-x), var(--grid-y), 0)
+                   rotate3d(1, 0, 0, var(--grid-rot-x))
+                   rotate3d(0, 1, 0, var(--grid-rot-y))
+                   scale(var(--grid-scale));
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0) scale(1);
+    }
+}
+
+.soft-grid-card {
+    opacity: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    --grid-x: 0px;
+    --grid-y: 28px;
+    --grid-rot-x: 6deg;
+    --grid-rot-y: -5deg;
+    --grid-scale: 0.96;
+    transform: translate3d(var(--grid-x), var(--grid-y), 0)
+               rotate3d(1, 0, 0, var(--grid-rot-x))
+               rotate3d(0, 1, 0, var(--grid-rot-y))
+               scale(var(--grid-scale));
+    animation: none;
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+    will-change: transform, opacity;
+}
+
+.soft-grid-card.soft-grid-visible {
+    animation: soft-grid-enter 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--grid-delay, 0s);
+}
+
+.soft-grid-card:hover {
+    transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0) scale(1.02);
+    box-shadow: 0 24px 60px rgba(12, 26, 54, 0.14);
+}
+
+.soft-grid-card .card-body {
+    transition: transform 0.32s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .soft-grid-card:hover .card-body {
+        transform: translateY(-6px);
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .soft-grid-card {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .soft-grid-card:active {
+        transform: translate3d(0, 0, 0) scale(1.01);
     }
 }
 
@@ -2455,7 +2618,7 @@ footer::before {
 
 .reveal-element {
     opacity: 0;
-    transform: translate3d(0, 22px, 0);   /* translate3d → compositor layer */
+    transform: translate3d(0, 22px, 0) scale(0.88);   /* translate3d → compositor layer + scale from small */
     will-change: transform, opacity;
     transition:
         opacity   0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -2464,7 +2627,7 @@ footer::before {
 
 .reveal-element.revealed {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
     will-change: auto;  /* free the GPU layer after animation */
 }
 
@@ -2506,7 +2669,7 @@ footer::before {
 
 .stagger-element {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(16px) scale(0.88);
     transition:
         opacity  0.5s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2514,7 +2677,7 @@ footer::before {
 
 .stagger-element.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* Grid stagger delays — applied automatically by JS */
@@ -3160,5 +3323,30 @@ footer::before {
     .feature-icon,
     .mouse-follower {
         animation: none !important;
+    }
+}
+
+/* ========================================
+   Page entrance animation for cards
+   ======================================== */
+.page-enter {
+    opacity: 0;
+    transform: translateY(18px) scale(0.88);
+    will-change: transform, opacity;
+}
+
+body.page-enter-active .page-enter {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    transition-delay: var(--enter-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-enter,
+    body.page-enter-active .page-enter {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
 }

@@ -42,23 +42,77 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Product Image Zoom on Hover
+    // Product Image Magnifier Lens
     // ========================================
     const mainImage = document.getElementById('mainImage');
     if (mainImage) {
         const imageContainer = mainImage.parentElement;
+        imageContainer.style.position = 'relative';
+        imageContainer.style.overflow = 'hidden';
+        imageContainer.style.cursor = 'none';
 
-        imageContainer.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
+        const lens = document.createElement('div');
+        lens.className = 'product-detail-lens';
+        imageContainer.appendChild(lens);
 
-            mainImage.style.transformOrigin = `${x}% ${y}%`;
-            mainImage.style.transform = 'scale(1.5)';
+        let naturalWidth = 0;
+        let naturalHeight = 0;
+        const magnifyScale = 2.2;
+
+        const updateNaturalSize = () => {
+            if (mainImage.naturalWidth && mainImage.naturalHeight) {
+                naturalWidth = mainImage.naturalWidth;
+                naturalHeight = mainImage.naturalHeight;
+            } else {
+                const preload = new Image();
+                preload.src = mainImage.src;
+                preload.onload = () => {
+                    naturalWidth = preload.width;
+                    naturalHeight = preload.height;
+                };
+            }
+        };
+
+        const updateLensBackground = () => {
+            lens.style.backgroundImage = `url('${mainImage.src}')`;
+            lens.style.backgroundSize = `${naturalWidth * magnifyScale}px ${naturalHeight * magnifyScale}px`;
+        };
+
+        updateNaturalSize();
+        mainImage.addEventListener('load', () => {
+            updateNaturalSize();
+            updateLensBackground();
         });
 
-        imageContainer.addEventListener('mouseleave', function() {
-            mainImage.style.transform = 'scale(1)';
+        const updateLens = (event) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const mx = event.clientX - rect.left;
+            const my = event.clientY - rect.top;
+            const isInside = mx > 0 && my > 0 && mx < rect.width && my < rect.height;
+
+            if (!isInside) {
+                lens.classList.remove('active');
+                return;
+            }
+
+            const px = mx / rect.width;
+            const py = my / rect.height;
+            const bgX = Math.round((naturalWidth * magnifyScale - lens.offsetWidth) * px * -1);
+            const bgY = Math.round((naturalHeight * magnifyScale - lens.offsetHeight) * py * -1);
+
+            lens.style.left = `${mx}px`;
+            lens.style.top = `${my}px`;
+            lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
+            lens.style.backgroundImage = `url('${mainImage.src}')`;
+            lens.classList.add('active');
+        };
+
+        imageContainer.addEventListener('mouseenter', () => {
+            updateLensBackground();
+        });
+        imageContainer.addEventListener('mousemove', updateLens);
+        imageContainer.addEventListener('mouseleave', () => {
+            lens.classList.remove('active');
         });
     }
 

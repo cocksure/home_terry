@@ -68,19 +68,23 @@
 
 .form-floating-custom {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-floating-custom input,
 .form-floating-custom textarea,
 .form-floating-custom select {
-    padding: 1.5rem 1rem 0.5rem;
+    padding: 1.3rem 0.95rem 0.45rem;
     height: auto;
     border: 1.5px solid var(--light-gray);
     border-radius: 10px;
     transition: all var(--transition-normal);
     background: var(--surface-bg);
     color: var(--text-primary);
+}
+
+.form-floating-custom label {
+    padding: 0.85rem 0.95rem;
 }
 
 .form-floating-custom label {

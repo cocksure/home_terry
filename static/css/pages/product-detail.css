@@ -40,8 +40,35 @@
     transition: transform var(--transition-slow);
 }
 
+.product-gallery .main-image:hover {
+    cursor: none;
+}
+
 .product-gallery .main-image:hover img {
     transform: scale(1.05);
+}
+
+.product-detail-lens {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: 240%;
+    background-position: center;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+}
+
+.product-detail-lens.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .thumbnail-images {

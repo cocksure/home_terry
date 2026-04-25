@@ -134,7 +134,7 @@
         <div class="row g-3">
             {% for product in featured_products %}
             <div class="col-lg-3 col-md-6 col-6">
-                <div class="card product-card hover-lift">
+                <div class="card product-card hover-lift product-card-3d">
                     {% if product.is_featured %}<span class="product-badge"><i class="fas fa-star me-1"></i>{% trans "Хит" %}</span>{% endif %}
                     {% if product.main_image %}<img src="{{ product.main_image.image.url }}" class="card-img-top" alt="{{ product.name }}">
                     {% else %}<div class="card-img-top" style="background:var(--turquoise-gradient-soft);"></div>

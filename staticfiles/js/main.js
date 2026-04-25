@@ -162,22 +162,31 @@ document.addEventListener('DOMContentLoaded', function() {
     function initParallax() {
         if (window.innerWidth < 768) return;
 
-        const parallaxElements = document.querySelectorAll('.parallax-element');
+        const parallaxElements = Array.from(document.querySelectorAll('.parallax-element'));
+        const heroShapes = Array.from(document.querySelectorAll('.hero-shape'));
+        if (parallaxElements.length === 0 && heroShapes.length === 0) return;
+
+        let parallaxTicking = false;
 
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
+            if (parallaxTicking) return;
+            parallaxTicking = true;
 
-            parallaxElements.forEach(element => {
-                const speed = element.dataset.speed || 0.3;
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
+            requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
 
-            // Soft parallax for hero shapes
-            const shapes = document.querySelectorAll('.hero-shape');
-            shapes.forEach((shape, index) => {
-                const speed = 0.06 + (index * 0.03);
-                shape.style.transform = `translateY(${scrolled * speed}px)`;
+                parallaxElements.forEach(element => {
+                    const speed = parseFloat(element.dataset.speed) || 0.3;
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                });
+
+                heroShapes.forEach((shape, index) => {
+                    const speed = 0.06 + (index * 0.03);
+                    shape.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+                });
+
+                parallaxTicking = false;
             });
         }, { passive: true });
     }
