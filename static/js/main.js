@@ -277,8 +277,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Generic elements
-        document.querySelectorAll('.card, .category-card, .section-title, .section-subtitle, .feature-card').forEach(el => {
+        // Generic elements, including sections that already opt into reveal animation.
+        document.querySelectorAll('.reveal-element, .card, .category-card, .section-title, .section-subtitle, .feature-card').forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.top < vh * 0.92) {
                 // Already in viewport on load — show immediately, no animation
