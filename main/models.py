@@ -11,7 +11,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 
-def process_image(image, upload_path, quality=80, max_size=(1024, 1024)):
+def process_image(image, upload_path, quality=95, max_size=(1024, 1024)):
     try:
         img = Image.open(image)
 

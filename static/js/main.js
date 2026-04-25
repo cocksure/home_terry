@@ -286,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (rect.top < vh * 0.92) {
                 // Already in viewport on load — show immediately, no animation
                 el.classList.add('revealed');
+                el.querySelectorAll('.stagger-element').forEach(c => c.classList.add('revealed'));
             } else {
                 el.classList.add('reveal-element');
                 observer.observe(el);

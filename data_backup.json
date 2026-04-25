@@ -1,0 +1,5280 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$EpLOUx76ZxlARytQiZXEZ2$XJShgn8X8AIhB9sVTGl2rFiKAVdUXGj4T4K79t71lrs=",
+    "last_login": "2026-04-10T12:24:03.210Z",
+    "is_superuser": true,
+    "username": "sanjar",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-12-12T18:04:34.240Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$9q7tfTijREXdXEUAJmteOv$+uWPVsClnu0fjFkwMdPVNQ8ijqQEx91I01QIdJUBGcU=",
+    "last_login": "2026-04-25T08:42:25.301Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-25T05:20:00.207Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Цветочные",
+    "slug": "cvetochnye",
+    "description": "",
+    "image": "categories/floral_towels_category.webp",
+    "is_active": true,
+    "created_at": "2025-12-12T18:28:46.809Z",
+    "updated_at": "2025-12-12T18:28:46.809Z"
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Геометрия",
+    "slug": "geometriya",
+    "description": "",
+    "image": "categories/geometric_towels_category.png",
+    "is_active": true,
+    "created_at": "2025-12-12T18:29:02.162Z",
+    "updated_at": "2025-12-12T18:29:02.162Z"
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Полоска",
+    "slug": "poloska",
+    "description": "",
+    "image": "categories/striped_towels_category.webp",
+    "is_active": true,
+    "created_at": "2025-12-12T18:29:28.021Z",
+    "updated_at": "2025-12-12T18:29:28.021Z"
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Однотонные",
+    "slug": "odnotonnye",
+    "description": "",
+    "image": "categories/solid_color_towels_category.webp",
+    "is_active": true,
+    "created_at": "2025-12-12T18:29:38.074Z",
+    "updated_at": "2025-12-12T18:29:38.074Z"
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 5,
+  "fields": {
+    "name": "Премиум",
+    "slug": "premium",
+    "description": "",
+    "image": "categories/premium_bathroom_category.png",
+    "is_active": true,
+    "created_at": "2025-12-12T18:29:47.359Z",
+    "updated_at": "2025-12-12T18:29:47.359Z"
+  }
+},
+{
+  "model": "main.productcategory",
+  "pk": 6,
+  "fields": {
+    "name": "Для отелей",
+    "slug": "dlya-otelej",
+    "description": "",
+    "image": "categories/hotel_towels_category.png",
+    "is_active": true,
+    "created_at": "2025-12-12T18:30:01.101Z",
+    "updated_at": "2025-12-12T18:30:01.101Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 1,
+  "fields": {
+    "category": 5,
+    "name": "Пр-001",
+    "slug": "pr-001",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2025-12-13T05:10:25.852Z",
+    "updated_at": "2025-12-13T05:11:53.538Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 2,
+  "fields": {
+    "category": 5,
+    "name": "Пр-002",
+    "slug": "pr-002",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2025-12-13T05:10:45.305Z",
+    "updated_at": "2025-12-13T05:22:27.710Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 3,
+  "fields": {
+    "category": 5,
+    "name": "Пр-003",
+    "slug": "pr-003",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:10:59.364Z",
+    "updated_at": "2025-12-13T05:10:59.364Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 4,
+  "fields": {
+    "category": 5,
+    "name": "Пр-004",
+    "slug": "pr-004",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2025-12-13T05:11:18.854Z",
+    "updated_at": "2025-12-13T05:11:18.854Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 5,
+  "fields": {
+    "category": 5,
+    "name": "Пр-005",
+    "slug": "pr-005",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:12:19.655Z",
+    "updated_at": "2025-12-13T05:12:19.655Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "name": "Г-006",
+    "slug": "g-006",
+    "description": "",
+    "material": "linen",
+    "size": "50x90",
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:13:14.143Z",
+    "updated_at": "2026-04-25T08:58:49.340Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "name": "Г-002",
+    "slug": "g-002",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:13:46.632Z",
+    "updated_at": "2025-12-13T05:13:46.632Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "name": "Г-003",
+    "slug": "g-003",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:14:02.255Z",
+    "updated_at": "2025-12-13T05:23:01.252Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 9,
+  "fields": {
+    "category": 2,
+    "name": "Г-004",
+    "slug": "g-004",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:14:17.467Z",
+    "updated_at": "2025-12-13T05:14:17.467Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 10,
+  "fields": {
+    "category": 6,
+    "name": "О-001",
+    "slug": "o-001",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:14:48.444Z",
+    "updated_at": "2025-12-13T05:14:48.444Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 11,
+  "fields": {
+    "category": 6,
+    "name": "О-002",
+    "slug": "o-002",
+    "description": "",
+    "material": null,
+    "size": null,
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:15:04.499Z",
+    "updated_at": "2025-12-13T05:23:01.250Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "name": "Ф-001",
+    "slug": "f-001",
+    "description": "",
+    "material": "linen",
+    "size": "50x90",
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:16:48.941Z",
+    "updated_at": "2026-04-25T08:58:49.339Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "name": "Ф-002",
+    "slug": "f-002",
+    "description": "",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2025-12-13T05:17:06.811Z",
+    "updated_at": "2026-04-25T08:58:49.336Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 14,
+  "fields": {
+    "category": 1,
+    "name": "Ф-003",
+    "slug": "f-003",
+    "description": "",
+    "material": "cotton",
+    "size": "50x90",
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2025-12-13T05:17:30.704Z",
+    "updated_at": "2026-04-25T08:56:35.649Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 15,
+  "fields": {
+    "category": 1,
+    "name": "Ф-004",
+    "slug": "003-none-none",
+    "description": "",
+    "material": "mixed",
+    "size": "50x90",
+    "color": null,
+    "price": null,
+    "stock": 0,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:00:23.615Z",
+    "updated_at": "2026-04-25T09:02:00.453Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 16,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Розовый 30x50",
+    "slug": "cvetochnye-1-6504",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "54153.00",
+    "stock": 21,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.481Z",
+    "updated_at": "2026-04-25T09:09:35.481Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 17,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Белый 50x90",
+    "slug": "cvetochnye-2-6825",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Белый",
+    "price": "138035.00",
+    "stock": 17,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.484Z",
+    "updated_at": "2026-04-25T09:09:35.484Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 18,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Белый 50x90",
+    "slug": "cvetochnye-3-6534",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 50x90 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": "Белый",
+    "price": "125726.00",
+    "stock": 2,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.486Z",
+    "updated_at": "2026-04-25T09:09:35.486Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 19,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 30x50",
+    "slug": "cvetochnye-4-3902",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 30x50 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "30x50",
+    "color": "Кремовый",
+    "price": "60403.00",
+    "stock": 23,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.488Z",
+    "updated_at": "2026-04-25T09:09:35.488Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 20,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Бежевый 50x90",
+    "slug": "cvetochnye-5-5468",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "96807.00",
+    "stock": 45,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.490Z",
+    "updated_at": "2026-04-25T09:09:35.490Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 21,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Антрацит 30x50",
+    "slug": "cvetochnye-6-8215",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Антрацит.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Антрацит",
+    "price": "48949.00",
+    "stock": 21,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.492Z",
+    "updated_at": "2026-04-25T09:09:35.492Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 22,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Антрацит 30x50",
+    "slug": "cvetochnye-7-3828",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 30x50 см. Цвет: Антрацит.",
+    "material": "bamboo",
+    "size": "30x50",
+    "color": "Антрацит",
+    "price": "125270.00",
+    "stock": 39,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.493Z",
+    "updated_at": "2026-04-25T09:09:35.493Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 23,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 70x140",
+    "slug": "cvetochnye-8-2392",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "53056.00",
+    "stock": 2,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.495Z",
+    "updated_at": "2026-04-25T09:09:35.495Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 24,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Коричневый 70x140",
+    "slug": "cvetochnye-9-9714",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Коричневый.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Коричневый",
+    "price": "110031.00",
+    "stock": 35,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.496Z",
+    "updated_at": "2026-04-25T09:09:35.496Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 25,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Синий 50x90",
+    "slug": "cvetochnye-10-3854",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Синий.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Синий",
+    "price": "82563.00",
+    "stock": 12,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.497Z",
+    "updated_at": "2026-04-25T09:09:35.497Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 26,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 100x150",
+    "slug": "cvetochnye-11-8017",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 100x150 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "100x150",
+    "color": "Кремовый",
+    "price": "177767.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.498Z",
+    "updated_at": "2026-04-25T09:09:35.498Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 27,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 50x90",
+    "slug": "cvetochnye-12-1297",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 50x90 см. Цвет: Кремовый.",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": "Кремовый",
+    "price": "93131.00",
+    "stock": 50,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.499Z",
+    "updated_at": "2026-04-25T09:09:35.499Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 28,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 50x90",
+    "slug": "cvetochnye-13-2215",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 50x90 см. Цвет: Кремовый.",
+    "material": "linen",
+    "size": "50x90",
+    "color": "Кремовый",
+    "price": "134264.00",
+    "stock": 3,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.500Z",
+    "updated_at": "2026-04-25T09:09:35.500Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 29,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Розовый 50x90",
+    "slug": "cvetochnye-14-3256",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Розовый.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Розовый",
+    "price": "143676.00",
+    "stock": 15,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.501Z",
+    "updated_at": "2026-04-25T09:09:35.501Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 30,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Синий 100x150",
+    "slug": "cvetochnye-15-1352",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 100x150 см. Цвет: Синий.",
+    "material": "cotton",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "196803.00",
+    "stock": 17,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.502Z",
+    "updated_at": "2026-04-25T09:09:35.502Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 31,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Синий 100x150",
+    "slug": "cvetochnye-16-2572",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Синий.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "71328.00",
+    "stock": 7,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.503Z",
+    "updated_at": "2026-04-25T09:09:35.503Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 32,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Синий 100x150",
+    "slug": "cvetochnye-17-3246",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 100x150 см. Цвет: Синий.",
+    "material": "bamboo",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "192346.00",
+    "stock": 22,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.504Z",
+    "updated_at": "2026-04-25T09:09:35.504Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 33,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Белый 50x90",
+    "slug": "cvetochnye-18-2927",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Белый",
+    "price": "107401.00",
+    "stock": 37,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.505Z",
+    "updated_at": "2026-04-25T09:09:35.505Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 34,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Коричневый 100x150",
+    "slug": "cvetochnye-19-8914",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "59215.00",
+    "stock": 20,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.505Z",
+    "updated_at": "2026-04-25T09:09:35.505Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 35,
+  "fields": {
+    "category": 1,
+    "name": "Цветочные Кремовый 70x140",
+    "slug": "cvetochnye-20-6127",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "133763.00",
+    "stock": 8,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.506Z",
+    "updated_at": "2026-04-25T09:09:35.506Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 36,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Антрацит 70x140",
+    "slug": "geometriya-1-8166",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Антрацит.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Антрацит",
+    "price": "36953.00",
+    "stock": 48,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.507Z",
+    "updated_at": "2026-04-25T09:09:35.507Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 37,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Антрацит 30x50",
+    "slug": "geometriya-2-4303",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Антрацит",
+    "price": "178275.00",
+    "stock": 20,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.507Z",
+    "updated_at": "2026-04-25T09:09:35.507Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 38,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Розовый 30x50",
+    "slug": "geometriya-3-1106",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "79958.00",
+    "stock": 34,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.508Z",
+    "updated_at": "2026-04-25T09:09:35.508Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 39,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Белый 100x150",
+    "slug": "geometriya-4-6919",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 100x150 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "100x150",
+    "color": "Белый",
+    "price": "160449.00",
+    "stock": 1,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.509Z",
+    "updated_at": "2026-04-25T09:09:35.509Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 40,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Мятный 50x90",
+    "slug": "geometriya-5-1538",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 50x90 см. Цвет: Мятный.",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": "Мятный",
+    "price": "150630.00",
+    "stock": 16,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.510Z",
+    "updated_at": "2026-04-25T09:09:35.510Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 41,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Синий 100x150",
+    "slug": "geometriya-6-7272",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Синий.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "118428.00",
+    "stock": 4,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.511Z",
+    "updated_at": "2026-04-25T09:09:35.511Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 42,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Синий 100x150",
+    "slug": "geometriya-7-7379",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Синий.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "175494.00",
+    "stock": 18,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.512Z",
+    "updated_at": "2026-04-25T09:58:46.955Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 43,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Мятный 50x90",
+    "slug": "geometriya-8-2656",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 50x90 см. Цвет: Мятный.",
+    "material": "linen",
+    "size": "50x90",
+    "color": "Мятный",
+    "price": "102657.00",
+    "stock": 31,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.513Z",
+    "updated_at": "2026-04-25T09:09:35.513Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 44,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Синий 100x150",
+    "slug": "geometriya-9-4700",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Синий.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "75891.00",
+    "stock": 47,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.513Z",
+    "updated_at": "2026-04-25T09:09:35.513Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 45,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Коричневый 70x140",
+    "slug": "geometriya-10-7240",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Коричневый.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Коричневый",
+    "price": "189110.00",
+    "stock": 40,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.514Z",
+    "updated_at": "2026-04-25T09:09:35.514Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 46,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Антрацит 50x90",
+    "slug": "geometriya-11-9342",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "microfiber",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "46509.00",
+    "stock": 43,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.515Z",
+    "updated_at": "2026-04-25T09:09:35.515Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 47,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Белый 100x150",
+    "slug": "geometriya-12-9796",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Белый.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Белый",
+    "price": "189791.00",
+    "stock": 17,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.516Z",
+    "updated_at": "2026-04-25T09:09:35.516Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 48,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Синий 100x150",
+    "slug": "geometriya-13-3711",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 100x150 см. Цвет: Синий.",
+    "material": "cotton",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "173737.00",
+    "stock": 4,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.517Z",
+    "updated_at": "2026-04-25T09:09:35.517Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 49,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Мятный 70x140",
+    "slug": "geometriya-14-5676",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Мятный.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Мятный",
+    "price": "74412.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.517Z",
+    "updated_at": "2026-04-25T09:09:35.517Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 50,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Мятный 30x50",
+    "slug": "geometriya-15-2518",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Мятный.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Мятный",
+    "price": "148080.00",
+    "stock": 16,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.518Z",
+    "updated_at": "2026-04-25T09:09:35.518Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 51,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Серый 100x150",
+    "slug": "geometriya-16-8843",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Серый",
+    "price": "177604.00",
+    "stock": 16,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.519Z",
+    "updated_at": "2026-04-25T09:09:35.519Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 52,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Мятный 30x50",
+    "slug": "geometriya-17-2719",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Мятный.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Мятный",
+    "price": "49861.00",
+    "stock": 26,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.519Z",
+    "updated_at": "2026-04-25T09:09:35.519Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 53,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Розовый 100x150",
+    "slug": "geometriya-18-3687",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Розовый",
+    "price": "171620.00",
+    "stock": 43,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.520Z",
+    "updated_at": "2026-04-25T09:09:35.520Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 54,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Белый 100x150",
+    "slug": "geometriya-19-6869",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Белый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Белый",
+    "price": "124235.00",
+    "stock": 44,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.520Z",
+    "updated_at": "2026-04-25T09:09:35.520Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 55,
+  "fields": {
+    "category": 2,
+    "name": "Геометрия Синий 50x90",
+    "slug": "geometriya-20-2309",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Синий.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Синий",
+    "price": "81080.00",
+    "stock": 47,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.521Z",
+    "updated_at": "2026-04-25T09:09:35.521Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 56,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Антрацит 100x150",
+    "slug": "poloska-1-9159",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Антрацит.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Антрацит",
+    "price": "52357.00",
+    "stock": 50,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.522Z",
+    "updated_at": "2026-04-25T09:09:35.522Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 57,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Бежевый 100x150",
+    "slug": "poloska-2-8140",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 100x150 см. Цвет: Бежевый.",
+    "material": "cotton",
+    "size": "100x150",
+    "color": "Бежевый",
+    "price": "183321.00",
+    "stock": 12,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.522Z",
+    "updated_at": "2026-04-25T09:09:35.522Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 58,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Коричневый 100x150",
+    "slug": "poloska-3-6354",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "73903.00",
+    "stock": 36,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.523Z",
+    "updated_at": "2026-04-25T09:09:35.523Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 59,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Розовый 30x50",
+    "slug": "poloska-4-2331",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "cotton",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "119216.00",
+    "stock": 17,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.524Z",
+    "updated_at": "2026-04-25T09:09:35.524Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 60,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Серый 30x50",
+    "slug": "poloska-5-6438",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Серый",
+    "price": "114702.00",
+    "stock": 38,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.524Z",
+    "updated_at": "2026-04-25T09:09:35.524Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 61,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Синий 70x140",
+    "slug": "poloska-6-6434",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 70x140 см. Цвет: Синий.",
+    "material": "mixed",
+    "size": "70x140",
+    "color": "Синий",
+    "price": "30773.00",
+    "stock": 3,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.525Z",
+    "updated_at": "2026-04-25T09:09:35.525Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 62,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Коричневый 100x150",
+    "slug": "poloska-7-2202",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "42857.00",
+    "stock": 43,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.525Z",
+    "updated_at": "2026-04-25T09:09:35.525Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 63,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Кремовый 30x50",
+    "slug": "poloska-8-6883",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 30x50 см. Цвет: Кремовый.",
+    "material": "bamboo",
+    "size": "30x50",
+    "color": "Кремовый",
+    "price": "198936.00",
+    "stock": 31,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.526Z",
+    "updated_at": "2026-04-25T09:09:35.526Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 64,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Кремовый 70x140",
+    "slug": "poloska-9-9757",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "112407.00",
+    "stock": 31,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.527Z",
+    "updated_at": "2026-04-25T09:09:35.527Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 65,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Коричневый 50x90",
+    "slug": "poloska-10-7402",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Коричневый.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Коричневый",
+    "price": "148755.00",
+    "stock": 48,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.527Z",
+    "updated_at": "2026-04-25T09:09:35.527Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 66,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Мятный 50x90",
+    "slug": "poloska-11-2556",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 50x90 см. Цвет: Мятный.",
+    "material": "linen",
+    "size": "50x90",
+    "color": "Мятный",
+    "price": "31154.00",
+    "stock": 18,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.528Z",
+    "updated_at": "2026-04-25T09:09:35.528Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 67,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Серый 30x50",
+    "slug": "poloska-12-8306",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Серый",
+    "price": "134326.00",
+    "stock": 30,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.528Z",
+    "updated_at": "2026-04-25T09:09:35.528Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 68,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Бежевый 100x150",
+    "slug": "poloska-13-3108",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 100x150 см. Цвет: Бежевый.",
+    "material": "cotton",
+    "size": "100x150",
+    "color": "Бежевый",
+    "price": "70306.00",
+    "stock": 37,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.529Z",
+    "updated_at": "2026-04-25T09:09:35.529Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 69,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Коричневый 100x150",
+    "slug": "poloska-14-8172",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "bamboo",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "146409.00",
+    "stock": 25,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.530Z",
+    "updated_at": "2026-04-25T09:09:35.530Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 70,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Мятный 100x150",
+    "slug": "poloska-15-6219",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Мятный.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Мятный",
+    "price": "146306.00",
+    "stock": 40,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.530Z",
+    "updated_at": "2026-04-25T09:09:35.530Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 71,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Синий 100x150",
+    "slug": "poloska-16-7758",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Синий.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Синий",
+    "price": "198547.00",
+    "stock": 3,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.531Z",
+    "updated_at": "2026-04-25T09:09:35.531Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 72,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Синий 70x140",
+    "slug": "poloska-17-9110",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Синий.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Синий",
+    "price": "198131.00",
+    "stock": 49,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.531Z",
+    "updated_at": "2026-04-25T09:09:35.531Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 73,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Белый 70x140",
+    "slug": "poloska-18-5155",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Белый",
+    "price": "173959.00",
+    "stock": 24,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.532Z",
+    "updated_at": "2026-04-25T09:09:35.532Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 74,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Белый 30x50",
+    "slug": "poloska-19-6222",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Белый",
+    "price": "114317.00",
+    "stock": 25,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.533Z",
+    "updated_at": "2026-04-25T09:09:35.533Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 75,
+  "fields": {
+    "category": 3,
+    "name": "Полоска Коричневый 70x140",
+    "slug": "poloska-20-8722",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 70x140 см. Цвет: Коричневый.",
+    "material": "mixed",
+    "size": "70x140",
+    "color": "Коричневый",
+    "price": "34987.00",
+    "stock": 32,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.533Z",
+    "updated_at": "2026-04-25T09:09:35.533Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 76,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Бежевый 50x90",
+    "slug": "odnotonnye-1-2663",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "135584.00",
+    "stock": 5,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.534Z",
+    "updated_at": "2026-04-25T09:09:35.534Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 77,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Антрацит 30x50",
+    "slug": "odnotonnye-2-9626",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Антрацит",
+    "price": "37691.00",
+    "stock": 21,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.535Z",
+    "updated_at": "2026-04-25T09:09:35.535Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 78,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Бежевый 50x90",
+    "slug": "odnotonnye-3-6288",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "93388.00",
+    "stock": 10,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.535Z",
+    "updated_at": "2026-04-25T09:09:35.535Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 79,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Мятный 30x50",
+    "slug": "odnotonnye-4-6337",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 30x50 см. Цвет: Мятный.",
+    "material": "bamboo",
+    "size": "30x50",
+    "color": "Мятный",
+    "price": "65182.00",
+    "stock": 34,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.536Z",
+    "updated_at": "2026-04-25T09:09:35.536Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 80,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Розовый 70x140",
+    "slug": "odnotonnye-5-3031",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Розовый",
+    "price": "82818.00",
+    "stock": 3,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.536Z",
+    "updated_at": "2026-04-25T09:09:35.536Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 81,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Белый 70x140",
+    "slug": "odnotonnye-6-8771",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 70x140 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "70x140",
+    "color": "Белый",
+    "price": "90307.00",
+    "stock": 27,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.537Z",
+    "updated_at": "2026-04-25T09:09:35.537Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 82,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Розовый 30x50",
+    "slug": "odnotonnye-7-1523",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "cotton",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "122800.00",
+    "stock": 48,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.538Z",
+    "updated_at": "2026-04-25T09:09:35.538Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 83,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Розовый 30x50",
+    "slug": "odnotonnye-8-1547",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "146413.00",
+    "stock": 9,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.538Z",
+    "updated_at": "2026-04-25T09:09:35.538Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 84,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Серый 30x50",
+    "slug": "odnotonnye-9-2334",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Серый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Серый",
+    "price": "98586.00",
+    "stock": 11,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.539Z",
+    "updated_at": "2026-04-25T09:09:35.539Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 85,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Бежевый 30x50",
+    "slug": "odnotonnye-10-8799",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Бежевый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Бежевый",
+    "price": "171310.00",
+    "stock": 39,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.539Z",
+    "updated_at": "2026-04-25T09:09:35.539Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 86,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Антрацит 70x140",
+    "slug": "odnotonnye-11-5253",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Антрацит.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Антрацит",
+    "price": "41191.00",
+    "stock": 11,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.540Z",
+    "updated_at": "2026-04-25T09:09:35.540Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 87,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Белый 70x140",
+    "slug": "odnotonnye-12-9647",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Белый",
+    "price": "167805.00",
+    "stock": 37,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.540Z",
+    "updated_at": "2026-04-25T09:09:35.540Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 88,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Белый 70x140",
+    "slug": "odnotonnye-13-6599",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 70x140 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "70x140",
+    "color": "Белый",
+    "price": "111776.00",
+    "stock": 7,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.541Z",
+    "updated_at": "2026-04-25T09:09:35.541Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 89,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Синий 30x50",
+    "slug": "odnotonnye-14-6446",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 30x50 см. Цвет: Синий.",
+    "material": "linen",
+    "size": "30x50",
+    "color": "Синий",
+    "price": "96707.00",
+    "stock": 15,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.541Z",
+    "updated_at": "2026-04-25T09:09:35.541Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 90,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Антрацит 50x90",
+    "slug": "odnotonnye-15-4372",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "159183.00",
+    "stock": 1,
+    "is_active": true,
+    "is_featured": true,
+    "created_at": "2026-04-25T09:09:35.542Z",
+    "updated_at": "2026-04-25T09:09:35.542Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 91,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Серый 50x90",
+    "slug": "odnotonnye-16-9054",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Серый.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Серый",
+    "price": "131258.00",
+    "stock": 11,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.543Z",
+    "updated_at": "2026-04-25T09:09:35.543Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 92,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Белый 50x90",
+    "slug": "odnotonnye-17-6709",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Белый.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Белый",
+    "price": "111016.00",
+    "stock": 1,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.543Z",
+    "updated_at": "2026-04-25T09:58:37.895Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 93,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Белый 70x140",
+    "slug": "odnotonnye-18-7586",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Белый.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Белый",
+    "price": "110490.00",
+    "stock": 1,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.544Z",
+    "updated_at": "2026-04-25T09:58:37.894Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 94,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Кремовый 30x50",
+    "slug": "odnotonnye-19-9777",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 30x50 см. Цвет: Кремовый.",
+    "material": "bamboo",
+    "size": "30x50",
+    "color": "Кремовый",
+    "price": "141298.00",
+    "stock": 2,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.545Z",
+    "updated_at": "2026-04-25T09:09:35.545Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 95,
+  "fields": {
+    "category": 4,
+    "name": "Однотонные Антрацит 30x50",
+    "slug": "odnotonnye-20-7974",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 30x50 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "30x50",
+    "color": "Антрацит",
+    "price": "36513.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.545Z",
+    "updated_at": "2026-04-25T09:58:37.894Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 96,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Кремовый 70x140",
+    "slug": "premium-1-3268",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "bamboo",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "81329.00",
+    "stock": 23,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.546Z",
+    "updated_at": "2026-04-25T09:09:35.546Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 97,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Кремовый 30x50",
+    "slug": "premium-2-2962",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 30x50 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "30x50",
+    "color": "Кремовый",
+    "price": "128714.00",
+    "stock": 21,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.546Z",
+    "updated_at": "2026-04-25T09:09:35.546Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 98,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Коричневый 50x90",
+    "slug": "premium-3-6221",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Коричневый.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Коричневый",
+    "price": "52177.00",
+    "stock": 39,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.547Z",
+    "updated_at": "2026-04-25T09:09:35.547Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 99,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Кремовый 70x140",
+    "slug": "premium-4-1014",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "107358.00",
+    "stock": 25,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.547Z",
+    "updated_at": "2026-04-25T09:09:35.547Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 100,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Синий 70x140",
+    "slug": "premium-5-8125",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Синий.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Синий",
+    "price": "169143.00",
+    "stock": 11,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.548Z",
+    "updated_at": "2026-04-25T09:09:35.548Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 101,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Мятный 100x150",
+    "slug": "premium-6-6231",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 100x150 см. Цвет: Мятный.",
+    "material": "bamboo",
+    "size": "100x150",
+    "color": "Мятный",
+    "price": "92672.00",
+    "stock": 35,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.548Z",
+    "updated_at": "2026-04-25T09:58:37.894Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 102,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Коричневый 100x150",
+    "slug": "premium-7-4178",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "104457.00",
+    "stock": 4,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.549Z",
+    "updated_at": "2026-04-25T09:09:35.549Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 103,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Бежевый 50x90",
+    "slug": "premium-8-9706",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "85313.00",
+    "stock": 32,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.549Z",
+    "updated_at": "2026-04-25T09:58:37.894Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 104,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Серый 70x140",
+    "slug": "premium-9-1290",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 70x140 см. Цвет: Серый.",
+    "material": "microfiber",
+    "size": "70x140",
+    "color": "Серый",
+    "price": "113386.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.550Z",
+    "updated_at": "2026-04-25T09:09:35.550Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 105,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Серый 70x140",
+    "slug": "premium-10-2850",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 70x140 см. Цвет: Серый.",
+    "material": "bamboo",
+    "size": "70x140",
+    "color": "Серый",
+    "price": "143611.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.550Z",
+    "updated_at": "2026-04-25T09:58:37.893Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 106,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Розовый 70x140",
+    "slug": "premium-11-4388",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Розовый",
+    "price": "75841.00",
+    "stock": 17,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.551Z",
+    "updated_at": "2026-04-25T09:09:35.551Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 107,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Розовый 30x50",
+    "slug": "premium-12-6180",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Розовый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Розовый",
+    "price": "176037.00",
+    "stock": 45,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.551Z",
+    "updated_at": "2026-04-25T09:58:37.893Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 108,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Серый 50x90",
+    "slug": "premium-13-6041",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Серый",
+    "price": "191235.00",
+    "stock": 12,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.552Z",
+    "updated_at": "2026-04-25T09:58:37.893Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 109,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Розовый 50x90",
+    "slug": "premium-14-4067",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 50x90 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "50x90",
+    "color": "Розовый",
+    "price": "99847.00",
+    "stock": 31,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.552Z",
+    "updated_at": "2026-04-25T09:58:37.893Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 110,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Розовый 100x150",
+    "slug": "premium-15-5173",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Розовый.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Розовый",
+    "price": "115166.00",
+    "stock": 45,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.553Z",
+    "updated_at": "2026-04-25T09:58:37.892Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 111,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Антрацит 50x90",
+    "slug": "premium-16-2582",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "116236.00",
+    "stock": 11,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.553Z",
+    "updated_at": "2026-04-25T09:09:35.553Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 112,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Мятный 50x90",
+    "slug": "premium-17-4630",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Мятный.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Мятный",
+    "price": "165941.00",
+    "stock": 15,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.554Z",
+    "updated_at": "2026-04-25T09:09:35.554Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 113,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Белый 50x90",
+    "slug": "premium-18-5274",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 50x90 см. Цвет: Белый.",
+    "material": "bamboo",
+    "size": "50x90",
+    "color": "Белый",
+    "price": "93097.00",
+    "stock": 35,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.554Z",
+    "updated_at": "2026-04-25T09:58:37.892Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 114,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Антрацит 50x90",
+    "slug": "premium-19-7155",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "98325.00",
+    "stock": 24,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.555Z",
+    "updated_at": "2026-04-25T09:09:35.555Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 115,
+  "fields": {
+    "category": 5,
+    "name": "Премиум Розовый 70x140",
+    "slug": "premium-20-5444",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 70x140 см. Цвет: Розовый.",
+    "material": "mixed",
+    "size": "70x140",
+    "color": "Розовый",
+    "price": "110598.00",
+    "stock": 3,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.555Z",
+    "updated_at": "2026-04-25T09:58:37.892Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 116,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Кремовый 100x150",
+    "slug": "dlya-otelej-1-4444",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 100x150 см. Цвет: Кремовый.",
+    "material": "microfiber",
+    "size": "100x150",
+    "color": "Кремовый",
+    "price": "150414.00",
+    "stock": 46,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.556Z",
+    "updated_at": "2026-04-25T09:58:37.892Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 117,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Белый 30x50",
+    "slug": "dlya-otelej-2-1976",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Белый",
+    "price": "100438.00",
+    "stock": 15,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.556Z",
+    "updated_at": "2026-04-25T09:09:35.556Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 118,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Бежевый 50x90",
+    "slug": "dlya-otelej-3-8616",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "144351.00",
+    "stock": 28,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.557Z",
+    "updated_at": "2026-04-25T09:09:35.557Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 119,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Розовый 100x150",
+    "slug": "dlya-otelej-4-6280",
+    "description": "Мягкое качественное полотенце. Материал: bamboo. Размер: 100x150 см. Цвет: Розовый.",
+    "material": "bamboo",
+    "size": "100x150",
+    "color": "Розовый",
+    "price": "179706.00",
+    "stock": 34,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.557Z",
+    "updated_at": "2026-04-25T09:58:37.891Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 120,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Бежевый 30x50",
+    "slug": "dlya-otelej-5-1145",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 30x50 см. Цвет: Бежевый.",
+    "material": "linen",
+    "size": "30x50",
+    "color": "Бежевый",
+    "price": "144672.00",
+    "stock": 16,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.558Z",
+    "updated_at": "2026-04-25T09:09:35.558Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 121,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Бежевый 50x90",
+    "slug": "dlya-otelej-6-9204",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Бежевый.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Бежевый",
+    "price": "74656.00",
+    "stock": 30,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.558Z",
+    "updated_at": "2026-04-25T09:09:35.558Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 122,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Бежевый 30x50",
+    "slug": "dlya-otelej-7-9692",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Бежевый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Бежевый",
+    "price": "139112.00",
+    "stock": 39,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.559Z",
+    "updated_at": "2026-04-25T09:58:37.891Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 123,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Серый 100x150",
+    "slug": "dlya-otelej-8-8963",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 100x150 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "100x150",
+    "color": "Серый",
+    "price": "107051.00",
+    "stock": 31,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.560Z",
+    "updated_at": "2026-04-25T09:58:37.891Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 124,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Коричневый 100x150",
+    "slug": "dlya-otelej-9-4830",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "193605.00",
+    "stock": 37,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.560Z",
+    "updated_at": "2026-04-25T09:09:35.560Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 125,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Синий 30x50",
+    "slug": "dlya-otelej-10-7791",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Синий.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Синий",
+    "price": "194462.00",
+    "stock": 43,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.561Z",
+    "updated_at": "2026-04-25T09:58:37.891Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 126,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Розовый 50x90",
+    "slug": "dlya-otelej-11-3745",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 50x90 см. Цвет: Розовый.",
+    "material": "linen",
+    "size": "50x90",
+    "color": "Розовый",
+    "price": "55534.00",
+    "stock": 20,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.561Z",
+    "updated_at": "2026-04-25T09:09:35.561Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 127,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Антрацит 50x90",
+    "slug": "dlya-otelej-12-8360",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "47423.00",
+    "stock": 23,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.562Z",
+    "updated_at": "2026-04-25T09:09:35.562Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 128,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Белый 30x50",
+    "slug": "dlya-otelej-13-3077",
+    "description": "Мягкое качественное полотенце. Материал: microfiber. Размер: 30x50 см. Цвет: Белый.",
+    "material": "microfiber",
+    "size": "30x50",
+    "color": "Белый",
+    "price": "79655.00",
+    "stock": 45,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.563Z",
+    "updated_at": "2026-04-25T09:09:35.563Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 129,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Антрацит 50x90",
+    "slug": "dlya-otelej-14-4918",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "73584.00",
+    "stock": 6,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.563Z",
+    "updated_at": "2026-04-25T09:58:37.890Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 130,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Антрацит 50x90",
+    "slug": "dlya-otelej-15-5787",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 50x90 см. Цвет: Антрацит.",
+    "material": "mixed",
+    "size": "50x90",
+    "color": "Антрацит",
+    "price": "112062.00",
+    "stock": 14,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.564Z",
+    "updated_at": "2026-04-25T09:58:37.890Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 131,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Кремовый 70x140",
+    "slug": "dlya-otelej-16-1593",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 70x140 см. Цвет: Кремовый.",
+    "material": "cotton",
+    "size": "70x140",
+    "color": "Кремовый",
+    "price": "80380.00",
+    "stock": 41,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.564Z",
+    "updated_at": "2026-04-25T09:58:37.890Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 132,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Коричневый 100x150",
+    "slug": "dlya-otelej-17-2927",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 100x150 см. Цвет: Коричневый.",
+    "material": "linen",
+    "size": "100x150",
+    "color": "Коричневый",
+    "price": "91687.00",
+    "stock": 18,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.565Z",
+    "updated_at": "2026-04-25T09:09:35.565Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 133,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Серый 70x140",
+    "slug": "dlya-otelej-18-3263",
+    "description": "Мягкое качественное полотенце. Материал: mixed. Размер: 70x140 см. Цвет: Серый.",
+    "material": "mixed",
+    "size": "70x140",
+    "color": "Серый",
+    "price": "157762.00",
+    "stock": 33,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.565Z",
+    "updated_at": "2026-04-25T09:09:35.565Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 134,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Синий 70x140",
+    "slug": "dlya-otelej-19-4988",
+    "description": "Мягкое качественное полотенце. Материал: linen. Размер: 70x140 см. Цвет: Синий.",
+    "material": "linen",
+    "size": "70x140",
+    "color": "Синий",
+    "price": "77975.00",
+    "stock": 26,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.565Z",
+    "updated_at": "2026-04-25T09:58:37.888Z"
+  }
+},
+{
+  "model": "main.product",
+  "pk": 135,
+  "fields": {
+    "category": 6,
+    "name": "Для отелей Мятный 50x90",
+    "slug": "dlya-otelej-20-4979",
+    "description": "Мягкое качественное полотенце. Материал: cotton. Размер: 50x90 см. Цвет: Мятный.",
+    "material": "cotton",
+    "size": "50x90",
+    "color": "Мятный",
+    "price": "125327.00",
+    "stock": 2,
+    "is_active": true,
+    "is_featured": false,
+    "created_at": "2026-04-25T09:09:35.566Z",
+    "updated_at": "2026-04-25T09:09:35.566Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 1,
+  "fields": {
+    "product": 2,
+    "image": "products/pr-05.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:10:45.312Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 2,
+  "fields": {
+    "product": 3,
+    "image": "products/pr-04.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:10:59.388Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 3,
+  "fields": {
+    "product": 4,
+    "image": "products/pr-03.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:11:18.879Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 4,
+  "fields": {
+    "product": 1,
+    "image": "products/pr-06.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:11:53.574Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 5,
+  "fields": {
+    "product": 5,
+    "image": "products/pr-02.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:12:19.671Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 6,
+  "fields": {
+    "product": 6,
+    "image": "products/ait_00019.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:13:14.166Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 7,
+  "fields": {
+    "product": 7,
+    "image": "products/g-03.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:13:46.750Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 8,
+  "fields": {
+    "product": 8,
+    "image": "products/g-02.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:14:02.327Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 9,
+  "fields": {
+    "product": 9,
+    "image": "products/g-01.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:14:17.559Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 10,
+  "fields": {
+    "product": 10,
+    "image": "products/o-03.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:14:48.510Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 11,
+  "fields": {
+    "product": 11,
+    "image": "products/o-02.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:15:04.618Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 13,
+  "fields": {
+    "product": 13,
+    "image": "products/ait_00013.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2025-12-13T05:17:06.839Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 15,
+  "fields": {
+    "product": 14,
+    "image": "products/ait_00001.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:52:38.286Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 16,
+  "fields": {
+    "product": 14,
+    "image": "products/ait_00002.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:52:46.744Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 17,
+  "fields": {
+    "product": 12,
+    "image": "products/ait_00009.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:54:01.324Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 18,
+  "fields": {
+    "product": 12,
+    "image": "products/ait_00010.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:54:08.628Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 19,
+  "fields": {
+    "product": 6,
+    "image": "products/ait_00020.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:55:09.106Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 20,
+  "fields": {
+    "product": 13,
+    "image": "products/ait_00014.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T08:56:04.154Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 21,
+  "fields": {
+    "product": 15,
+    "image": "products/ait_00031.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T09:01:18.908Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 22,
+  "fields": {
+    "product": 15,
+    "image": "products/ait_00030.webp",
+    "is_main": false,
+    "order": 0,
+    "created_at": "2026-04-25T09:01:19.070Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 23,
+  "fields": {
+    "product": 1,
+    "image": "products/ait_00001_p74a6ww.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:36.525Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 24,
+  "fields": {
+    "product": 2,
+    "image": "products/ait_00002_LvQbZOB.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:36.728Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 25,
+  "fields": {
+    "product": 3,
+    "image": "products/ait_00003.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:36.917Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 26,
+  "fields": {
+    "product": 4,
+    "image": "products/ait_00004.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.100Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 27,
+  "fields": {
+    "product": 5,
+    "image": "products/ait_00005.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.266Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 28,
+  "fields": {
+    "product": 6,
+    "image": "products/ait_00006.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.422Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 29,
+  "fields": {
+    "product": 7,
+    "image": "products/ait_00007.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.585Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 30,
+  "fields": {
+    "product": 8,
+    "image": "products/ait_00008.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.747Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 31,
+  "fields": {
+    "product": 9,
+    "image": "products/ait_00009_fkXGYMU.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:37.911Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 32,
+  "fields": {
+    "product": 10,
+    "image": "products/ait_00010_3OWZJ67.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.083Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 33,
+  "fields": {
+    "product": 11,
+    "image": "products/ait_00011.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.251Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 34,
+  "fields": {
+    "product": 12,
+    "image": "products/ait_00012.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.417Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 35,
+  "fields": {
+    "product": 13,
+    "image": "products/ait_00013_sc9Tejc.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.580Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 36,
+  "fields": {
+    "product": 14,
+    "image": "products/ait_00014_Fnej4Df.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.739Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 37,
+  "fields": {
+    "product": 15,
+    "image": "products/ait_00015.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:38.915Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 38,
+  "fields": {
+    "product": 16,
+    "image": "products/ait_00016.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.089Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 39,
+  "fields": {
+    "product": 17,
+    "image": "products/ait_00017.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.286Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 40,
+  "fields": {
+    "product": 18,
+    "image": "products/ait_00018.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.450Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 41,
+  "fields": {
+    "product": 19,
+    "image": "products/ait_00019_qF4Nbq6.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.621Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 42,
+  "fields": {
+    "product": 20,
+    "image": "products/ait_00020_bx5F2uN.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.790Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 43,
+  "fields": {
+    "product": 21,
+    "image": "products/ait_00021.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:39.986Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 44,
+  "fields": {
+    "product": 22,
+    "image": "products/ait_00022.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.188Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 45,
+  "fields": {
+    "product": 23,
+    "image": "products/ait_00023.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.369Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 46,
+  "fields": {
+    "product": 24,
+    "image": "products/ait_00024.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.537Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 47,
+  "fields": {
+    "product": 25,
+    "image": "products/ait_00025.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.710Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 48,
+  "fields": {
+    "product": 26,
+    "image": "products/ait_00026.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.884Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 49,
+  "fields": {
+    "product": 27,
+    "image": "products/ait_00027.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:40.981Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 50,
+  "fields": {
+    "product": 28,
+    "image": "products/ait_00028.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:41.177Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 51,
+  "fields": {
+    "product": 29,
+    "image": "products/ait_00029.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:41.357Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 52,
+  "fields": {
+    "product": 30,
+    "image": "products/ait_000291.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:41.668Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 53,
+  "fields": {
+    "product": 31,
+    "image": "products/ait_000295.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:41.860Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 54,
+  "fields": {
+    "product": 32,
+    "image": "products/ait_000296.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.062Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 55,
+  "fields": {
+    "product": 33,
+    "image": "products/ait_00030_Mz5IGAY.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.237Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 56,
+  "fields": {
+    "product": 34,
+    "image": "products/ait_00031_7T5GyQY.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.424Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 57,
+  "fields": {
+    "product": 35,
+    "image": "products/ait_00032.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.607Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 58,
+  "fields": {
+    "product": 36,
+    "image": "products/ait_00033_ocC0tJb.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.794Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 59,
+  "fields": {
+    "product": 37,
+    "image": "products/ait_00034.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:42.983Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 60,
+  "fields": {
+    "product": 38,
+    "image": "products/ait_00035.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:43.186Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 61,
+  "fields": {
+    "product": 39,
+    "image": "products/ait_00036.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:43.360Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 62,
+  "fields": {
+    "product": 40,
+    "image": "products/ait_00037.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:43.528Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 63,
+  "fields": {
+    "product": 41,
+    "image": "products/ait_00038.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:43.768Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 64,
+  "fields": {
+    "product": 42,
+    "image": "products/dsc890100001.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:43.981Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 65,
+  "fields": {
+    "product": 43,
+    "image": "products/dsc890100002.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:44.200Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 66,
+  "fields": {
+    "product": 44,
+    "image": "products/dsc890100003.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:44.416Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 67,
+  "fields": {
+    "product": 45,
+    "image": "products/dsc890100004.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:44.624Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 68,
+  "fields": {
+    "product": 46,
+    "image": "products/dsc890100005.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:44.795Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 69,
+  "fields": {
+    "product": 47,
+    "image": "products/dsc890100006.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:44.989Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 70,
+  "fields": {
+    "product": 48,
+    "image": "products/dsc890100007.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:45.232Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 71,
+  "fields": {
+    "product": 49,
+    "image": "products/dsc890100008.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:45.430Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 72,
+  "fields": {
+    "product": 50,
+    "image": "products/dsc890100009.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:45.667Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 73,
+  "fields": {
+    "product": 51,
+    "image": "products/dsc890100010.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:45.876Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 74,
+  "fields": {
+    "product": 52,
+    "image": "products/dsc8901000101.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.051Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 75,
+  "fields": {
+    "product": 53,
+    "image": "products/dsc8901000103.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.231Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 76,
+  "fields": {
+    "product": 54,
+    "image": "products/dsc8901000104.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.347Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 77,
+  "fields": {
+    "product": 55,
+    "image": "products/dsc890100011.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.550Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 78,
+  "fields": {
+    "product": 56,
+    "image": "products/dsc890100012.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.767Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 79,
+  "fields": {
+    "product": 57,
+    "image": "products/dsc890100013.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:46.973Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 80,
+  "fields": {
+    "product": 58,
+    "image": "products/dsc890100014.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:47.202Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 81,
+  "fields": {
+    "product": 59,
+    "image": "products/dsc890100015.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:47.442Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 82,
+  "fields": {
+    "product": 60,
+    "image": "products/dsc890100016.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:47.675Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 83,
+  "fields": {
+    "product": 61,
+    "image": "products/dsc890100017.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:47.962Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 84,
+  "fields": {
+    "product": 62,
+    "image": "products/dsc890100018.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:48.234Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 85,
+  "fields": {
+    "product": 63,
+    "image": "products/dsc890100019.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:48.448Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 86,
+  "fields": {
+    "product": 64,
+    "image": "products/dsc890100020.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:48.644Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 87,
+  "fields": {
+    "product": 65,
+    "image": "products/dsc890100021.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:48.808Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 88,
+  "fields": {
+    "product": 66,
+    "image": "products/dsc890100022.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:48.980Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 89,
+  "fields": {
+    "product": 67,
+    "image": "products/dsc890100023.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.127Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 90,
+  "fields": {
+    "product": 68,
+    "image": "products/dsc890100024.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.262Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 91,
+  "fields": {
+    "product": 69,
+    "image": "products/dsc890100025.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.378Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 92,
+  "fields": {
+    "product": 70,
+    "image": "products/dsc890100026.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.551Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 93,
+  "fields": {
+    "product": 71,
+    "image": "products/dsc890100027.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.762Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 94,
+  "fields": {
+    "product": 72,
+    "image": "products/dsc890100028.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:49.955Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 95,
+  "fields": {
+    "product": 73,
+    "image": "products/dsc890100029.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:50.151Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 96,
+  "fields": {
+    "product": 74,
+    "image": "products/dsc890100030.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:50.365Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 97,
+  "fields": {
+    "product": 75,
+    "image": "products/dsc890100031.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:50.547Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 98,
+  "fields": {
+    "product": 76,
+    "image": "products/dsc890100032.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:50.728Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 99,
+  "fields": {
+    "product": 77,
+    "image": "products/dsc890100033.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:50.897Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 100,
+  "fields": {
+    "product": 78,
+    "image": "products/dsc890100034.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:51.107Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 101,
+  "fields": {
+    "product": 79,
+    "image": "products/dsc890100035.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:51.285Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 102,
+  "fields": {
+    "product": 80,
+    "image": "products/dsc890100036.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:51.486Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 103,
+  "fields": {
+    "product": 81,
+    "image": "products/dsc890100037.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:51.667Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 104,
+  "fields": {
+    "product": 82,
+    "image": "products/dsc890100038.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:51.864Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 105,
+  "fields": {
+    "product": 83,
+    "image": "products/dsc890100039.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:52.071Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 106,
+  "fields": {
+    "product": 84,
+    "image": "products/dsc890100040.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:52.332Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 107,
+  "fields": {
+    "product": 85,
+    "image": "products/dsc890100041.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:52.585Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 108,
+  "fields": {
+    "product": 86,
+    "image": "products/dsc890100042.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:52.880Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 109,
+  "fields": {
+    "product": 87,
+    "image": "products/dsc890100043.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:53.159Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 110,
+  "fields": {
+    "product": 88,
+    "image": "products/dsc890100044.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:53.407Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 111,
+  "fields": {
+    "product": 89,
+    "image": "products/dsc890100045.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:53.610Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 112,
+  "fields": {
+    "product": 90,
+    "image": "products/dsc890100046.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:53.788Z"
+  }
+},
+{
+  "model": "main.productimage",
+  "pk": 113,
+  "fields": {
+    "product": 91,
+    "image": "products/dsc890100047.webp",
+    "is_main": true,
+    "order": 0,
+    "created_at": "2026-04-25T09:15:54.006Z"
+  }
+},
+{
+  "model": "main.blogpost",
+  "pk": 1,
+  "fields": {
+    "title": "Как выбрать идеальное полотенце для дома",
+    "slug": "kak-vybrat-idealnoe-polotence",
+    "excerpt": "Разбираемся, на что обратить внимание при выборе полотенца: плотность, материал, размер и уход. Советы от экспертов HomeTerry.",
+    "content": "Полотенце — это не просто кусок ткани. От правильного выбора зависит ваш комфорт каждый день.\r\n\r\n**Плотность (GSM)**\r\n\r\nПлотность измеряется в граммах на квадратный метр (г/м²). Чем выше значение — тем полотенце тяжелее и абсорбирующее.\r\n\r\n- 300–400 г/м² — лёгкие, быстро сохнут, подходят для спорта и путешествий\r\n- 400–600 г/м² — универсальные, оптимальный вариант для дома\r\n- 600–900 г/м² — премиальные, мягкие как облако, идеальны для ванной комнаты отеля\r\n\r\n**Материал**\r\n\r\nЕгипетский хлопок считается эталоном качества: длинное волокно даёт невероятную мягкость и долговечность. Бамбук — антибактериальный и гипоаллергенный вариант. Микрофибра сохнет быстро, но менее приятна на ощупь.\r\n\r\n**Размер**\r\n\r\nДля лица — 30×30 или 50×90 см. Банное полотенце — 70×140 см и выше. Для сауны и хаммама — 100×150 см.\r\n\r\n**Уход**\r\n\r\nСтирайте при 40–60°C, используйте мягкий порошок без отбеливателя. Не пересушивайте в машине — это разрушает волокна. Первая стирка перед использованием обязательна: активирует абсорбцию на 20–30%.\r\n\r\nВ HomeTerry каждое полотенце проходит многоуровневый контроль качества перед отправкой. Мы уверены в том, что продаём.",
+    "image": "blog/ss.webp",
+    "author": "HomeTerry",
+    "is_published": true,
+    "created_at": "2026-04-25T10:12:50.543Z",
+    "updated_at": "2026-04-25T10:21:40.026Z",
+    "published_at": "2026-04-25T10:12:50.543Z"
+  }
+},
+{
+  "model": "main.blogpost",
+  "pk": 2,
+  "fields": {
+    "title": "Уход за махровыми полотенцами: советы экспертов",
+    "slug": "uhod-za-mahrovymi-polotencami",
+    "excerpt": "Правильный уход продлит жизнь полотенца в 2–3 раза. Делимся профессиональными секретами от производителей.",
+    "content": "Даже самое качественное полотенце быстро теряет мягкость при неправильном уходе. Вот что нужно знать.\r\n\r\n**Первая стирка**\r\n\r\nПеред первым использованием обязательно постирайте полотенце — желательно без порошка или с минимальным количеством. Это вымывает остатки производственных масел и активирует петли махры.\r\n\r\n**Температура стирки**\r\n\r\nОптимальная температура — 40°C для обычных полотенец и 60°C для банных. Выше 60°C стирать не рекомендуется: волокна садятся и теряют мягкость.\r\n\r\n**Что нельзя делать**\r\n\r\n- Использовать кондиционер для белья — он покрывает волокна плёнкой и снижает впитываемость\r\n- Добавлять отбеливатель на хлорной основе — разрушает структуру хлопка\r\n- Сушить под прямыми солнечными лучами долгое время — выгорает цвет\r\n\r\n**Лайфхак с уксусом**\r\n\r\nЕсли полотенце потеряло мягкость, добавьте половину стакана белого уксуса во время полоскания. Натуральный кислотный баланс восстанавливает пушистость волокон.\r\n\r\n**Сушка**\r\n\r\nВстряхните полотенце сразу после стирки — это расправит петли. При сушке в машине используйте режим низкой температуры. Полотенца HomeTerry из египетского хлопка переносят машинную сушку без потери формы.",
+    "image": "blog/ee.webp",
+    "author": "HomeTerry",
+    "is_published": true,
+    "created_at": "2026-04-25T10:12:50.544Z",
+    "updated_at": "2026-04-25T10:21:46.881Z",
+    "published_at": "2026-04-25T10:12:50.544Z"
+  }
+},
+{
+  "model": "main.blogpost",
+  "pk": 3,
+  "fields": {
+    "title": "Египетский хлопок: почему он лучший для полотенец",
+    "slug": "egipetskij-hlopok-dlya-polotenc",
+    "excerpt": "Что делает египетский хлопок особенным и почему лучшие отели мира выбирают именно его для своего текстиля.",
+    "content": "Когда говорят «премиальный текстиль», чаще всего подразумевают изделия из египетского хлопка. Почему именно он?\r\n\r\n**Что такое египетский хлопок**\r\n\r\nЕгипетский хлопок (Gossypium barbadense) выращивается в долине Нила — уникальный климат и почва дают волокно длиной до 45 мм. Обычный хлопок — 25–30 мм. Длинное волокно = более прочная, гладкая и мягкая нить.\r\n\r\n**Преимущества**\r\n\r\n**Исключительная мягкость.** С каждой стиркой изделие становится только мягче — волокна «открываются». Обычный хлопок, наоборот, грубеет.\r\n\r\n**Высокая абсорбция.** Египетский хлопок впитывает до 25% влаги относительно собственного веса — быстро сушит кожу без лишних движений.\r\n\r\n**Долговечность.** Длинное волокно практически не образует катышек, сохраняет форму и цвет после сотен стирок.\r\n\r\n**Блеск.** Характерный шёлковый блеск — отличительная черта, по которой легко отличить египетский хлопок от аналогов.\r\n\r\n**Как отличить подделку**\r\n\r\nНа рынке много полотенец с надписью «Egyptian cotton», которые таковыми не являются. Настоящий египетский хлопок тяжелее, имеет лёгкий блеск и не «линяет» после первой стирки.\r\n\r\nВ HomeTerry мы работаем напрямую с проверенными производителями хлопка. Сертификаты качества прилагаются к каждой партии — вы можете запросить их у нашего менеджера.",
+    "image": "blog/66.webp",
+    "author": "HomeTerry",
+    "is_published": true,
+    "created_at": "2026-04-25T10:12:50.544Z",
+    "updated_at": "2026-04-25T10:21:54.021Z",
+    "published_at": "2026-04-25T10:12:50.544Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-12-12T18:28:46.810Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "1",
+    "object_repr": "Цветочные",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-12-12T18:29:02.163Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "2",
+    "object_repr": "Геометрия",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-12-12T18:29:28.022Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "3",
+    "object_repr": "Полоска",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-12-12T18:29:38.075Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "4",
+    "object_repr": "Однотонные",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-12-12T18:29:47.360Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "5",
+    "object_repr": "Премиум",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-12-12T18:30:01.103Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "productcategory"
+    ],
+    "object_id": "6",
+    "object_repr": "Для отелей",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-12-13T05:10:25.854Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Пр-001 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-12-13T05:10:45.312Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "Пр-002 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041f\\u0440-002\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-12-13T05:10:59.388Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "3",
+    "object_repr": "Пр-003 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041f\\u0440-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-12-13T05:11:18.879Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Пр-004 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041f\\u0440-004\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-12-13T05:11:53.575Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Пр-001 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041f\\u0440-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-12-13T05:12:19.672Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "Пр-005 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041f\\u0440-005\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-12-13T05:13:14.166Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Г-006 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-006\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-12-13T05:13:46.750Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "7",
+    "object_repr": "Г-002 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-002\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-12-13T05:14:02.328Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Г-003 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-12-13T05:14:17.560Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "9",
+    "object_repr": "Г-004 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-004\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-12-13T05:14:48.511Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "10",
+    "object_repr": "О-001 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041e-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-12-13T05:15:04.619Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "О-002 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u041e-002\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-12-13T05:16:48.965Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-12-13T05:17:06.839Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Ф-002 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-002\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-12-13T05:17:30.705Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-12-13T05:22:12.834Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-12-13T05:22:27.709Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Ф-002 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-12-13T05:22:27.709Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "О-002 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-12-13T05:22:27.710Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Г-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-12-13T05:22:27.710Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "2",
+    "object_repr": "Пр-002 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-12-13T05:23:01.251Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "11",
+    "object_repr": "О-002 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-12-13T05:23:01.252Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Г-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-12-13T05:23:13.439Z",
+    "user": [
+      "sanjar"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-04-25T08:52:19.161Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"deleted\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-04-25T08:52:38.286Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-04-25T08:52:46.744Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-04-25T08:53:17.952Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"deleted\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-04-25T08:54:01.325Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-04-25T08:54:08.628Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-001\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-04-25T08:55:09.106Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Г-006 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-006\"}}, {\"changed\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0413-006\", \"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-04-25T08:56:04.155Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Ф-002 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-002\"}}, {\"changed\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-002\", \"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-04-25T08:56:35.651Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "14",
+    "object_repr": "Ф-003 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0442\\u0435\\u0440\\u0438\\u0430\\u043b\", \"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-04-25T08:57:31.178Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Ф-002 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-04-25T08:57:31.179Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-04-25T08:57:31.180Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Г-006 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-04-25T08:58:49.338Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "13",
+    "object_repr": "Ф-002 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0442\\u0435\\u0440\\u0438\\u0430\\u043b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-04-25T08:58:49.339Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "12",
+    "object_repr": "Ф-001 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0442\\u0435\\u0440\\u0438\\u0430\\u043b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-04-25T08:58:49.340Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Г-006 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041c\\u0430\\u0442\\u0435\\u0440\\u0438\\u0430\\u043b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-04-25T09:00:23.617Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-04-25T09:01:19.070Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}, {\"added\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-04-25T09:01:32.143Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Ф-003 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"name\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\", \"object\": \"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435 \\u0434\\u043b\\u044f \\u0424-003\", \"fields\": [\"\\u0418\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-04-25T09:01:53.003Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Ф-004 - None - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0442\\u043e\\u0432\\u0430\\u0440\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-04-25T09:02:00.454Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "15",
+    "object_repr": "Ф-004 - 50x90 - None",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0430\\u0437\\u043c\\u0435\\u0440\", \"\\u041c\\u0430\\u0442\\u0435\\u0440\\u0438\\u0430\\u043b\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.889Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "134",
+    "object_repr": "Для отелей Синий 70x140 - 70x140 - Синий",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.890Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "131",
+    "object_repr": "Для отелей Кремовый 70x140 - 70x140 - Кремовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.890Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "130",
+    "object_repr": "Для отелей Антрацит 50x90 - 50x90 - Антрацит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.890Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "129",
+    "object_repr": "Для отелей Антрацит 50x90 - 50x90 - Антрацит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.891Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "125",
+    "object_repr": "Для отелей Синий 30x50 - 30x50 - Синий",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.891Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "123",
+    "object_repr": "Для отелей Серый 100x150 - 100x150 - Серый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.891Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "122",
+    "object_repr": "Для отелей Бежевый 30x50 - 30x50 - Бежевый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.892Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "119",
+    "object_repr": "Для отелей Розовый 100x150 - 100x150 - Розовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.892Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "116",
+    "object_repr": "Для отелей Кремовый 100x150 - 100x150 - Кремовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.892Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "115",
+    "object_repr": "Премиум Розовый 70x140 - 70x140 - Розовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.892Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "113",
+    "object_repr": "Премиум Белый 50x90 - 50x90 - Белый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.893Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "110",
+    "object_repr": "Премиум Розовый 100x150 - 100x150 - Розовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.893Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "109",
+    "object_repr": "Премиум Розовый 50x90 - 50x90 - Розовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.893Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "108",
+    "object_repr": "Премиум Серый 50x90 - 50x90 - Серый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.893Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "107",
+    "object_repr": "Премиум Розовый 30x50 - 30x50 - Розовый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.894Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "105",
+    "object_repr": "Премиум Серый 70x140 - 70x140 - Серый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.894Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "103",
+    "object_repr": "Премиум Бежевый 50x90 - 50x90 - Бежевый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.894Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "101",
+    "object_repr": "Премиум Мятный 100x150 - 100x150 - Мятный",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.894Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "95",
+    "object_repr": "Однотонные Антрацит 30x50 - 30x50 - Антрацит",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.895Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "93",
+    "object_repr": "Однотонные Белый 70x140 - 70x140 - Белый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-04-25T09:58:37.895Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "92",
+    "object_repr": "Однотонные Белый 50x90 - 50x90 - Белый",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-04-25T09:58:46.955Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "product"
+    ],
+    "object_id": "42",
+    "object_repr": "Геометрия Синий 100x150 - 100x150 - Синий",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u043a\\u043e\\u043c\\u0435\\u043d\\u0434\\u0443\\u0435\\u043c\\u044b\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-04-25T10:21:40.026Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "blogpost"
+    ],
+    "object_id": "1",
+    "object_repr": "Как выбрать идеальное полотенце для дома",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u0435\", \"\\u0413\\u043b\\u0430\\u0432\\u043d\\u043e\\u0435 \\u0438\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-04-25T10:21:46.883Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "blogpost"
+    ],
+    "object_id": "2",
+    "object_repr": "Уход за махровыми полотенцами: советы экспертов",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u0435\", \"\\u0413\\u043b\\u0430\\u0432\\u043d\\u043e\\u0435 \\u0438\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-04-25T10:21:54.022Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "main",
+      "blogpost"
+    ],
+    "object_id": "3",
+    "object_repr": "Египетский хлопок: почему он лучший для полотенец",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u0435\", \"\\u0413\\u043b\\u0430\\u0432\\u043d\\u043e\\u0435 \\u0438\\u0437\\u043e\\u0431\\u0440\\u0430\\u0436\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+}
+]

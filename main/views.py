@@ -78,7 +78,7 @@ def blog_list(request):
     posts = BlogPost.objects.filter(is_published=True)
 
     # Поиск
-    search_query = request.GET.get('q')
+    search_query = request.GET.get('q', '')
     if search_query:
         posts = posts.filter(
             Q(title__icontains=search_query) |
