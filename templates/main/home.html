@@ -11,7 +11,7 @@
 
 <!-- Hero Section -->
 <section class="hero-section">
-    <video class="hero-bg-video" autoplay muted loop playsinline>
+    <video class="hero-bg-video" id="heroBgVideo" autoplay muted loop playsinline preload="auto">
         <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
     </video>
     <div class="hero-bg-overlay"></div>
@@ -50,10 +50,10 @@
                         <i class="fas fa-sparkles me-2"></i>
                         {% trans "Исследовать коллекцию" %}
                     </a>
-                    <a href="{% url 'main:contact' %}" class="btn btn-video">
+                    <button type="button" class="btn btn-video" id="openFloatVideo">
                         <i class="fas fa-play-circle me-2"></i>
                         {% trans "Смотреть видео" %}
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -252,5 +252,122 @@
         </div>
     </div>
 </section>
+
+<!-- Floating Video Player -->
+<div id="floatVideoPlayer" style="
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 420px;
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+    z-index: 9999;
+    user-select: none;
+">
+    <div id="floatVideoDragHandle" style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        background: rgba(255,255,255,0.08);
+        cursor: grab;
+    ">
+        <span style="color:#fff; font-size:0.8rem; font-weight:600; letter-spacing:0.05em;">
+            <i class="fas fa-grip-horizontal me-2" style="color:rgba(255,255,255,0.4);"></i>Home Terry Textile
+        </span>
+        <button id="closeFloatVideo" style="
+            background: none; border: none; color: #fff;
+            font-size: 1.1rem; cursor: pointer; opacity: 0.7; line-height:1;
+        ">&times;</button>
+    </div>
+    <video id="floatVideo" controls playsinline style="width:100%; display:block; max-height:260px;">
+        <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
+    </video>
+</div>
+
+<script>
+(function () {
+    // Safari autoplay fix for background video
+    var bgVideo = document.getElementById('heroBgVideo');
+    if (bgVideo) {
+        bgVideo.play().catch(function () {
+            document.addEventListener('touchstart', function () { bgVideo.play(); }, { once: true });
+            document.addEventListener('click', function () { bgVideo.play(); }, { once: true });
+        });
+    }
+
+    // Floating video player
+    var player = document.getElementById('floatVideoPlayer');
+    var floatVideo = document.getElementById('floatVideo');
+    var openBtn = document.getElementById('openFloatVideo');
+    var closeBtn = document.getElementById('closeFloatVideo');
+    var handle = document.getElementById('floatVideoDragHandle');
+
+    if (openBtn) {
+        openBtn.addEventListener('click', function () {
+            player.style.display = 'block';
+            floatVideo.play();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            player.style.display = 'none';
+            floatVideo.pause();
+            floatVideo.currentTime = 0;
+        });
+    }
+
+    // Drag logic
+    var dragging = false, startX, startY, startLeft, startTop;
+
+    handle.addEventListener('mousedown', function (e) {
+        dragging = true;
+        handle.style.cursor = 'grabbing';
+        var rect = player.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        startLeft = rect.left;
+        startTop = rect.top;
+        player.style.right = 'auto';
+        player.style.bottom = 'auto';
+        player.style.left = rect.left + 'px';
+        player.style.top = rect.top + 'px';
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - startX;
+        var dy = e.clientY - startY;
+        player.style.left = (startLeft + dx) + 'px';
+        player.style.top  = (startTop  + dy) + 'px';
+    });
+
+    document.addEventListener('mouseup', function () {
+        dragging = false;
+        handle.style.cursor = 'grab';
+    });
+
+    // Touch drag support
+    handle.addEventListener('touchstart', function (e) {
+        var t = e.touches[0];
+        var rect = player.getBoundingClientRect();
+        startX = t.clientX; startY = t.clientY;
+        startLeft = rect.left; startTop = rect.top;
+        player.style.right = 'auto'; player.style.bottom = 'auto';
+        player.style.left = rect.left + 'px'; player.style.top = rect.top + 'px';
+    }, { passive: true });
+
+    handle.addEventListener('touchmove', function (e) {
+        var t = e.touches[0];
+        player.style.left = (startLeft + t.clientX - startX) + 'px';
+        player.style.top  = (startTop  + t.clientY - startY) + 'px';
+    }, { passive: true });
+})();
+</script>
 
 {% endblock %}
