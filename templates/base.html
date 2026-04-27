@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}HomeTerry - Качественные полотенца{% endblock %}</title>
+    <title>{% block title %}Home Terry Textile - Качественные полотенца{% endblock %}</title>
 
     {% block meta_description %}
-    <meta name="description" content="HomeTerry - производство и экспорт качественных полотенец из натуральных материалов. Хлопок, бамбук, микрофибра.">
+    <meta name="description" content="Home Terry Textile - производство и экспорт качественных полотенец из натуральных материалов. Хлопок, бамбук, микрофибра.">
     {% endblock %}
 
     <!-- Yandex Webmaster verification -->
@@ -17,22 +17,22 @@
 
     <!-- Keywords -->
     <meta name="keywords" content="{% block meta_keywords %}полотенца, хлопковые полотенца, махровые полотенца, банные полотенца, пляжные полотенца, купить полотенца, полотенца оптом, производство полотенец, Узбекистан{% endblock %}">
-    <meta name="author" content="HomeTerry">
+    <meta name="author" content="Home Terry Textile">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:title" content="{% block og_title %}HomeTerry - Качественные полотенца из натуральных материалов{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Home Terry Textile - Качественные полотенца из натуральных материалов{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Производство и экспорт качественных полотенец из хлопка, бамбука и микрофибры. Оптовые поставки по всему миру.{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}{% endblock %}">
     <meta property="og:locale" content="{{ LANGUAGE_CODE }}_{{ LANGUAGE_CODE|upper }}">
-    <meta property="og:site_name" content="HomeTerry">
+    <meta property="og:site_name" content="Home Terry Textile">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ request.build_absolute_uri }}">
-    <meta name="twitter:title" content="{% block twitter_title %}HomeTerry - Качественные полотенца{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Home Terry Textile - Качественные полотенца{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Производство и экспорт качественных полотенец из натуральных материалов{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}{% endblock %}">
 
@@ -40,7 +40,9 @@
     <link rel="canonical" href="{% block canonical %}{{ request.build_absolute_uri }}{% endblock %}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/favicon-192.png' %}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'images/favicon-512.png' %}">
 
     <!-- Google Fonts - Оптимизировано: только 2 шрифта -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,10 +71,10 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "HomeTerry",
+      "name": "Home Terry Textile",
       "description": "Производство и экспорт качественных полотенец из натуральных материалов",
       "url": "{{ request.scheme }}://{{ request.get_host }}",
-      "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}",
+      "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo2.png' %}",
       "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}",
       "telephone": "+998937230505",
       "email": "info@hometerry.uz",
@@ -153,7 +155,10 @@
         <div class="loader-content">
             <div class="loader-logo-wrap">
                 <div class="loader-glow-orb"></div>
-                <div class="loading-logo">HomeTerry</div>
+                <div class="loading-logo">
+                    <span class="loader-brand">Home Terry</span>
+                    <span class="loader-subtitle">Textile</span>
+                </div>
             </div>
             <div class="loader-dots">
                 <span></span><span></span><span></span>
@@ -170,7 +175,7 @@
         <div class="container">
             <!-- Logo with enhanced styling -->
             <a class="navbar-brand" href="{% url 'main:home' %}">
-                <img src="{% static 'images/logo.png' %}" alt="HomeTerry" class="logo-img">
+                <img src="{% static 'images/logo2.png' %}" alt="Home Terry Textile" class="logo-img">
             </a>
 
             <!-- Mobile Toggle with custom icon -->
@@ -313,7 +318,7 @@
                 <!-- About Column -->
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-logo mb-4">
-                        <i class="fas fa-spa me-2"></i>HomeTerry
+                        <i class="fas fa-spa me-2"></i>Home Terry Textile
                     </div>
                     <p class="footer-text">
                         {% trans "Производство и экспорт качественных полотенец из натуральных материалов. Мы заботимся о вашем комфорте и качестве продукции." %}
@@ -390,7 +395,7 @@
 
             <div class="footer-bottom text-center">
                 <p class="mb-3">
-                    &copy; {{ current_year|default:"2024" }} HomeTerry. {% trans "Все права защищены." %}
+                    &copy; {{ current_year|default:"2024" }} Home Terry Textile. {% trans "Все права защищены." %}
                 </p>
                 <ul class="list-inline mb-0">
                     <li class="list-inline-item">
