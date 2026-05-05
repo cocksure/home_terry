@@ -61,21 +61,25 @@
                         <div class="d-flex gap-2">
                             <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
                                target="_blank"
+                               rel="noopener noreferrer"
                                class="btn btn-outline-primary">
                                 <i class="fab fa-facebook-f me-2"></i>Facebook
                             </a>
                             <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}"
                                target="_blank"
+                               rel="noopener noreferrer"
                                class="btn btn-outline-primary">
                                 <i class="fab fa-twitter me-2"></i>Twitter
                             </a>
                             <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text={{ post.title }}"
                                target="_blank"
+                               rel="noopener noreferrer"
                                class="btn btn-outline-primary">
                                 <i class="fab fa-telegram-plane me-2"></i>Telegram
                             </a>
                             <a href="https://wa.me/?text={{ post.title }}%20{{ request.build_absolute_uri }}"
                                target="_blank"
+                               rel="noopener noreferrer"
                                class="btn btn-outline-primary">
                                 <i class="fab fa-whatsapp me-2"></i>WhatsApp
                             </a>
