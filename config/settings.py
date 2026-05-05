@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import environ
 
 # Build paths inside the project
@@ -19,7 +20,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -61,13 +61,13 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
+                'django.template.context_processors.i18n',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 
 # DATABASES = {
 #     'default': {
@@ -102,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 SITE_ID = 1
 
