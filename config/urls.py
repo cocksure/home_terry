@@ -23,6 +23,12 @@ sitemaps = {
     'blog': BlogPostSitemap,
 }
 
+from django.http import HttpResponse
+
+def _sw_view(request):
+    # Minimal no-op service worker — stops browser 404 from PWA manifest
+    return HttpResponse('// no-op service worker', content_type='application/javascript')
+
 urlpatterns = [
     # Отключаем CSRF для языкового переключателя (стандартная практика для i18n)
     # Это безопасно, так как set_language - встроенная Django view без побочных эффектов
@@ -33,6 +39,9 @@ urlpatterns = [
 
     # robots.txt
     path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain'), name='robots'),
+
+    # Service worker stub — prevents 404 caused by PWA manifest display:standalone
+    path('sw.js', _sw_view, name='service_worker'),
 ]
 
 # API endpoints (без языкового префикса)

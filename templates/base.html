@@ -79,14 +79,18 @@
 	      crossorigin="anonymous">
 
 	<!-- Custom CSS -->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
+-	<link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">
 
 	{% block extra_css %}{% endblock %}
 
+	<!-- Lenis smooth scroll -->
+	<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"
+	        crossorigin="anonymous"></script>
+
 	<!-- GSAP for product card reveal animations -->
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+	        crossorigin="anonymous"
+	        referrerpolicy="no-referrer"></script>
 
 	<!-- Schema.org structured data для поисковых систем -->
 	<script type="application/ld+json">
@@ -454,7 +458,7 @@
         crossorigin="anonymous"></script>
 
 <!-- Custom JS - defer для лучшей производительности -->
-<script defer src="{% static 'js/main.js' %}"></script>
+<script defer src="{% static 'js/main.js' %}?v=2"></script>
 
 <!-- Language Switcher Script -->
 <script>

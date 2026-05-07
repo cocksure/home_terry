@@ -4,7 +4,7 @@
 {% block title %}Home Terry Textile - {% trans "Качественные полотенца из натуральных материалов" %}{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/home.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}?v=3">
 {% endblock %}
 
 {% block content %}
@@ -99,34 +99,32 @@
     </svg>
 </div>
 
-<!-- Categories Section -->
-<section class="py-5">
+<!-- Categories Section — full-width marquee -->
+<section class="categories-section py-5">
     <div class="container">
         <div class="section-tag"><span>{% trans "Ассортимент" %}</span></div>
         <h2 class="section-title">{% trans "Наши категории" %}</h2>
         <div class="section-divider"></div>
         <p class="section-subtitle">{% trans "Широкий ассортимент полотенец для любых нужд" %}</p>
+    </div>
 
-        <div class="row g-3">
+    {% if categories %}
+    <div class="category-marquee-outer">
+        <div class="category-marquee-track" id="categoryMarqueeTrack">
             {% for category in categories %}
-            <div class="col-lg-4 col-sm-6">
-                <a href="{% url 'main:category_detail' category.slug %}" class="text-decoration-none">
-                    <div class="category-card">
-                        {% if category.image %}<img src="{{ category.image.url }}" alt="{{ category.name }}">
-                        {% else %}<div style="height:300px;background:var(--turquoise-gradient);"></div>
-                        {% endif %}
-                        <div class="category-card-content">
-                            <h3 class="category-card-title">{{ category.name }}</h3>
-                            <p class="mb-0"><i class="fas fa-arrow-right me-2"></i>{% trans "Посмотреть товары" %}</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            {% empty %}
-            <div class="col-12 text-center"><p class="text-muted">{% trans "Категории скоро появятся" %}</p></div>
+            <a href="{% url 'main:category_detail' category.slug %}" class="category-pill">
+                <div class="category-pill-img">
+                    {% if category.image %}<img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    {% else %}<div class="category-pill-placeholder"></div>{% endif %}
+                </div>
+                <span class="category-pill-name">{{ category.name }}</span>
+            </a>
             {% endfor %}
         </div>
     </div>
+    {% else %}
+    <div class="container"><p class="text-muted text-center py-3">{% trans "Категории скоро появятся" %}</p></div>
+    {% endif %}
 </section>
 
 <!-- Featured Products Section -->
@@ -167,6 +165,7 @@
         {% endif %}
     </div>
 </section>
+
 
 <!-- Why Choose Us Section -->
 <section class="py-5 my-2">
@@ -367,6 +366,158 @@
         player.style.left = (startLeft + t.clientX - startX) + 'px';
         player.style.top  = (startTop  + t.clientY - startY) + 'px';
     }, { passive: true });
+})();
+</script>
+
+<script>
+// ── Category Marquee ─────────────────────────────────────────────────────────
+(function () {
+    var outer = document.querySelector('.category-marquee-outer');
+    var track = document.getElementById('categoryMarqueeTrack');
+    if (!outer || !track) return;
+
+    var SPEED       = 55;   // px/s
+    var STAGGER_MS  = 120;  // ms between each pill
+    var ENTER_DELAY = 150;
+
+    var x = 0, velocity = 0;
+    var isDragging = false, isHovered = false, autoScroll = false;
+    var dragStartX = 0, dragStartSX = 0;
+    var touchStartX = 0, touchStartY = 0, lastTouchX = 0;
+    var lastTs = null, kicked = false;
+    var oneSetWidth = 0; // width of the original item set — the loop period
+
+    // Original pills only (no duplicates in template anymore)
+    var originals = Array.from(track.querySelectorAll('.category-pill'));
+
+    // Hide originals initially for staggered entrance
+    originals.forEach(function (p) {
+        p.style.opacity    = '0';
+        p.style.transform  = 'translateY(28px) scale(0.85)';
+        p.style.transition = 'opacity 0.48s cubic-bezier(0.34,1.56,0.64,1), transform 0.48s cubic-bezier(0.34,1.56,0.64,1)';
+    });
+
+    function buildClones() {
+        // Measure original set BEFORE cloning
+        oneSetWidth = track.scrollWidth;
+
+        // Clone until track fills at least 3× the viewport — no gaps possible
+        var target = Math.max(window.innerWidth * 3, oneSetWidth * 2 + 1);
+        while (track.scrollWidth < target) {
+            originals.forEach(function (pill) {
+                var c = pill.cloneNode(true);
+                c.setAttribute('aria-hidden', 'true');
+                c.setAttribute('tabindex', '-1');
+                c.style.opacity    = '1';
+                c.style.transform  = '';
+                c.style.transition = 'none';
+                track.appendChild(c);
+            });
+        }
+    }
+
+    function wrap(val) {
+        if (oneSetWidth <= 0) return val;
+        val = val % oneSetWidth;
+        if (val > 0) val -= oneSetWidth;
+        return val;
+    }
+
+    function tick(ts) {
+        var dt = lastTs !== null ? Math.min(ts - lastTs, 50) : 16;
+        lastTs = ts;
+        if (!isDragging) {
+            if (autoScroll && !isHovered) x -= (SPEED * dt) / 1000;
+            if (Math.abs(velocity) > 0.05) { x += velocity; velocity *= 0.92; }
+        }
+        x = wrap(x);
+        track.style.transform = 'translateX(' + x + 'px)';
+        requestAnimationFrame(tick);
+    }
+
+    function kick() {
+        if (kicked) return;
+        kicked = true;
+
+        buildClones();
+
+        // Stagger reveal originals one by one
+        originals.forEach(function (pill, i) {
+            setTimeout(function () {
+                pill.style.opacity   = '1';
+                pill.style.transform = '';
+            }, ENTER_DELAY + i * STAGGER_MS);
+        });
+
+        // Start scrolling after all revealed + settle
+        setTimeout(function () { autoScroll = true; },
+            ENTER_DELAY + originals.length * STAGGER_MS + 480);
+
+        requestAnimationFrame(tick);
+    }
+
+    // Wait for images before kick (so scrollWidth is correct)
+    var imgs = Array.from(track.querySelectorAll('img'));
+    var done = 0;
+    function imgDone() { if (++done >= imgs.length) kick(); }
+    if (!imgs.length) {
+        kick();
+    } else {
+        imgs.forEach(function (img) {
+            if (img.complete && img.naturalWidth > 0) imgDone();
+            else { img.addEventListener('load', imgDone); img.addEventListener('error', imgDone); }
+        });
+        setTimeout(kick, 1200); // fallback
+    }
+
+    // ── Mouse drag ────────────────────────────────────────────────────────────
+    outer.addEventListener('mousedown', function (e) {
+        if (e.button !== 0) return;
+        isDragging = true; velocity = 0;
+        dragStartX = e.clientX; dragStartSX = x;
+        outer.classList.add('is-dragging');
+        track.querySelectorAll('.category-pill').forEach(function (a) { a._dragged = false; });
+        e.preventDefault();
+    });
+    document.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        var dx = e.clientX - dragStartX;
+        x = wrap(dragStartSX + dx);
+        velocity = e.movementX * 0.6;
+        if (Math.abs(dx) > 4) track.querySelectorAll('.category-pill').forEach(function (a) { a._dragged = true; });
+    });
+    document.addEventListener('mouseup', function () {
+        if (!isDragging) return;
+        isDragging = false; outer.classList.remove('is-dragging');
+    });
+    outer.addEventListener('click', function (e) {
+        var pill = e.target.closest('.category-pill');
+        if (pill && pill._dragged) e.preventDefault();
+    }, true);
+    outer.addEventListener('mouseenter', function () { isHovered = true; });
+    outer.addEventListener('mouseleave', function () {
+        isHovered = false; isDragging = false; outer.classList.remove('is-dragging');
+    });
+
+    // ── Touch drag ────────────────────────────────────────────────────────────
+    outer.addEventListener('touchstart', function (e) {
+        var t = e.touches[0];
+        isDragging = true; velocity = 0;
+        touchStartX = t.clientX; touchStartY = t.clientY;
+        lastTouchX = t.clientX; dragStartSX = x;
+    }, { passive: true });
+    outer.addEventListener('touchmove', function (e) {
+        if (!isDragging) return;
+        var t = e.touches[0];
+        var dx = t.clientX - touchStartX, dy = t.clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy)) {
+            e.preventDefault();
+            x = wrap(dragStartSX + dx);
+            velocity = (t.clientX - lastTouchX) * 0.5;
+        }
+        lastTouchX = t.clientX;
+    }, { passive: false });
+    outer.addEventListener('touchend', function () { isDragging = false; });
 })();
 </script>
 

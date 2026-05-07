@@ -3,6 +3,10 @@
 
 {% block title %}{% trans "Каталог" %} - Home Terry Textile{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/catalog.css' %}?v=4">
+{% endblock %}
+
 {% block content %}
 
 <!-- Compact Page Header -->
@@ -21,49 +25,40 @@
     <div class="container">
         <div class="section-tag mb-3"><span>{% trans "Все разделы" %}</span></div>
 
-        <!-- Categories Grid -->
-        <div class="row g-3">
+        <div class="catalog-pill-grid" id="catalogPillGrid">
             {% for category in categories %}
-            <div class="col-lg-4 col-sm-6">
-                <a href="{% url 'main:category_detail' category.slug %}" class="text-decoration-none">
-                    <div class="category-card">
-                        {% if category.image %}
-                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
-                        {% else %}
-                        <div style="height: 300px; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-image fa-5x" style="color: rgba(255, 255, 255, 0.3);"></i>
-                        </div>
-                        {% endif %}
-                        <div class="category-card-content">
-                            <h3 class="category-card-title">
-                                <i class="fas fa-tag me-2"></i>{{ category.name }}
-                            </h3>
-                            {% if category.description %}
-                            <p class="mb-2" style="font-size: 0.95rem; opacity: 0.9;">
-                                {{ category.description|truncatewords:12 }}
-                            </p>
-                            {% endif %}
-                            <p class="mb-0 fw-bold text-light">
-                                <i class="fas fa-arrow-right me-2"></i>
-                                {% trans "Посмотреть товары" %}
-                            </p>
-                        </div>
+            <a href="{% url 'main:category_detail' category.slug %}" class="catalog-pill">
+                <div class="catalog-pill-img">
+                    {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    {% else %}
+                    <div class="catalog-pill-placeholder">
+                        <i class="fas fa-spa"></i>
                     </div>
-                </a>
-            </div>
-            {% empty %}
-            <div class="col-12">
-                <div class="text-center py-5">
-                    <i class="fas fa-inbox fa-4x text-muted mb-3"></i>
-                    <h3 class="text-muted">{% trans "Категории скоро появятся" %}</h3>
-                    <p class="text-muted">
-                        {% trans "Мы работаем над наполнением каталога" %}
-                    </p>
+                    {% endif %}
                 </div>
+                <span class="catalog-pill-name">{{ category.name }}</span>
+                {% if category.description %}
+                <span class="catalog-pill-desc">{{ category.description|truncatewords:5 }}</span>
+                {% endif %}
+            </a>
+            {% empty %}
+            <div class="text-center py-5 w-100">
+                <i class="fas fa-inbox fa-4x text-muted mb-3"></i>
+                <h3 class="text-muted">{% trans "Категории скоро появятся" %}</h3>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
+
+<script>
+(function () {
+    var pills = document.querySelectorAll('.catalog-pill');
+    pills.forEach(function (pill, i) {
+        pill.style.animationDelay = (i * 0.09) + 's';
+    });
+})();
+</script>
 
 {% endblock %}
