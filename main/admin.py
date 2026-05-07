@@ -1,7 +1,12 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group, User
 from django.utils.html import format_html
-
+from django.contrib.sites.models import Site
 from .models import ProductCategory, Product, ProductImage, BlogPost
+
+admin.site.unregister(Group)
+admin.site.unregister(User)
+admin.site.unregister(Site)
 
 
 @admin.register(ProductCategory)
