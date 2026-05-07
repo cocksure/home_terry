@@ -4,7 +4,7 @@
 {% block title %}Home Terry Textile - {% trans "Качественные полотенца из натуральных материалов" %}{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/home.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}?v=4">
 {% endblock %}
 
 {% block content %}
@@ -408,10 +408,14 @@
                 var c = pill.cloneNode(true);
                 c.setAttribute('aria-hidden', 'true');
                 c.setAttribute('tabindex', '-1');
+                c.style.transition = 'none';
                 c.style.opacity    = '1';
                 c.style.transform  = '';
-                c.style.transition = 'none';
                 track.appendChild(c);
+                // Remove inline transition after 2 frames so CSS hover transition kicks in
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { c.style.transition = ''; });
+                });
             });
         }
     }
@@ -446,6 +450,8 @@
             setTimeout(function () {
                 pill.style.opacity   = '1';
                 pill.style.transform = '';
+                // Clear inline transition after entrance animation so CSS hover transition works
+                setTimeout(function () { pill.style.transition = ''; }, 520);
             }, ENTER_DELAY + i * STAGGER_MS);
         });
 
