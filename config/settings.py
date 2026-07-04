@@ -69,23 +69,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST', default='localhost'),
-        'PORT': env('DB_PORT', default='5432'),
+# Если в .env задан DB_NAME — PostgreSQL (сервер), иначе SQLite (локальная разработка)
+if env('DB_NAME', default=''):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USER'),
+            'PASSWORD': env('DB_PASSWORD'),
+            'HOST': env('DB_HOST', default='localhost'),
+            'PORT': env('DB_PORT', default='5432'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -137,6 +139,14 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# In production, append content hash to filenames → automatic cache busting
+# (STATICFILES_STORAGE удалена в Django 5.1+, работает только через STORAGES)
+if not DEBUG:
+    STORAGES = {
+        'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+        'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'},
+    }
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -167,6 +177,10 @@ SESSION_COOKIE_HTTPONLY = True
 
 # HTTPS настройки (раскомментировать для продакшена с HTTPS)
 if not DEBUG:
+    # Django за nginx: доверять заголовку X-Forwarded-Proto от прокси
+    # (в nginx должно быть: proxy_set_header X-Forwarded-Proto $scheme;)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     # Перенаправление HTTP на HTTPS
     SECURE_SSL_REDIRECT = True
 
@@ -181,5 +195,4 @@ if not DEBUG:
 
     # Дополнительные headers безопасности
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = 'DENY'  # Защита от clickjacking
