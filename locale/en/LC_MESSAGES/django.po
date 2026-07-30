@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-17 12:18+0500\n"
+"POT-Creation-Date: 2026-07-30 16:40+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: main/models.py:44
 msgid "Название категории"
 msgstr "Category Name"
 
-#: main/models.py:45 main/models.py:91 main/models.py:170
+#: main/models.py:45 main/models.py:90 main/models.py:169
 msgid "URL"
 msgstr "URL"
 
-#: main/models.py:46 main/models.py:92 templates/main/product_detail.html:109
+#: main/models.py:46 main/models.py:91 templates/main/product_detail.html:109
 msgid "Описание"
 msgstr "Description"
 
-#: main/models.py:48 main/models.py:140
+#: main/models.py:48 main/models.py:139
 msgid "Изображение"
 msgstr "Image"
 
@@ -37,11 +38,11 @@ msgstr "Image"
 msgid "Активна"
 msgstr "Active"
 
-#: main/models.py:55 main/models.py:100 main/models.py:182
+#: main/models.py:55 main/models.py:99 main/models.py:181
 msgid "Дата создания"
 msgstr "Created Date"
 
-#: main/models.py:56 main/models.py:101 main/models.py:183
+#: main/models.py:56 main/models.py:100 main/models.py:182
 msgid "Дата обновления"
 msgstr "Updated Date"
 
@@ -57,120 +58,116 @@ msgstr "Product Categories"
 msgid "Хлопок"
 msgstr "Cotton"
 
-#: main/models.py:78 templates/base.html:170
-#: templates/main/category_products.html:48
+#: main/models.py:78 templates/base.html:394
+#: templates/main/category_products.html:47
 msgid "Микрофибра"
 msgstr "Microfiber"
 
-#: main/models.py:79 templates/main/category_products.html:47
-msgid "Бамбук"
-msgstr "Bamboo"
-
-#: main/models.py:80
+#: main/models.py:79
 msgid "Лен"
 msgstr "Linen"
 
-#: main/models.py:81
+#: main/models.py:80
 msgid "Смешанный"
 msgstr "Mixed"
 
-#: main/models.py:88
+#: main/models.py:87
 msgid "Категория"
 msgstr "Category"
 
-#: main/models.py:90
+#: main/models.py:89
 msgid "Название товара"
 msgstr "Product Name"
 
-#: main/models.py:93 templates/main/category_products.html:42
+#: main/models.py:92 templates/main/category_products.html:42
 msgid "Материал"
 msgstr "Material"
 
-#: main/models.py:94
+#: main/models.py:93
 msgid "Размер"
 msgstr "Size"
 
-#: main/models.py:94
+#: main/models.py:93
 msgid "Например: 50x90 см"
 msgstr "Example: 50x90 cm"
 
-#: main/models.py:95 templates/main/category_products.html:58
+#: main/models.py:94 templates/main/category_products.html:57
 msgid "Цвет"
 msgstr "Color"
 
-#: main/models.py:96
+#: main/models.py:95
 msgid "Цена"
 msgstr "Price"
 
-#: main/models.py:97
+#: main/models.py:96
 msgid "Количество на складе"
 msgstr "Stock Quantity"
 
-#: main/models.py:98
+#: main/models.py:97
 msgid "Активен"
 msgstr "Active"
 
-#: main/models.py:99
+#: main/models.py:98
 msgid "Рекомендуемый"
 msgstr "Recommended"
 
-#: main/models.py:104 main/models.py:137
+#: main/models.py:103 main/models.py:136
 msgid "Товар"
 msgstr "Product"
 
-#: main/models.py:105
+#: main/models.py:104
 msgid "Товары"
 msgstr "Products"
 
-#: main/models.py:144 main/models.py:174
+#: main/models.py:143 main/models.py:173
 msgid "Главное изображение"
 msgstr "Main Image"
 
-#: main/models.py:145
+#: main/models.py:144
 msgid "Порядок"
 msgstr "Order"
 
-#: main/models.py:146
+#: main/models.py:145
 msgid "Дата загрузки"
 msgstr "Upload Date"
 
-#: main/models.py:149
+#: main/models.py:148
 msgid "Изображение товара"
 msgstr "Product Image"
 
-#: main/models.py:150
+#: main/models.py:149
 msgid "Изображения товаров"
 msgstr "Product Images"
 
-#: main/models.py:169
+#: main/models.py:168
 msgid "Заголовок"
 msgstr "Title"
 
-#: main/models.py:171
+#: main/models.py:170
 msgid "Краткое описание"
 msgstr "Short Description"
 
-#: main/models.py:172
+#: main/models.py:171
 msgid "Содержание"
 msgstr "Content"
 
-#: main/models.py:180
+#: main/models.py:179
 msgid "Автор"
 msgstr "Author"
 
-#: main/models.py:181
+#: main/models.py:180
 msgid "Опубликовано"
 msgstr "Published"
 
-#: main/models.py:184
+#: main/models.py:183
 msgid "Дата публикации"
 msgstr "Publication Date"
 
-#: main/models.py:187
+#: main/models.py:186
 msgid "Статья блога"
 msgstr "Blog Article"
 
-#: main/models.py:188
+#: main/models.py:187
 msgid "Статьи блога"
 msgstr "Blog Articles"
 
@@ -228,7 +225,9 @@ msgstr "Error 500"
 msgid ""
 "Извините, произошла техническая ошибка на сервере. Наша команда уже "
 "уведомлена и работает над её устранением."
-msgstr "Sorry, a technical error occurred on the server. Our team has been notified and is working on it."
+msgstr ""
+"Sorry, a technical error occurred on the server. Our team has been notified "
+"and is working on it."
 
 #: templates/500.html:199
 msgid "Что делать?"
@@ -258,87 +257,118 @@ msgstr "Refresh"
 msgid "Код ошибки: 500 | Внутренняя ошибка сервера"
 msgstr "Error Code: 500 | Internal Server Error"
 
-#: templates/base.html:69 templates/base.html:156
+#: templates/base.html:197
+#, fuzzy
+#| msgid "Количество на складе"
+msgid "Качество в каждом волокне"
+msgstr "Stock Quantity"
+
+#: templates/base.html:224 templates/base.html:381
 #: templates/main/blog_detail.html:13 templates/main/category_products.html:13
 #: templates/main/product_detail.html:17
 msgid "Главная"
 msgstr "Home"
 
-#: templates/base.html:76 templates/base.html:157 templates/main/catalog.html:4
-#: templates/main/category_products.html:14
+#: templates/base.html:231 templates/base.html:382
+#: templates/main/catalog.html:4 templates/main/category_products.html:14
 #: templates/main/product_detail.html:18
 msgid "Каталог"
 msgstr "Catalog"
 
-#: templates/base.html:83 templates/base.html:158 templates/main/about.html:4
+#: templates/base.html:238 templates/base.html:383 templates/main/about.html:4
 msgid "О нас"
 msgstr "About Us"
 
-#: templates/base.html:90 templates/base.html:159
+#: templates/base.html:245 templates/base.html:384
 #: templates/main/blog_detail.html:14 templates/main/blog_list.html:4
+#: templates/main/home.html:214
 msgid "Блог"
 msgstr "Blog"
 
-#: templates/base.html:97 templates/base.html:160 templates/base.html:179
+#: templates/base.html:252 templates/base.html:385 templates/base.html:403
 #: templates/main/contact.html:4
 msgid "Контакты"
 msgstr "Contact"
 
-#: templates/base.html:134
+#: templates/base.html:267 templates/base.html:270
+msgid "Масштаб текста"
+msgstr ""
+
+#: templates/base.html:275
+#, fuzzy
+#| msgid "Компания"
+msgid "Компактный"
+msgstr "Company"
+
+#: templates/base.html:282
+msgid "Нормальный"
+msgstr ""
+
+#: templates/base.html:289
+msgid "Крупный"
+msgstr ""
+
+#: templates/base.html:300
+msgid "Тёмная тема"
+msgstr ""
+
+#: templates/base.html:301
+msgid "Светлая тема"
+msgstr ""
+
+#: templates/base.html:357
 msgid ""
 "Производство и экспорт качественных полотенец из натуральных материалов. Мы "
 "заботимся о вашем комфорте и качестве продукции."
-msgstr "Production and export of high-quality towels made from natural materials. We care about your comfort and product quality."
+msgstr ""
+"Production and export of high-quality towels made from natural materials. We "
+"care about your comfort and product quality."
 
-#: templates/base.html:154
+#: templates/base.html:379
 msgid "Навигация"
 msgstr "Navigation"
 
-#: templates/base.html:166
+#: templates/base.html:391
 msgid "Продукция"
 msgstr "Products"
 
-#: templates/base.html:168
+#: templates/base.html:393
 msgid "Хлопковые полотенца"
 msgstr "Cotton Towels"
 
-#: templates/base.html:169
-msgid "Бамбуковые полотенца"
-msgstr "Bamboo Towels"
-
-#: templates/base.html:171
+#: templates/base.html:395
 msgid "Льняные полотенца"
 msgstr "Linen Towels"
 
-#: templates/base.html:172
+#: templates/base.html:396
 msgid "Банные полотенца"
 msgstr "Bath Towels"
 
-#: templates/base.html:173
+#: templates/base.html:397
 msgid "Пляжные полотенца"
 msgstr "Beach Towels"
 
-#: templates/base.html:183
+#: templates/base.html:407
 msgid "Узбекистан, Ташкент"
 msgstr "Uzbekistan, Tashkent"
 
-#: templates/base.html:195
+#: templates/base.html:419
 msgid "Пн-Пт: 9:00 - 18:00"
 msgstr "Mon-Fri: 9:00 AM - 6:00 PM"
 
-#: templates/base.html:199
+#: templates/base.html:423
 msgid "Доставка по всему миру"
 msgstr "Worldwide Shipping"
 
-#: templates/base.html:208
+#: templates/base.html:432
 msgid "Все права защищены."
 msgstr "All rights reserved."
 
-#: templates/base.html:213
+#: templates/base.html:437
 msgid "Политика конфиденциальности"
 msgstr "Privacy Policy"
 
-#: templates/base.html:219
+#: templates/base.html:443
 msgid "Условия использования"
 msgstr "Terms of Use"
 
@@ -436,9 +466,11 @@ msgstr "Premium Quality"
 
 #: templates/main/about.html:152
 msgid ""
-"Строгий контроль на каждом этапе производства. Используем только египетский "
+"Строгий контроль на каждом этапе производства. Используем только узбекский "
 "хлопок высшего сорта."
-msgstr "Strict quality control at every production stage. Only top-grade Egyptian cotton is used."
+msgstr ""
+"Strict quality control at every production stage. Only top-grade Uzbek "
+"cotton is used."
 
 #: templates/main/about.html:156
 msgid "удовлетворенных клиентов"
@@ -467,7 +499,7 @@ msgstr "Reliable Partnership"
 msgid "Гарантия сроков поставки, индивидуальные условия, поддержка 24/7."
 msgstr "Guaranteed delivery times, customized terms, 24/7 support."
 
-#: templates/main/about.html:188 templates/main/home.html:40
+#: templates/main/about.html:188 templates/main/home.html:44
 msgid "лет опыта"
 msgstr "years of experience"
 
@@ -478,9 +510,11 @@ msgstr "International Experience"
 #: templates/main/about.html:200
 msgid ""
 "Экспорт в 20+ стран, знание международных стандартов, таможенное оформление."
-msgstr "Export to 20+ countries, knowledge of international standards, customs processing."
+msgstr ""
+"Export to 20+ countries, knowledge of international standards, customs "
+"processing."
 
-#: templates/main/about.html:204 templates/main/home.html:36
+#: templates/main/about.html:204 templates/main/home.html:40
 msgid "стран экспорта"
 msgstr "export countries"
 
@@ -490,7 +524,9 @@ msgstr "Team Professionalism"
 
 #: templates/main/about.html:216
 msgid "Дизайнеры, технологи, логисты - все специалисты с опытом от 5 лет."
-msgstr "Designers, technologists, logisticians — all specialists with over 5 years of experience."
+msgstr ""
+"Designers, technologists, logisticians — all specialists with over 5 years "
+"of experience."
 
 #: templates/main/about.html:220
 msgid "сотрудников"
@@ -553,8 +589,8 @@ msgid "Отбор сырья"
 msgstr "Raw Material Selection"
 
 #: templates/main/about.html:317
-msgid "Выбираем только высший сорт хлопка и бамбука"
-msgstr "We select only top-grade cotton and bamboo"
+msgid "Выбираем только высший сорт узбекского хлопка"
+msgstr "We select only top-grade Uzbek cotton"
 
 #: templates/main/about.html:326
 msgid "Прядение"
@@ -601,7 +637,7 @@ msgstr "We offer customized terms for wholesale buyers and partners"
 msgid "Конкурентные цены"
 msgstr "Competitive Pricing"
 
-#: templates/main/about.html:393 templates/main/home.html:220
+#: templates/main/about.html:393 templates/main/home.html:188
 msgid "Быстрая доставка"
 msgstr "Fast Delivery"
 
@@ -621,15 +657,15 @@ msgstr "Call Us"
 msgid "Поделиться статьей:"
 msgstr "Share this Article:"
 
-#: templates/main/blog_detail.html:89 templates/main/home.html:291
+#: templates/main/blog_detail.html:93 templates/main/home.html:235
 msgid "Все статьи"
 msgstr "All Articles"
 
-#: templates/main/blog_detail.html:97
+#: templates/main/blog_detail.html:101
 msgid "Читайте также"
 msgstr "Read Also"
 
-#: templates/main/blog_detail.html:127
+#: templates/main/blog_detail.html:131
 msgid "Читать"
 msgstr "Read"
 
@@ -653,7 +689,7 @@ msgstr "Search Results for:"
 msgid "статей"
 msgstr "articles"
 
-#: templates/main/blog_list.html:84 templates/main/home.html:280
+#: templates/main/blog_list.html:84 templates/main/home.html:227
 msgid "Читать далее"
 msgstr "Read More"
 
@@ -673,29 +709,27 @@ msgstr "Show All Articles"
 msgid "Статьи скоро появятся"
 msgstr "Articles Coming Soon"
 
-#: templates/main/catalog.html:12
+#: templates/main/catalog.html:16
 msgid "Каталог продукции"
 msgstr "Product Catalog"
 
-#: templates/main/catalog.html:13
+#: templates/main/catalog.html:17
 msgid "Широкий выбор качественных полотенец"
 msgstr "Wide Selection of Quality Towels"
 
-#: templates/main/catalog.html:14
+#: templates/main/catalog.html:18
 msgid "Выберите категорию"
 msgstr "Select a Category"
 
-#: templates/main/catalog.html:47 templates/main/home.html:119
-msgid "Посмотреть товары"
-msgstr "View Products"
+#: templates/main/catalog.html:26
+#, fuzzy
+#| msgid "Все материалы"
+msgid "Все разделы"
+msgstr "All Materials"
 
-#: templates/main/catalog.html:57 templates/main/home.html:127
+#: templates/main/catalog.html:48 templates/main/home.html:126
 msgid "Категории скоро появятся"
 msgstr "Categories Coming Soon"
-
-#: templates/main/catalog.html:59
-msgid "Мы работаем над наполнением каталога"
-msgstr "We Are Working on Filling the Catalog"
 
 #: templates/main/category_products.html:34
 msgid "Фильтры"
@@ -705,69 +739,69 @@ msgstr "Filters"
 msgid "Все материалы"
 msgstr "All Materials"
 
-#: templates/main/category_products.html:49
+#: templates/main/category_products.html:48
 msgid "Лён"
 msgstr "Linen"
 
-#: templates/main/category_products.html:50
+#: templates/main/category_products.html:49
 msgid "Модал"
 msgstr "Modal"
 
-#: templates/main/category_products.html:61
+#: templates/main/category_products.html:60
 msgid "Например: белый, синий"
 msgstr "Example: White, Blue"
 
-#: templates/main/category_products.html:86
+#: templates/main/category_products.html:85
 msgid "Сортировка"
 msgstr "Sorting"
 
-#: templates/main/category_products.html:90
+#: templates/main/category_products.html:89
 msgid "Новые сначала"
 msgstr "Newest First"
 
-#: templates/main/category_products.html:93
+#: templates/main/category_products.html:92
 msgid "Старые сначала"
 msgstr "Oldest First"
 
-#: templates/main/category_products.html:96
+#: templates/main/category_products.html:95
 msgid "Дешевле"
 msgstr "Cheaper"
 
-#: templates/main/category_products.html:99
+#: templates/main/category_products.html:98
 msgid "Дороже"
 msgstr "More Expensive"
 
-#: templates/main/category_products.html:102
+#: templates/main/category_products.html:101
 msgid "По названию"
 msgstr "By Name"
 
-#: templates/main/category_products.html:109
+#: templates/main/category_products.html:108
 msgid "Применить"
 msgstr "Apply"
 
-#: templates/main/category_products.html:114
+#: templates/main/category_products.html:113
 msgid "Сбросить"
 msgstr "Reset"
 
-#: templates/main/category_products.html:125
+#: templates/main/category_products.html:124
 msgid "Найдено товаров:"
 msgstr "Products Found:"
 
-#: templates/main/category_products.html:136 templates/main/home.html:149
+#: templates/main/category_products.html:135 templates/main/home.html:142
 #: templates/main/product_detail.html:162
 msgid "Хит"
 msgstr "Bestseller"
 
-#: templates/main/category_products.html:169 templates/main/home.html:169
+#: templates/main/category_products.html:168 templates/main/home.html:151
 #: templates/main/product_detail.html:195
 msgid "Подробнее"
 msgstr "More Details"
 
-#: templates/main/category_products.html:179
+#: templates/main/category_products.html:178
 msgid "В этой категории пока нет товаров"
 msgstr "There are no products in this category yet"
 
-#: templates/main/category_products.html:181 templates/main/home.html:186
+#: templates/main/category_products.html:180 templates/main/home.html:163
 msgid "Смотреть весь каталог"
 msgstr "View Full Catalog"
 
@@ -783,7 +817,9 @@ msgstr "Contact Us"
 msgid ""
 "Мы готовы помочь вам с выбором продукции, ответить на вопросы и обсудить "
 "сотрудничество"
-msgstr "We are ready to help you choose products, answer questions, and discuss collaboration"
+msgstr ""
+"We are ready to help you choose products, answer questions, and discuss "
+"collaboration"
 
 #: templates/main/contact.html:66
 msgid "Контактная информация"
@@ -797,7 +833,9 @@ msgstr "Our Contacts"
 msgid ""
 "Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с "
 "выбором продукции и ответить на все вопросы."
-msgstr "Contact us in the way that is convenient for you. Our team is ready to help with product selection and answer any questions."
+msgstr ""
+"Contact us in the way that is convenient for you. Our team is ready to help "
+"with product selection and answer any questions."
 
 #: templates/main/contact.html:82
 msgid "Адрес офиса"
@@ -807,7 +845,7 @@ msgstr "Office Address"
 msgid "ул. Буюк Ипак Йули 7, Самарканд, Самаркандская область, Узбекистан"
 msgstr "7 Buyuk Ipak Yuli St., Samarkand, Samarkand Region, Uzbekistan"
 
-#: templates/main/contact.html:89 templates/main/contact.html:468
+#: templates/main/contact.html:89 templates/main/contact.html:469
 msgid "Проложить маршрут"
 msgstr "Get Directions"
 
@@ -819,7 +857,7 @@ msgstr "Phones"
 msgid "Общие вопросы"
 msgstr "General Inquiries"
 
-#: templates/main/contact.html:111 templates/main/contact.html:491
+#: templates/main/contact.html:111 templates/main/contact.html:492
 msgid "Отдел продаж"
 msgstr "Sales Department"
 
@@ -870,7 +908,8 @@ msgstr "Join Us"
 #: templates/main/contact.html:196
 msgid ""
 "Подписывайтесь на наши социальные сети, чтобы быть в курсе новинок и акций"
-msgstr "Follow our social networks to stay updated on new products and promotions"
+msgstr ""
+"Follow our social networks to stay updated on new products and promotions"
 
 #: templates/main/contact.html:223
 msgid "Форма обратной связи"
@@ -896,186 +935,195 @@ msgstr "Wholesale Order"
 msgid "Сотрудничество"
 msgstr "Collaboration"
 
-#: templates/main/contact.html:259 templates/main/contact.html:262
+#: templates/main/contact.html:260 templates/main/contact.html:263
 msgid "Ваше имя"
 msgstr "Your Name"
 
-#: templates/main/contact.html:265
+#: templates/main/contact.html:266
 msgid "Пожалуйста, введите ваше имя"
 msgstr "Please enter your name"
 
-#: templates/main/contact.html:280
+#: templates/main/contact.html:281
 msgid "Телефон"
 msgstr "Phone"
 
-#: templates/main/contact.html:283
+#: templates/main/contact.html:284
 msgid "Пожалуйста, введите правильный номер телефона"
 msgstr "Please enter a valid phone number"
 
-#: templates/main/contact.html:297
+#: templates/main/contact.html:298
 msgid "Email"
 msgstr "Email"
 
-#: templates/main/contact.html:300
+#: templates/main/contact.html:301
 msgid "Пожалуйста, введите правильный email"
 msgstr "Please enter a valid email"
 
-#: templates/main/contact.html:310
+#: templates/main/contact.html:311
 msgid "Название компании"
 msgstr "Company Name"
 
-#: templates/main/contact.html:313
+#: templates/main/contact.html:314
 msgid "Компания"
 msgstr "Company"
 
-#: templates/main/contact.html:324 templates/main/contact.html:327
+#: templates/main/contact.html:325 templates/main/contact.html:328
 msgid "Тема сообщения"
 msgstr "Subject"
 
-#: templates/main/contact.html:330
+#: templates/main/contact.html:331
 msgid "Пожалуйста, введите тему сообщения"
 msgstr "Please enter a subject"
 
-#: templates/main/contact.html:341
+#: templates/main/contact.html:342
 msgid "Ваше сообщение"
 msgstr "Your Message"
 
-#: templates/main/contact.html:344
+#: templates/main/contact.html:345
 msgid "Сообщение"
 msgstr "Message"
 
-#: templates/main/contact.html:347
+#: templates/main/contact.html:348
 msgid "Пожалуйста, напишите ваше сообщение"
 msgstr "Please write your message"
 
-#: templates/main/contact.html:352
+#: templates/main/contact.html:353
 msgid "Максимум 500 символов"
 msgstr "Maximum 500 characters"
 
-#: templates/main/contact.html:367
+#: templates/main/contact.html:368
 msgid "Отправить сообщение"
 msgstr "Send Message"
 
-#: templates/main/contact.html:371
+#: templates/main/contact.html:372
 msgid "Отправка..."
 msgstr "Sending..."
 
-#: templates/main/contact.html:383
+#: templates/main/contact.html:384
 msgid "Я согласен с"
 msgstr "I agree with"
 
-#: templates/main/contact.html:385
+#: templates/main/contact.html:386
 msgid "политикой конфиденциальности"
 msgstr "the privacy policy"
 
-#: templates/main/contact.html:386
+#: templates/main/contact.html:387
 msgid "и даю согласие на обработку персональных данных"
 msgstr "and consent to the processing of personal data"
 
-#: templates/main/contact.html:399
+#: templates/main/contact.html:400
 msgid "Сообщение отправлено!"
 msgstr "Message Sent!"
 
-#: templates/main/contact.html:400
+#: templates/main/contact.html:401
 msgid "Мы свяжемся с вами в течение 15 минут в рабочее время"
 msgstr "We will contact you within 15 minutes during business hours"
 
-#: templates/main/contact.html:409
+#: templates/main/contact.html:410
 msgid "Ошибка отправки"
 msgstr "Sending Error"
 
-#: templates/main/contact.html:410
+#: templates/main/contact.html:411
 msgid "Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону"
 msgstr "Please try again or contact us by phone"
 
-#: templates/main/contact.html:429
+#: templates/main/contact.html:430
 msgid "Как нас найти"
 msgstr "How to Find Us"
 
-#: templates/main/contact.html:432
+#: templates/main/contact.html:433
 msgid ""
 "Наш офис находится в Самарканде. Приезжайте к нам для личной консультации"
-msgstr "Our office is located in Samarkand. Visit us for a personal consultation"
+msgstr ""
+"Our office is located in Samarkand. Visit us for a personal consultation"
 
-#: templates/main/contact.html:452
-msgid "Офис HomeTerry"
-msgstr "HomeTerry Office"
+#: templates/main/contact.html:453
+#, fuzzy
+#| msgid "Home Terry Textile"
+msgid "Офис Home Terry Textile"
+msgstr "Home Terry Textile"
 
-#: templates/main/contact.html:456
+#: templates/main/contact.html:457
 msgid "ул. Буюк Ипак Йули 7"
 msgstr "7 Buyuk Ipak Yuli St."
 
-#: templates/main/contact.html:457
+#: templates/main/contact.html:458
 msgid "Самарканд, Самаркандская область, Узбекистан"
 msgstr "Samarkand, Samarkand Region, Uzbekistan"
 
-#: templates/main/contact.html:461
+#: templates/main/contact.html:462
 msgid "Пн-Пт: 9:00-18:00"
 msgstr "Mon-Fri: 9:00-18:00"
 
-#: templates/main/contact.html:462
+#: templates/main/contact.html:463
 msgid "Сб: 10:00-16:00"
 msgstr "Sat: 10:00-16:00"
 
-#: templates/main/contact.html:482
+#: templates/main/contact.html:483
 msgid "Наши отделы"
 msgstr "Our Departments"
 
-#: templates/main/contact.html:493
+#: templates/main/contact.html:494
 msgid "Консультации, коммерческие предложения, работа с оптовыми клиентами"
 msgstr "Consultations, commercial proposals, working with wholesale clients"
 
-#: templates/main/contact.html:509
+#: templates/main/contact.html:510
 msgid "Техподдержка"
 msgstr "Technical Support"
 
-#: templates/main/contact.html:511
+#: templates/main/contact.html:512
 msgid "Консультации по продукции, гарантийное обслуживание, решение проблем"
 msgstr "Product consultations, warranty service, problem resolution"
 
-#: templates/main/contact.html:527
+#: templates/main/contact.html:528
 msgid "Логистика"
 msgstr "Logistics"
 
-#: templates/main/contact.html:529
+#: templates/main/contact.html:530
 msgid "Доставка, отслеживание заказов, таможенное оформление, экспедирование"
 msgstr "Delivery, order tracking, customs clearance, forwarding"
 
-#: templates/main/contact.html:548
+#: templates/main/contact.html:549
 msgid "Частые вопросы"
 msgstr "Frequently Asked Questions"
 
-#: templates/main/contact.html:558
+#: templates/main/contact.html:559
 msgid "Какой срок изготовления заказа?"
 msgstr "What is the order production time?"
 
-#: templates/main/contact.html:563
+#: templates/main/contact.html:564
 msgid ""
 "Стандартный срок изготовления - 5-10 рабочих дней. Для индивидуальных "
 "заказов срок согласовывается отдельно."
-msgstr "The standard production time is 5-10 business days. For custom orders, the timeline is agreed separately."
+msgstr ""
+"The standard production time is 5-10 business days. For custom orders, the "
+"timeline is agreed separately."
 
-#: templates/main/contact.html:572
+#: templates/main/contact.html:573
 msgid "Есть ли доставка в регионы?"
 msgstr "Is there regional delivery?"
 
-#: templates/main/contact.html:577
+#: templates/main/contact.html:578
 msgid ""
 "Да, мы осуществляем доставку по всему Узбекистану и экспорт в другие страны. "
 "Стоимость и сроки доставки рассчитываются индивидуально."
-msgstr "Yes, we deliver across Uzbekistan and export to other countries. Costs and delivery times are calculated individually."
+msgstr ""
+"Yes, we deliver across Uzbekistan and export to other countries. Costs and "
+"delivery times are calculated individually."
 
-#: templates/main/contact.html:586
+#: templates/main/contact.html:587
 msgid "Можно ли получить образцы продукции?"
 msgstr "Can I get product samples?"
 
-#: templates/main/contact.html:591
+#: templates/main/contact.html:592
 msgid ""
 "Да, для оптовых клиентов мы предоставляем образцы материалов. Стоимость "
 "образцов и условия доставки обсуждаются индивидуально."
-msgstr "Yes, we provide material samples for wholesale clients. Sample costs and delivery conditions are discussed individually."
+msgstr ""
+"Yes, we provide material samples for wholesale clients. Sample costs and "
+"delivery conditions are discussed individually."
 
-#: templates/main/contact.html:603
+#: templates/main/contact.html:604
 msgid "Написать в WhatsApp"
 msgstr "Message on WhatsApp"
 
@@ -1083,112 +1131,132 @@ msgstr "Message on WhatsApp"
 msgid "Качественные полотенца из натуральных материалов"
 msgstr "High-Quality Towels Made from Natural Materials"
 
-#: templates/main/home.html:19
+#: templates/main/home.html:23
 msgid "Премиум качество с 2015"
 msgstr "Premium Quality Since 2015"
 
-#: templates/main/home.html:22
+#: templates/main/home.html:26
 msgid "Искусство комфорта"
 msgstr "The Art of Comfort"
 
-#: templates/main/home.html:23
+#: templates/main/home.html:27
 msgid "в каждой нити"
 msgstr "in Every Thread"
 
-#: templates/main/home.html:26
+#: templates/main/home.html:30
 msgid ""
-"Роскошные полотенца ручной работы из египетского хлопка с гарантией качества "
+"Роскошные полотенца ручной работы из узбекского хлопка с гарантией качества "
 "для отелей и дома"
-msgstr "Luxury handmade towels from Egyptian cotton with quality guarantee for hotels and home"
+msgstr ""
+"Luxury handmade towels from Uzbek cotton with quality guarantee for "
+"hotels and home"
 
-#: templates/main/home.html:32
+#: templates/main/home.html:36
 msgid "довольных клиентов"
 msgstr "satisfied customers"
 
-#: templates/main/home.html:47
+#: templates/main/home.html:51
 msgid "Исследовать коллекцию"
 msgstr "Explore the Collection"
 
-#: templates/main/home.html:51
+#: templates/main/home.html:55
 msgid "Смотреть видео"
 msgstr "Watch Video"
 
-#: templates/main/home.html:74
-msgid "Премиальные полотенца HomeTerry"
+#: templates/main/home.html:76
+#, fuzzy
+#| msgid "Премиальные полотенца HomeTerry"
+msgid "Премиальные полотенца Home Terry Textile"
 msgstr "Premium HomeTerry Towels"
 
-#: templates/main/home.html:86
+#: templates/main/home.html:87
 msgid "Листайте вниз"
 msgstr "Scroll Down"
 
-#: templates/main/home.html:99
+#: templates/main/home.html:105
+#, fuzzy
+#| msgid "Применить"
+msgid "Ассортимент"
+msgstr "Apply"
+
+#: templates/main/home.html:106
 msgid "Наши категории"
 msgstr "Our Categories"
 
-#: templates/main/home.html:102
+#: templates/main/home.html:108
 msgid "Широкий ассортимент полотенец для любых нужд"
 msgstr "Wide range of towels for all needs"
 
-#: templates/main/home.html:137
+#: templates/main/home.html:133
+msgid "Популярное"
+msgstr ""
+
+#: templates/main/home.html:134
 msgid "Рекомендуемые товары"
 msgstr "Recommended Products"
 
-#: templates/main/home.html:140
+#: templates/main/home.html:136
 msgid "Наши самые популярные и качественные полотенца"
 msgstr "Our most popular and high-quality towels"
 
-#: templates/main/home.html:177
+#: templates/main/home.html:157
 msgid "Товары скоро появятся"
 msgstr "Products coming soon"
 
-#: templates/main/home.html:196
+#: templates/main/home.html:173
+#, fuzzy
+#| msgid "Наши ценности"
+msgid "Наши преимущества"
+msgstr "Our Values"
+
+#: templates/main/home.html:174
 msgid "Почему выбирают нас"
 msgstr "Why Choose Us"
 
-#: templates/main/home.html:206
+#: templates/main/home.html:181
 #, python-format
 msgid "100%% Качество"
 msgstr "100%% Quality"
 
-#: templates/main/home.html:208
+#: templates/main/home.html:182
 msgid "Только натуральные материалы и строгий контроль качества"
 msgstr "Only natural materials and strict quality control"
 
-#: templates/main/home.html:222
+#: templates/main/home.html:189
 msgid "Экспорт по всему миру с гарантией сроков"
 msgstr "Worldwide export with guaranteed delivery times"
 
-#: templates/main/home.html:234
+#: templates/main/home.html:195
 msgid "Эко-материалы"
 msgstr "Eco Materials"
 
-#: templates/main/home.html:236
+#: templates/main/home.html:196
 msgid "Забота об окружающей среде и вашем здоровье"
 msgstr "Caring for the environment and your health"
 
-#: templates/main/home.html:248
+#: templates/main/home.html:202
 msgid "Поддержка 24/7"
 msgstr "24/7 Support"
 
-#: templates/main/home.html:250
+#: templates/main/home.html:203
 msgid "Всегда на связи для решения любых вопросов"
 msgstr "Always available to resolve any issues"
 
-#: templates/main/home.html:263
+#: templates/main/home.html:215
 msgid "Последние статьи"
 msgstr "Latest Articles"
 
-#: templates/main/home.html:304
+#: templates/main/home.html:246
 msgid "Готовы сотрудничать?"
 msgstr "Ready to Collaborate?"
 
-#: templates/main/home.html:307
+#: templates/main/home.html:248
 msgid ""
 "Свяжитесь с нами для обсуждения сотрудничества и получения коммерческого "
 "предложения"
 msgstr "Contact us to discuss collaboration and receive a commercial offer"
 
-#: templates/main/home.html:311
+#: templates/main/home.html:249
 msgid "Связаться с нами"
 msgstr "Contact Us"
 

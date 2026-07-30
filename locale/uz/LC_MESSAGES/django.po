@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-17 12:18+0500\n"
+"POT-Creation-Date: 2026-07-30 16:40+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
 #: main/models.py:44
 msgid "Название категории"
 msgstr "Kategoriya nomi"
 
-#: main/models.py:45 main/models.py:91 main/models.py:170
+#: main/models.py:45 main/models.py:90 main/models.py:169
 msgid "URL"
 msgstr "URL"
 
-#: main/models.py:46 main/models.py:92 templates/main/product_detail.html:109
+#: main/models.py:46 main/models.py:91 templates/main/product_detail.html:109
 msgid "Описание"
 msgstr "Tavsif"
 
-#: main/models.py:48 main/models.py:140
+#: main/models.py:48 main/models.py:139
 msgid "Изображение"
 msgstr "Rasm"
 
@@ -37,11 +38,11 @@ msgstr "Rasm"
 msgid "Активна"
 msgstr "Faol"
 
-#: main/models.py:55 main/models.py:100 main/models.py:182
+#: main/models.py:55 main/models.py:99 main/models.py:181
 msgid "Дата создания"
 msgstr "Yaratilgan sana"
 
-#: main/models.py:56 main/models.py:101 main/models.py:183
+#: main/models.py:56 main/models.py:100 main/models.py:182
 msgid "Дата обновления"
 msgstr "Yangilangan sana"
 
@@ -57,120 +58,116 @@ msgstr "Mahsulot kategoriyalari"
 msgid "Хлопок"
 msgstr "Paxta"
 
-#: main/models.py:78 templates/base.html:170
-#: templates/main/category_products.html:48
+#: main/models.py:78 templates/base.html:394
+#: templates/main/category_products.html:47
 msgid "Микрофибра"
 msgstr "Mikroto‘qima"
 
-#: main/models.py:79 templates/main/category_products.html:47
-msgid "Бамбук"
-msgstr "Bambuk"
-
-#: main/models.py:80
+#: main/models.py:79
 msgid "Лен"
 msgstr "Linen / Zig‘ir"
 
-#: main/models.py:81
+#: main/models.py:80
 msgid "Смешанный"
 msgstr "Aralash"
 
-#: main/models.py:88
+#: main/models.py:87
 msgid "Категория"
 msgstr "Kategoriya"
 
-#: main/models.py:90
+#: main/models.py:89
 msgid "Название товара"
 msgstr "Mahsulot nomi"
 
-#: main/models.py:93 templates/main/category_products.html:42
+#: main/models.py:92 templates/main/category_products.html:42
 msgid "Материал"
 msgstr "Material"
 
-#: main/models.py:94
+#: main/models.py:93
 msgid "Размер"
 msgstr "O‘lcham"
 
-#: main/models.py:94
+#: main/models.py:93
 msgid "Например: 50x90 см"
 msgstr "Masalan: 50x90 sm"
 
-#: main/models.py:95 templates/main/category_products.html:58
+#: main/models.py:94 templates/main/category_products.html:57
 msgid "Цвет"
 msgstr "Rang"
 
-#: main/models.py:96
+#: main/models.py:95
 msgid "Цена"
 msgstr "Narx"
 
-#: main/models.py:97
+#: main/models.py:96
 msgid "Количество на складе"
 msgstr "Ombordagi miqdor"
 
-#: main/models.py:98
+#: main/models.py:97
 msgid "Активен"
 msgstr "Faol"
 
-#: main/models.py:99
+#: main/models.py:98
 msgid "Рекомендуемый"
 msgstr "Tavsiya etilgan"
 
-#: main/models.py:104 main/models.py:137
+#: main/models.py:103 main/models.py:136
 msgid "Товар"
 msgstr "Mahsulot"
 
-#: main/models.py:105
+#: main/models.py:104
 msgid "Товары"
 msgstr "Mahsulotlar"
 
-#: main/models.py:144 main/models.py:174
+#: main/models.py:143 main/models.py:173
 msgid "Главное изображение"
 msgstr "Asosiy rasm"
 
-#: main/models.py:145
+#: main/models.py:144
 msgid "Порядок"
 msgstr "Tartib"
 
-#: main/models.py:146
+#: main/models.py:145
 msgid "Дата загрузки"
 msgstr "Yuklangan sana"
 
-#: main/models.py:149
+#: main/models.py:148
 msgid "Изображение товара"
 msgstr "Mahsulot rasmi"
 
-#: main/models.py:150
+#: main/models.py:149
 msgid "Изображения товаров"
 msgstr "Mahsulot rasmlari"
 
-#: main/models.py:169
+#: main/models.py:168
 msgid "Заголовок"
 msgstr "Sarlavha"
 
-#: main/models.py:171
+#: main/models.py:170
 msgid "Краткое описание"
 msgstr "Qisqa tavsif"
 
-#: main/models.py:172
+#: main/models.py:171
 msgid "Содержание"
 msgstr "Mazmuni"
 
-#: main/models.py:180
+#: main/models.py:179
 msgid "Автор"
 msgstr "Muallif"
 
-#: main/models.py:181
+#: main/models.py:180
 msgid "Опубликовано"
 msgstr "Nashr etilgan"
 
-#: main/models.py:184
+#: main/models.py:183
 msgid "Дата публикации"
 msgstr "Nashr sanasi"
 
-#: main/models.py:187
+#: main/models.py:186
 msgid "Статья блога"
 msgstr "Blog maqolasi"
 
-#: main/models.py:188
+#: main/models.py:187
 msgid "Статьи блога"
 msgstr "Blog maqolalari"
 
@@ -178,7 +175,9 @@ msgstr "Blog maqolalari"
 msgid ""
 "Страница не найдена. Запрашиваемая страница не существует или была "
 "перемещена."
-msgstr "Sahifa topilmadi. So‘ralgan sahifa mavjud emas yoki boshqa joyga ko‘chirilgan."
+msgstr ""
+"Sahifa topilmadi. So‘ralgan sahifa mavjud emas yoki boshqa joyga "
+"ko‘chirilgan."
 
 #: templates/404.html:9 templates/404.html:164
 msgid "Страница не найдена"
@@ -190,7 +189,8 @@ msgstr "Xato 404"
 
 #: templates/404.html:166
 msgid "Извините, запрашиваемая страница не существует или была перемещена."
-msgstr "Kechirasiz, so‘ralgan sahifa mavjud emas yoki boshqa joyga ko‘chirilgan."
+msgstr ""
+"Kechirasiz, so‘ralgan sahifa mavjud emas yoki boshqa joyga ko‘chirilgan."
 
 #: templates/404.html:169 templates/500.html:208
 msgid "Вернуться на главную страницу"
@@ -228,7 +228,9 @@ msgstr "Xato 500"
 msgid ""
 "Извините, произошла техническая ошибка на сервере. Наша команда уже "
 "уведомлена и работает над её устранением."
-msgstr "Kechirasiz, serverda texnik xato yuz berdi. Bizning jamoamiz xabardor va uni tuzatish ustida ishlamoqda."
+msgstr ""
+"Kechirasiz, serverda texnik xato yuz berdi. Bizning jamoamiz xabardor va uni "
+"tuzatish ustida ishlamoqda."
 
 #: templates/500.html:199
 msgid "Что делать?"
@@ -258,87 +260,118 @@ msgstr "Yangilash"
 msgid "Код ошибки: 500 | Внутренняя ошибка сервера"
 msgstr "Xato kodi: 500 | Server ichki xatosi"
 
-#: templates/base.html:69 templates/base.html:156
+#: templates/base.html:197
+#, fuzzy
+#| msgid "Количество на складе"
+msgid "Качество в каждом волокне"
+msgstr "Ombordagi miqdor"
+
+#: templates/base.html:224 templates/base.html:381
 #: templates/main/blog_detail.html:13 templates/main/category_products.html:13
 #: templates/main/product_detail.html:17
 msgid "Главная"
 msgstr "Bosh sahifa"
 
-#: templates/base.html:76 templates/base.html:157 templates/main/catalog.html:4
-#: templates/main/category_products.html:14
+#: templates/base.html:231 templates/base.html:382
+#: templates/main/catalog.html:4 templates/main/category_products.html:14
 #: templates/main/product_detail.html:18
 msgid "Каталог"
 msgstr "Katalog"
 
-#: templates/base.html:83 templates/base.html:158 templates/main/about.html:4
+#: templates/base.html:238 templates/base.html:383 templates/main/about.html:4
 msgid "О нас"
 msgstr "Biz haqimizda"
 
-#: templates/base.html:90 templates/base.html:159
+#: templates/base.html:245 templates/base.html:384
 #: templates/main/blog_detail.html:14 templates/main/blog_list.html:4
+#: templates/main/home.html:214
 msgid "Блог"
 msgstr "Blog"
 
-#: templates/base.html:97 templates/base.html:160 templates/base.html:179
+#: templates/base.html:252 templates/base.html:385 templates/base.html:403
 #: templates/main/contact.html:4
 msgid "Контакты"
 msgstr "Kontaktlar"
 
-#: templates/base.html:134
+#: templates/base.html:267 templates/base.html:270
+msgid "Масштаб текста"
+msgstr ""
+
+#: templates/base.html:275
+#, fuzzy
+#| msgid "Компания"
+msgid "Компактный"
+msgstr "Kompaniya"
+
+#: templates/base.html:282
+msgid "Нормальный"
+msgstr ""
+
+#: templates/base.html:289
+msgid "Крупный"
+msgstr ""
+
+#: templates/base.html:300
+msgid "Тёмная тема"
+msgstr ""
+
+#: templates/base.html:301
+msgid "Светлая тема"
+msgstr ""
+
+#: templates/base.html:357
 msgid ""
 "Производство и экспорт качественных полотенец из натуральных материалов. Мы "
 "заботимся о вашем комфорте и качестве продукции."
-msgstr "Tabiiy materiallardan sifatli sochiq ishlab chiqarish va eksport. Biz sizning qulayligingiz va mahsulot sifatini ta’minlaymiz."
+msgstr ""
+"Tabiiy materiallardan sifatli sochiq ishlab chiqarish va eksport. Biz "
+"sizning qulayligingiz va mahsulot sifatini ta’minlaymiz."
 
-#: templates/base.html:154
+#: templates/base.html:379
 msgid "Навигация"
 msgstr "Navigatsiya"
 
-#: templates/base.html:166
+#: templates/base.html:391
 msgid "Продукция"
 msgstr "Mahsulotlar"
 
-#: templates/base.html:168
+#: templates/base.html:393
 msgid "Хлопковые полотенца"
 msgstr "Paxta sochiqlari"
 
-#: templates/base.html:169
-msgid "Бамбуковые полотенца"
-msgstr "Bambuk sochiqlari"
-
-#: templates/base.html:171
+#: templates/base.html:395
 msgid "Льняные полотенца"
 msgstr "Kenevirdan sochiqlar"
 
-#: templates/base.html:172
+#: templates/base.html:396
 msgid "Банные полотенца"
 msgstr "Hammom sochiqlari"
 
-#: templates/base.html:173
+#: templates/base.html:397
 msgid "Пляжные полотенца"
 msgstr "Sohil sochiqlari"
 
-#: templates/base.html:183
+#: templates/base.html:407
 msgid "Узбекистан, Ташкент"
 msgstr "O‘zbekiston, Toshkent"
 
-#: templates/base.html:195
+#: templates/base.html:419
 msgid "Пн-Пт: 9:00 - 18:00"
 msgstr "Du-Jum: 9:00 - 18:00"
 
-#: templates/base.html:199
+#: templates/base.html:423
 msgid "Доставка по всему миру"
 msgstr "Butun dunyoga yetkazib berish"
 
-#: templates/base.html:208
+#: templates/base.html:432
 msgid "Все права защищены."
 msgstr "Barcha huquqlar himoyalangan."
 
-#: templates/base.html:213
+#: templates/base.html:437
 msgid "Политика конфиденциальности"
 msgstr "Maxfiylik siyosati"
 
-#: templates/base.html:219
+#: templates/base.html:443
 msgid "Условия использования"
 msgstr "Foydalanish shartlari"
 
@@ -422,6 +455,7 @@ msgstr "Ekologik"
 msgid "О компании"
 msgstr "Kompaniya haqida"
 
+#: templates/main/about.html:137
 msgid "Наши ценности"
 msgstr "Bizning qadriyatlarimiz"
 
@@ -434,8 +468,12 @@ msgid "Качество премиум-класса"
 msgstr "Premium sifat"
 
 #: templates/main/about.html:152
-msgid "Строгий контроль на каждом этапе производства. Используем только египетский хлопок высшего сорта."
-msgstr "Ishlab chiqarishning har bir bosqichida qat’iy nazorat. Faqat misr paxtasining eng yuqori turidan foydalanamiz."
+msgid ""
+"Строгий контроль на каждом этапе производства. Используем только узбекский "
+"хлопок высшего сорта."
+msgstr ""
+"Ishlab chiqarishning har bir bosqichida qat’iy nazorat. Faqat o‘zbek "
+"paxtasining eng yuqori turidan foydalanamiz."
 
 #: templates/main/about.html:156
 msgid "удовлетворенных клиентов"
@@ -446,8 +484,13 @@ msgid "Экологичность"
 msgstr "Ekologik tozaligi"
 
 #: templates/main/about.html:168
-msgid "Биоразлагаемые материалы, безопасные красители, сокращение водопотребления на 40%%."
-msgstr "Biologik parchalanadigan materiallar, xavfsiz bo‘yoqlar, suv iste’molini 40%% ga kamaytirish."
+#, python-format
+msgid ""
+"Биоразлагаемые материалы, безопасные красители, сокращение водопотребления "
+"на 40%%."
+msgstr ""
+"Biologik parchalanadigan materiallar, xavfsiz bo‘yoqlar, suv iste’molini "
+"40%% ga kamaytirish."
 
 #: templates/main/about.html:172
 msgid "натуральные материалы"
@@ -459,9 +502,11 @@ msgstr "Hamkorlikning ishonchliligi"
 
 #: templates/main/about.html:184
 msgid "Гарантия сроков поставки, индивидуальные условия, поддержка 24/7."
-msgstr "Yetkazib berish muddatlari kafolati, individual shartlar, 24/7 qo‘llab-quvvatlash."
+msgstr ""
+"Yetkazib berish muddatlari kafolati, individual shartlar, 24/7 qo‘llab-"
+"quvvatlash."
 
-#: templates/main/about.html:188 templates/main/home.html:40
+#: templates/main/about.html:188 templates/main/home.html:44
 msgid "лет опыта"
 msgstr "yillik tajriba"
 
@@ -470,10 +515,13 @@ msgid "Международный опыт"
 msgstr "Xalqaro tajriba"
 
 #: templates/main/about.html:200
-msgid "Экспорт в 20+ стран, знание международных стандартов, таможенное оформление."
-msgstr "20 dan ortiq mamlakatlarga eksport, xalqaro standartlarni bilish, bojxona rasmiylashtiruvi."
+msgid ""
+"Экспорт в 20+ стран, знание международных стандартов, таможенное оформление."
+msgstr ""
+"20 dan ortiq mamlakatlarga eksport, xalqaro standartlarni bilish, bojxona "
+"rasmiylashtiruvi."
 
-#: templates/main/about.html:204 templates/main/home.html:36
+#: templates/main/about.html:204 templates/main/home.html:40
 msgid "стран экспорта"
 msgstr "eksport mamlakatlari"
 
@@ -483,7 +531,9 @@ msgstr "Jamoaning professionalligi"
 
 #: templates/main/about.html:216
 msgid "Дизайнеры, технологи, логисты - все специалисты с опытом от 5 лет."
-msgstr "Dizaynerlar, texnologlar, logistlar – barchasi 5 yildan ortiq tajribaga ega mutaxassislar."
+msgstr ""
+"Dizaynerlar, texnologlar, logistlar – barchasi 5 yildan ortiq tajribaga ega "
+"mutaxassislar."
 
 #: templates/main/about.html:220
 msgid "сотрудников"
@@ -495,7 +545,8 @@ msgstr "Mijozlarga e’tibor"
 
 #: templates/main/about.html:232
 msgid "Индивидуальные решения, постпродажная поддержка, программа лояльности."
-msgstr "Shaxsiy yechimlar, sotuvdan keyingi qo‘llab-quvvatlash, sodiqlik dasturi."
+msgstr ""
+"Shaxsiy yechimlar, sotuvdan keyingi qo‘llab-quvvatlash, sodiqlik dasturi."
 
 #: templates/main/about.html:236
 msgid "регулярных клиентов"
@@ -546,8 +597,8 @@ msgid "Отбор сырья"
 msgstr "Xom ashyo tanlovi"
 
 #: templates/main/about.html:317
-msgid "Выбираем только высший сорт хлопка и бамбука"
-msgstr "Faqat eng yuqori turdagi paxta va bambukni tanlaymiz"
+msgid "Выбираем только высший сорт узбекского хлопка"
+msgstr "Faqat eng yuqori turdagi o‘zbek paxtasini tanlaymiz"
 
 #: templates/main/about.html:326
 msgid "Прядение"
@@ -586,14 +637,16 @@ msgid "Готовы к сотрудничеству?"
 msgstr "Hamkorlik qilishga tayyormisiz?"
 
 #: templates/main/about.html:383
-msgid "Мы предлагаем индивидуальные условия для оптовых покупателей и партнеров"
-msgstr "Biz ulgurji xaridorlar va hamkorlar uchun shaxsiy shartlarni taklif qilamiz"
+msgid ""
+"Мы предлагаем индивидуальные условия для оптовых покупателей и партнеров"
+msgstr ""
+"Biz ulgurji xaridorlar va hamkorlar uchun shaxsiy shartlarni taklif qilamiz"
 
 #: templates/main/about.html:389
 msgid "Конкурентные цены"
 msgstr "Raqobatbardosh narxlar"
 
-#: templates/main/about.html:393 templates/main/home.html:220
+#: templates/main/about.html:393 templates/main/home.html:188
 msgid "Быстрая доставка"
 msgstr "Tez yetkazib berish"
 
@@ -613,15 +666,15 @@ msgstr "Bizga qo‘ng‘iroq qiling"
 msgid "Поделиться статьей:"
 msgstr "Maqolani ulashish:"
 
-#: templates/main/blog_detail.html:89 templates/main/home.html:291
+#: templates/main/blog_detail.html:93 templates/main/home.html:235
 msgid "Все статьи"
 msgstr "Barcha maqolalar"
 
-#: templates/main/blog_detail.html:97
+#: templates/main/blog_detail.html:101
 msgid "Читайте также"
 msgstr "Shuningdek o‘qing"
 
-#: templates/main/blog_detail.html:127
+#: templates/main/blog_detail.html:131
 msgid "Читать"
 msgstr "O‘qish"
 
@@ -645,7 +698,7 @@ msgstr "Qidiruv natijalari uchun:"
 msgid "статей"
 msgstr "maqola"
 
-#: templates/main/blog_list.html:84 templates/main/home.html:280
+#: templates/main/blog_list.html:84 templates/main/home.html:227
 msgid "Читать далее"
 msgstr "Batafsil o‘qish"
 
@@ -665,29 +718,27 @@ msgstr "Barcha maqolalarni ko‘rsatish"
 msgid "Статьи скоро появятся"
 msgstr "Maqolalar tez orada paydo bo‘ladi"
 
-#: templates/main/catalog.html:12
+#: templates/main/catalog.html:16
 msgid "Каталог продукции"
 msgstr "Mahsulotlar katalogi"
 
-#: templates/main/catalog.html:13
+#: templates/main/catalog.html:17
 msgid "Широкий выбор качественных полотенец"
 msgstr "Sifatli sochiqlarning keng tanlovi"
 
-#: templates/main/catalog.html:14
+#: templates/main/catalog.html:18
 msgid "Выберите категорию"
 msgstr "Kategoriya tanlang"
 
-#: templates/main/catalog.html:47 templates/main/home.html:119
-msgid "Посмотреть товары"
-msgstr "Mahsulotlarni ko‘rish"
+#: templates/main/catalog.html:26
+#, fuzzy
+#| msgid "Все материалы"
+msgid "Все разделы"
+msgstr "Barcha materiallar"
 
-#: templates/main/catalog.html:57 templates/main/home.html:127
+#: templates/main/catalog.html:48 templates/main/home.html:126
 msgid "Категории скоро появятся"
 msgstr "Kategoriyalar tez orada paydo bo‘ladi"
-
-#: templates/main/catalog.html:59
-msgid "Мы работаем над наполнением каталога"
-msgstr "Biz katalogni to‘ldirish ustida ishlayapmiz"
 
 #: templates/main/category_products.html:34
 msgid "Фильтры"
@@ -697,69 +748,69 @@ msgstr "Filtrlar"
 msgid "Все материалы"
 msgstr "Barcha materiallar"
 
-#: templates/main/category_products.html:49
+#: templates/main/category_products.html:48
 msgid "Лён"
 msgstr "Ipak"
 
-#: templates/main/category_products.html:50
+#: templates/main/category_products.html:49
 msgid "Модал"
 msgstr "Modal"
 
-#: templates/main/category_products.html:61
+#: templates/main/category_products.html:60
 msgid "Например: белый, синий"
 msgstr "Masalan: oq, ko‘k"
 
-#: templates/main/category_products.html:86
+#: templates/main/category_products.html:85
 msgid "Сортировка"
 msgstr "Saralash"
 
-#: templates/main/category_products.html:90
+#: templates/main/category_products.html:89
 msgid "Новые сначала"
 msgstr "Yangi avval"
 
-#: templates/main/category_products.html:93
+#: templates/main/category_products.html:92
 msgid "Старые сначала"
 msgstr "Eski avval"
 
-#: templates/main/category_products.html:96
+#: templates/main/category_products.html:95
 msgid "Дешевле"
 msgstr "Arzonroq"
 
-#: templates/main/category_products.html:99
+#: templates/main/category_products.html:98
 msgid "Дороже"
 msgstr "Qimmatroq"
 
-#: templates/main/category_products.html:102
+#: templates/main/category_products.html:101
 msgid "По названию"
 msgstr "Nom bo‘yicha"
 
-#: templates/main/category_products.html:109
+#: templates/main/category_products.html:108
 msgid "Применить"
 msgstr "Qo‘llash"
 
-#: templates/main/category_products.html:114
+#: templates/main/category_products.html:113
 msgid "Сбросить"
 msgstr "Bekor qilish"
 
-#: templates/main/category_products.html:125
+#: templates/main/category_products.html:124
 msgid "Найдено товаров:"
 msgstr "Topilgan mahsulotlar:"
 
-#: templates/main/category_products.html:136 templates/main/home.html:149
+#: templates/main/category_products.html:135 templates/main/home.html:142
 #: templates/main/product_detail.html:162
 msgid "Хит"
 msgstr "Hit"
 
-#: templates/main/category_products.html:169 templates/main/home.html:169
+#: templates/main/category_products.html:168 templates/main/home.html:151
 #: templates/main/product_detail.html:195
 msgid "Подробнее"
 msgstr "Batafsil"
 
-#: templates/main/category_products.html:179
+#: templates/main/category_products.html:178
 msgid "В этой категории пока нет товаров"
 msgstr "Bu kategoriyada hozircha mahsulotlar yo‘q"
 
-#: templates/main/category_products.html:181 templates/main/home.html:186
+#: templates/main/category_products.html:180 templates/main/home.html:163
 msgid "Смотреть весь каталог"
 msgstr "Butun katalogni ko‘rish"
 
@@ -772,21 +823,28 @@ msgid "Свяжитесь с нами"
 msgstr "Biz bilan bog‘laning"
 
 #: templates/main/contact.html:31
-msgid "Мы готовы помочь вам с выбором продукции, ответить на вопросы и обсудить сотрудничество"
-msgstr "Biz sizga mahsulot tanlashda yordam berishga, savollaringizga javob berishga va hamkorlikni muhokama qilishga tayyormiz"
+msgid ""
+"Мы готовы помочь вам с выбором продукции, ответить на вопросы и обсудить "
+"сотрудничество"
+msgstr ""
+"Biz sizga mahsulot tanlashda yordam berishga, savollaringizga javob berishga "
+"va hamkorlikni muhokama qilishga tayyormiz"
 
 #: templates/main/contact.html:66
 msgid "Контактная информация"
 msgstr "Aloqa ma’lumotlari"
 
 #: templates/main/contact.html:70
-#: templates/main/contact.html:74
 msgid "Наши контакты"
 msgstr "Bizning aloqalarimiz"
 
 #: templates/main/contact.html:74
-msgid "Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с выбором продукции и ответить на все вопросы."
-msgstr "Biz bilan sizga qulay bo‘lgan usulda bog‘laning. Bizning jamoamiz mahsulot tanlashda yordam berishga va barcha savollarga javob berishga tayyor."
+msgid ""
+"Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с "
+"выбором продукции и ответить на все вопросы."
+msgstr ""
+"Biz bilan sizga qulay bo‘lgan usulda bog‘laning. Bizning jamoamiz mahsulot "
+"tanlashda yordam berishga va barcha savollarga javob berishga tayyor."
 
 #: templates/main/contact.html:82
 msgid "Адрес офиса"
@@ -794,9 +852,10 @@ msgstr "Ofis manzili"
 
 #: templates/main/contact.html:85
 msgid "ул. Буюк Ипак Йули 7, Самарканд, Самаркандская область, Узбекистан"
-msgstr "Buyuk Ipak Yo‘li ko‘chasi 7, Samarqand, Samarqand viloyati, O‘zbekiston"
+msgstr ""
+"Buyuk Ipak Yo‘li ko‘chasi 7, Samarqand, Samarqand viloyati, O‘zbekiston"
 
-#: templates/main/contact.html:89 templates/main/contact.html:468
+#: templates/main/contact.html:89 templates/main/contact.html:469
 msgid "Проложить маршрут"
 msgstr "Marshrutni ko‘rsatish"
 
@@ -808,7 +867,7 @@ msgstr "Telefonlar"
 msgid "Общие вопросы"
 msgstr "Umumiy savollar"
 
-#: templates/main/contact.html:111 templates/main/contact.html:491
+#: templates/main/contact.html:111 templates/main/contact.html:492
 msgid "Отдел продаж"
 msgstr "Savdo bo‘limi"
 
@@ -857,8 +916,11 @@ msgid "Присоединяйтесь к нам"
 msgstr "Bizga qo‘shiling"
 
 #: templates/main/contact.html:196
-msgid "Подписывайтесь на наши социальные сети, чтобы быть в курсе новинок и акций"
-msgstr "Yangiliklar va aksiyalardan xabardor bo‘lish uchun ijtimoiy tarmoqlarimizga obuna bo‘ling"
+msgid ""
+"Подписывайтесь на наши социальные сети, чтобы быть в курсе новинок и акций"
+msgstr ""
+"Yangiliklar va aksiyalardan xabardor bo‘lish uchun ijtimoiy tarmoqlarimizga "
+"obuna bo‘ling"
 
 #: templates/main/contact.html:223
 msgid "Форма обратной связи"
@@ -884,179 +946,199 @@ msgstr "Ulg‘aytirilgan buyurtma"
 msgid "Сотрудничество"
 msgstr "Hamkorlik"
 
-#: templates/main/contact.html:259 templates/main/contact.html:262
+#: templates/main/contact.html:260 templates/main/contact.html:263
 msgid "Ваше имя"
 msgstr "Ismingiz"
 
-#: templates/main/contact.html:265
+#: templates/main/contact.html:266
 msgid "Пожалуйста, введите ваше имя"
 msgstr "Iltimos, ismingizni kiriting"
 
-#: templates/main/contact.html:280
+#: templates/main/contact.html:281
 msgid "Телефон"
 msgstr "Telefon"
 
-#: templates/main/contact.html:283
+#: templates/main/contact.html:284
 msgid "Пожалуйста, введите правильный номер телефона"
 msgstr "Iltimos, to‘g‘ri telefon raqamini kiriting"
 
-#: templates/main/contact.html:297
+#: templates/main/contact.html:298
 msgid "Email"
 msgstr "Elektron pochta"
 
-#: templates/main/contact.html:300
+#: templates/main/contact.html:301
 msgid "Пожалуйста, введите правильный email"
 msgstr "Iltimos, to‘g‘ri elektron pochtani kiriting"
 
-#: templates/main/contact.html:310
+#: templates/main/contact.html:311
 msgid "Название компании"
 msgstr "Kompaniya nomi"
 
-#: templates/main/contact.html:313
+#: templates/main/contact.html:314
 msgid "Компания"
 msgstr "Kompaniya"
 
-#: templates/main/contact.html:324 templates/main/contact.html:327
+#: templates/main/contact.html:325 templates/main/contact.html:328
 msgid "Тема сообщения"
 msgstr "Xabar mavzusi"
 
-#: templates/main/contact.html:330
+#: templates/main/contact.html:331
 msgid "Пожалуйста, введите тему сообщения"
 msgstr "Iltimos, xabar mavzusini kiriting"
 
-#: templates/main/contact.html:341
+#: templates/main/contact.html:342
 msgid "Ваше сообщение"
 msgstr "Sizning xabaringiz"
 
-#: templates/main/contact.html:344
+#: templates/main/contact.html:345
 msgid "Сообщение"
 msgstr "Xabar"
 
-#: templates/main/contact.html:347
+#: templates/main/contact.html:348
 msgid "Пожалуйста, напишите ваше сообщение"
 msgstr "Iltimos, xabaringizni yozing"
 
-#: templates/main/contact.html:352
+#: templates/main/contact.html:353
 msgid "Максимум 500 символов"
 msgstr "Maksimum 500 belgi"
 
-#: templates/main/contact.html:367
+#: templates/main/contact.html:368
 msgid "Отправить сообщение"
 msgstr "Xabar yuborish"
 
-#: templates/main/contact.html:371
+#: templates/main/contact.html:372
 msgid "Отправка..."
 msgstr "Yuborilmoqda..."
 
-#: templates/main/contact.html:383
+#: templates/main/contact.html:384
 msgid "Я согласен с"
 msgstr "Men roziman"
 
-#: templates/main/contact.html:385
+#: templates/main/contact.html:386
 msgid "политикой конфиденциальности"
 msgstr "maxfiylik siyosatiga"
 
-#: templates/main/contact.html:386
+#: templates/main/contact.html:387
 msgid "и даю согласие на обработку персональных данных"
 msgstr "va shaxsiy ma’lumotlarimni qayta ishlashga rozilik beraman"
 
-#: templates/main/contact.html:399
+#: templates/main/contact.html:400
 msgid "Сообщение отправлено!"
 msgstr "Xabar yuborildi!"
 
-#: templates/main/contact.html:400
+#: templates/main/contact.html:401
 msgid "Мы свяжемся с вами в течение 15 минут в рабочее время"
 msgstr "Biz ish vaqtida 15 daqiqa ichida siz bilan bog‘lanamiz"
 
-#: templates/main/contact.html:409
+#: templates/main/contact.html:410
 msgid "Ошибка отправки"
 msgstr "Yuborishda xato"
 
-#: templates/main/contact.html:410
+#: templates/main/contact.html:411
 msgid "Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону"
 msgstr "Iltimos, yana urinib ko‘ring yoki biz bilan telefon orqali bog‘laning"
 
-#: templates/main/contact.html:429
+#: templates/main/contact.html:430
 msgid "Как нас найти"
 msgstr "Bizni qanday topish mumkin"
 
-#: templates/main/contact.html:432
-msgid "Наш офис находится в Самарканде. Приезжайте к нам для личной консультации"
-msgstr "Bizning ofisimiz Samarqandda joylashgan. Shaxsiy maslahat olish uchun tashrif buyuring"
+#: templates/main/contact.html:433
+msgid ""
+"Наш офис находится в Самарканде. Приезжайте к нам для личной консультации"
+msgstr ""
+"Bizning ofisimiz Samarqandda joylashgan. Shaxsiy maslahat olish uchun "
+"tashrif buyuring"
 
-#: templates/main/contact.html:452
-msgid "Офис HomeTerry"
-msgstr "HomeTerry ofisi"
+#: templates/main/contact.html:453
+#, fuzzy
+#| msgid "Home Terry Textile"
+msgid "Офис Home Terry Textile"
+msgstr "Home Terry Textile"
 
-#: templates/main/contact.html:456
+#: templates/main/contact.html:457
 msgid "ул. Буюк Ипак Йули 7"
 msgstr "Buyuk Ipak Yo‘li ko‘chasi 7"
 
-#: templates/main/contact.html:457
+#: templates/main/contact.html:458
 msgid "Самарканд, Самаркандская область, Узбекистан"
 msgstr "Samarqand, Samarqand viloyati, O‘zbekiston"
 
-#: templates/main/contact.html:461
+#: templates/main/contact.html:462
 msgid "Пн-Пт: 9:00-18:00"
 msgstr "Du-Ju: 9:00-18:00"
 
-#: templates/main/contact.html:462
+#: templates/main/contact.html:463
 msgid "Сб: 10:00-16:00"
 msgstr "Sh: 10:00-16:00"
 
-#: templates/main/contact.html:482
+#: templates/main/contact.html:483
 msgid "Наши отделы"
 msgstr "Bo‘limlarimiz"
 
-#: templates/main/contact.html:493
+#: templates/main/contact.html:494
 msgid "Консультации, коммерческие предложения, работа с оптовыми клиентами"
 msgstr "Maslahatlar, tijorat takliflari, ulgurji mijozlar bilan ishlash"
 
-#: templates/main/contact.html:509
+#: templates/main/contact.html:510
 msgid "Техподдержка"
 msgstr "Texnik qo‘llab-quvvatlash"
 
-#: templates/main/contact.html:511
+#: templates/main/contact.html:512
 msgid "Консультации по продукции, гарантийное обслуживание, решение проблем"
-msgstr "Mahsulot bo‘yicha maslahatlar, kafolatli xizmat, muammolarni hal qilish"
+msgstr ""
+"Mahsulot bo‘yicha maslahatlar, kafolatli xizmat, muammolarni hal qilish"
 
-#: templates/main/contact.html:527
+#: templates/main/contact.html:528
 msgid "Логистика"
 msgstr "Logistika"
 
-#: templates/main/contact.html:529
+#: templates/main/contact.html:530
 msgid "Доставка, отслеживание заказов, таможенное оформление, экспедирование"
-msgstr "Yetkazib berish, buyurtmalarni kuzatish, bojxona rasmiylashtiruvi, ekspeditsiya"
+msgstr ""
+"Yetkazib berish, buyurtmalarni kuzatish, bojxona rasmiylashtiruvi, "
+"ekspeditsiya"
 
-#: templates/main/contact.html:548
+#: templates/main/contact.html:549
 msgid "Частые вопросы"
 msgstr "Tez-tez beriladigan savollar"
 
-#: templates/main/contact.html:558
+#: templates/main/contact.html:559
 msgid "Какой срок изготовления заказа?"
 msgstr "Buyurtma tayyorlash muddati qancha?"
 
-#: templates/main/contact.html:563
-msgid "Стандартный срок изготовления - 5-10 рабочих дней. Для индивидуальных заказов срок согласовывается отдельно."
-msgstr "Standart tayyorlash muddati - 5-10 ish kuni. Maxsus buyurtmalar uchun muddat alohida kelishiladi."
+#: templates/main/contact.html:564
+msgid ""
+"Стандартный срок изготовления - 5-10 рабочих дней. Для индивидуальных "
+"заказов срок согласовывается отдельно."
+msgstr ""
+"Standart tayyorlash muddati - 5-10 ish kuni. Maxsus buyurtmalar uchun muddat "
+"alohida kelishiladi."
 
-#: templates/main/contact.html:572
+#: templates/main/contact.html:573
 msgid "Есть ли доставка в регионы?"
 msgstr "Viloyatlarga yetkazib berish bormi?"
 
-#: templates/main/contact.html:577
-msgid "Да, мы осуществляем доставку по всему Узбекистану и экспорт в другие страны. Стоимость и сроки доставки рассчитываются индивидуально."
-msgstr "Ha, biz butun O‘zbekistonga yetkazib beramiz va boshqa mamlakatlarga eksport qilamiz. Yetkazib berish narxi va muddati alohida hisoblanadi."
+#: templates/main/contact.html:578
+msgid ""
+"Да, мы осуществляем доставку по всему Узбекистану и экспорт в другие страны. "
+"Стоимость и сроки доставки рассчитываются индивидуально."
+msgstr ""
+"Ha, biz butun O‘zbekistonga yetkazib beramiz va boshqa mamlakatlarga eksport "
+"qilamiz. Yetkazib berish narxi va muddati alohida hisoblanadi."
 
-#: templates/main/contact.html:586
+#: templates/main/contact.html:587
 msgid "Можно ли получить образцы продукции?"
 msgstr "Mahsulot namunalarini olish mumkinmi?"
 
-#: templates/main/contact.html:591
-msgid "Да, для оптовых клиентов мы предоставляем образцы материалов. Стоимость образцов и условия доставки обсуждаются индивидуально."
-msgstr "Ha, ulgurji mijozlar uchun biz material namunalari taqdim etamiz. Namuna narxi va yetkazib berish shartlari alohida kelishiladi."
+#: templates/main/contact.html:592
+msgid ""
+"Да, для оптовых клиентов мы предоставляем образцы материалов. Стоимость "
+"образцов и условия доставки обсуждаются индивидуально."
+msgstr ""
+"Ha, ulgurji mijozlar uchun biz material namunalari taqdim etamiz. Namuna "
+"narxi va yetkazib berish shartlari alohida kelishiladi."
 
-#: templates/main/contact.html:603
+#: templates/main/contact.html:604
 msgid "Написать в WhatsApp"
 msgstr "WhatsApp orqali yozish"
 
@@ -1064,108 +1146,134 @@ msgstr "WhatsApp orqali yozish"
 msgid "Качественные полотенца из натуральных материалов"
 msgstr "Tabiiy materiallardan tayyorlangan sifatli sochiqlar"
 
-#: templates/main/home.html:19
+#: templates/main/home.html:23
 msgid "Премиум качество с 2015"
 msgstr "2015-yildan beri premium sifat"
 
-#: templates/main/home.html:22
+#: templates/main/home.html:26
 msgid "Искусство комфорта"
 msgstr "Qulaylik san’ati"
 
-#: templates/main/home.html:23
+#: templates/main/home.html:27
 msgid "в каждой нити"
 msgstr "har bir ipda"
 
-#: templates/main/home.html:26
-msgid "Роскошные полотенца ручной работы из египетского хлопка с гарантией качества для отелей и дома"
-msgstr "Misr paxtasidan qo‘l mehnati bilan tayyorlangan hashamatli sochiqlar, mehmonxonalar va uy uchun sifat kafolati bilan"
+#: templates/main/home.html:30
+msgid ""
+"Роскошные полотенца ручной работы из узбекского хлопка с гарантией качества "
+"для отелей и дома"
+msgstr ""
+"O‘zbek paxtasidan qo‘l mehnati bilan tayyorlangan hashamatli sochiqlar, "
+"mehmonxonalar va uy uchun sifat kafolati bilan"
 
-#: templates/main/home.html:32
+#: templates/main/home.html:36
 msgid "довольных клиентов"
 msgstr "mamnun mijozlar"
 
-#: templates/main/home.html:47
+#: templates/main/home.html:51
 msgid "Исследовать коллекцию"
 msgstr "Kolleksiyani o‘rganish"
 
-#: templates/main/home.html:51
+#: templates/main/home.html:55
 msgid "Смотреть видео"
 msgstr "Videoni ko‘rish"
 
-#: templates/main/home.html:74
-msgid "Премиальные полотенца HomeTerry"
+#: templates/main/home.html:76
+#, fuzzy
+#| msgid "Премиальные полотенца HomeTerry"
+msgid "Премиальные полотенца Home Terry Textile"
 msgstr "HomeTerry premium sochiqlari"
 
-#: templates/main/home.html:86
+#: templates/main/home.html:87
 msgid "Листайте вниз"
 msgstr "Pastga aylantiring"
 
-#: templates/main/home.html:99
+#: templates/main/home.html:105
+#, fuzzy
+#| msgid "Применить"
+msgid "Ассортимент"
+msgstr "Qo‘llash"
+
+#: templates/main/home.html:106
 msgid "Наши категории"
 msgstr "Bizning kategoriyalarimiz"
 
-#: templates/main/home.html:102
+#: templates/main/home.html:108
 msgid "Широкий ассортимент полотенец для любых нужд"
 msgstr "Har qanday ehtiyoj uchun keng turdagi sochiqlar"
 
-#: templates/main/home.html:137
+#: templates/main/home.html:133
+msgid "Популярное"
+msgstr ""
+
+#: templates/main/home.html:134
 msgid "Рекомендуемые товары"
 msgstr "Tavsiya etilgan mahsulotlar"
 
-#: templates/main/home.html:140
+#: templates/main/home.html:136
 msgid "Наши самые популярные и качественные полотенца"
 msgstr "Eng mashhur va sifatli sochiqlarimiz"
 
-#: templates/main/home.html:177
+#: templates/main/home.html:157
 msgid "Товары скоро появятся"
 msgstr "Mahsulotlar tez orada paydo bo‘ladi"
 
-#: templates/main/home.html:196
+#: templates/main/home.html:173
+#, fuzzy
+#| msgid "Наши ценности"
+msgid "Наши преимущества"
+msgstr "Bizning qadriyatlarimiz"
+
+#: templates/main/home.html:174
 msgid "Почему выбирают нас"
 msgstr "Nima uchun bizni tanlaydilar"
 
-#: templates/main/home.html:206
+#: templates/main/home.html:181
 #, python-format
 msgid "100%% Качество"
 msgstr "100%% sifat"
 
-#: templates/main/home.html:208
+#: templates/main/home.html:182
 msgid "Только натуральные материалы и строгий контроль качества"
 msgstr "Faqat tabiiy materiallar va qat’iy sifat nazorati"
 
-#: templates/main/home.html:222
+#: templates/main/home.html:189
 msgid "Экспорт по всему миру с гарантией сроков"
 msgstr "Butun dunyoga yetkazib berish va muddat kafolati bilan eksport"
 
-#: templates/main/home.html:234
+#: templates/main/home.html:195
 msgid "Эко-материалы"
 msgstr "Ekologik materiallar"
 
-#: templates/main/home.html:236
+#: templates/main/home.html:196
 msgid "Забота об окружающей среде и вашем здоровье"
 msgstr "Atrof-muhit va sog‘ligingizga g‘amxo‘rlik"
 
-#: templates/main/home.html:248
+#: templates/main/home.html:202
 msgid "Поддержка 24/7"
 msgstr "24/7 qo‘llab-quvvatlash"
 
-#: templates/main/home.html:250
+#: templates/main/home.html:203
 msgid "Всегда на связи для решения любых вопросов"
 msgstr "Har qanday savolni hal qilish uchun doim aloqada"
 
-#: templates/main/home.html:263
+#: templates/main/home.html:215
 msgid "Последние статьи"
 msgstr "So‘nggi maqolalar"
 
-#: templates/main/home.html:304
+#: templates/main/home.html:246
 msgid "Готовы сотрудничать?"
 msgstr "Hamkorlikka tayyormisiz?"
 
-#: templates/main/home.html:307
-msgid "Свяжитесь с нами для обсуждения сотрудничества и получения коммерческого предложения"
-msgstr "Hamkorlikni muhokama qilish va tijorat taklifini olish uchun biz bilan bog‘laning"
+#: templates/main/home.html:248
+msgid ""
+"Свяжитесь с нами для обсуждения сотрудничества и получения коммерческого "
+"предложения"
+msgstr ""
+"Hamkorlikni muhokama qilish va tijorat taklifini olish uchun biz bilan "
+"bog‘laning"
 
-#: templates/main/home.html:311
+#: templates/main/home.html:249
 msgid "Связаться с нами"
 msgstr "Biz bilan bog‘lanish"
 

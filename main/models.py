@@ -76,7 +76,6 @@ class Product(models.Model):
     MATERIAL_CHOICES = [
         ('cotton', _('Хлопок')),
         ('microfiber', _('Микрофибра')),
-        ('bamboo', _('Бамбук')),
         ('linen', _('Лен')),
         ('mixed', _('Смешанный')),
     ]

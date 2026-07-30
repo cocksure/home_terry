@@ -10,7 +10,7 @@
 
 	{% block meta_description %}
 		<meta name="description"
-		      content="Home Terry Textile - производство и экспорт качественных полотенец из натуральных материалов. Хлопок, бамбук, микрофибра.">
+		      content="Home Terry Textile - производство и экспорт качественных полотенец из натуральных материалов. Узбекский хлопок, микрофибра.">
 	{% endblock %}
 
 	<!-- Yandex Webmaster verification -->
@@ -18,7 +18,7 @@
 
 	<!-- Keywords -->
 	<meta name="keywords"
-	      content="{% block meta_keywords %}полотенца, хлопковые полотенца, махровые полотенца, банные полотенца, пляжные полотенца, купить полотенца, полотенца оптом, производство полотенец, Узбекистан{% endblock %}">
+	      content="{% block meta_keywords %}полотенца, узбекский хлопок, хлопковые полотенца, махровые полотенца, банные полотенца, пляжные полотенца, купить полотенца, полотенца оптом, производство полотенец, Узбекистан{% endblock %}">
 	<meta name="author" content="Home Terry Textile">
 	<meta name="robots" content="index, follow">
 
@@ -28,7 +28,7 @@
 	<meta property="og:title"
 	      content="{% block og_title %}Home Terry Textile - Качественные полотенца из натуральных материалов{% endblock %}">
 	<meta property="og:description"
-	      content="{% block og_description %}Производство и экспорт качественных полотенец из хлопка, бамбука и микрофибры. Оптовые поставки по всему миру.{% endblock %}">
+	      content="{% block og_description %}Производство и экспорт качественных полотенец из узбекского хлопка и микрофибры. Оптовые поставки по всему миру.{% endblock %}">
 	<meta property="og:image" content="
 			{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-image.jpg' %}{% endblock %}">
 	<meta property="og:locale" content="{{ LANGUAGE_CODE }}_{{ LANGUAGE_CODE|upper }}">
@@ -389,7 +389,6 @@
 				<h4 class="footer-title">{% trans "Продукция" %}</h4>
 				<ul class="footer-links">
 					<li><a href="{% url 'main:catalog' %}?material=cotton">{% trans "Хлопковые полотенца" %}</a></li>
-					<li><a href="{% url 'main:catalog' %}?material=bamboo">{% trans "Бамбуковые полотенца" %}</a></li>
 					<li><a href="{% url 'main:catalog' %}?material=microfiber">{% trans "Микрофибра" %}</a></li>
 					<li><a href="{% url 'main:catalog' %}?material=linen">{% trans "Льняные полотенца" %}</a></li>
 					<li><a href="{% url 'main:catalog' %}?type=bath">{% trans "Банные полотенца" %}</a></li>
