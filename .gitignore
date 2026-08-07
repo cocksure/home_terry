@@ -20,8 +20,7 @@ services/claude_service.py
 # Тестовые файлы (временные)
 test_*.py
 
-# Django collectstatic / медиа
-/static/
+# Django collectstatic (сгенерированные файлы) / медиа
 /staticfiles/
 /media/
 

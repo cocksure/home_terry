@@ -1,0 +1,215 @@
+/* ========================================
+   Catalog Page Styles
+   ======================================== */
+
+/* Catalog specific styles can be added here if needed */
+/* Currently using common styles from main style.css */
+
+.catalog-header {
+    background: linear-gradient(135deg, #00CFE8 0%, #00B4D8 45%, #0096A8 100%);
+    color: var(--white);
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Page header (bg-gradient class used in templates) */
+.bg-gradient.text-white {
+    background: linear-gradient(135deg, #00CFE8 0%, #00B4D8 50%, #0084A8 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-gradient.text-white::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 70% at 75% 40%, rgba(255,255,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 50% at 20% 80%, rgba(0,0,0,0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.filter-sidebar {
+    background: var(--surface-card);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    position: sticky;
+    top: 100px;
+}
+
+.filter-group {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+}
+
+.filter-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+}
+
+.filter-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+/* ========================================
+   Catalog — Circular Category Pills
+   ======================================== */
+.catalog-pill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2rem;
+    padding: 1.5rem 0 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.catalog-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    opacity: 0;
+    transform: translateY(28px) scale(0.88);
+    animation: catalog-pill-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    transition: color 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes catalog-pill-in {
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.catalog-pill:hover {
+    color: var(--primary-turquoise);
+    transform: translateY(-12px);
+}
+
+.catalog-pill-img {
+    width: 290px;
+    height: 290px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: var(--turquoise-gradient-soft);
+    box-shadow: 0 8px 32px rgba(0, 180, 216, 0.14);
+    border: 3px solid rgba(0, 180, 216, 0.12);
+    transition: box-shadow 0.38s ease, border-color 0.38s ease, transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.catalog-pill:hover .catalog-pill-img {
+    box-shadow: 0 18px 54px rgba(0, 180, 216, 0.32);
+    border-color: var(--primary-turquoise);
+    transform: scale(1.05);
+}
+
+.catalog-pill-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.catalog-pill:hover .catalog-pill-img img {
+    transform: scale(1.1);
+}
+
+.catalog-pill-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--turquoise-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 3.5rem;
+}
+
+.catalog-pill-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 290px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.catalog-pill-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 270px;
+    margin-top: -0.5rem;
+    line-height: 1.35;
+}
+
+[data-theme="dark"] .catalog-pill-img {
+    border-color: rgba(0, 180, 216, 0.2);
+}
+
+@media (max-width: 860px) {
+    .catalog-pill-grid {
+        max-width: 100%;
+        gap: 2.5rem 1.5rem;
+    }
+    .catalog-pill-img {
+        width: 180px;
+        height: 180px;
+    }
+    .catalog-pill-name { max-width: 180px; }
+}
+
+@media (max-width: 600px) {
+    .catalog-pill-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.8rem 0.8rem;
+    }
+    .catalog-pill-img {
+        width: 100px;
+        height: 100px;
+    }
+    .catalog-pill-name {
+        font-size: 0.78rem;
+        max-width: 100px;
+    }
+    .catalog-pill-desc { display: none; }
+}
