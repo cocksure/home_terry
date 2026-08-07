@@ -5,6 +5,8 @@ from django.core.cache import cache
 from django.http import JsonResponse
 import time
 
+from .utils import get_client_ip
+
 
 class RateLimitMiddleware:
     """
@@ -20,7 +22,7 @@ class RateLimitMiddleware:
         if request.path == '/api/submit-contact/' and request.method == 'POST':
             try:
                 # Получаем IP пользователя
-                ip_address = self.get_client_ip(request)
+                ip_address = get_client_ip(request)
 
                 # Ключ для кэша
                 cache_key = f'rate_limit_contact_{ip_address}'
@@ -50,15 +52,6 @@ class RateLimitMiddleware:
 
         response = self.get_response(request)
         return response
-
-    def get_client_ip(self, request):
-        """Получение реального IP адреса клиента"""
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        return ip
 
 
 class NoCacheStaticMiddleware:

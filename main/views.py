@@ -11,6 +11,7 @@ import requests
 import re
 
 from .models import Product, ProductCategory, BlogPost
+from .utils import get_client_ip
 
 logger = logging.getLogger(__name__)
 
@@ -213,7 +214,7 @@ def submit_contact_form(request):
 {message_safe}
 
 ━━━━━━━━━━━━━━━━━━━━
-🌐 IP: {request.META.get('REMOTE_ADDR', 'Unknown')}
+🌐 IP: {get_client_ip(request)}
 """
 
         # Отправляем в Telegram через Bot API
