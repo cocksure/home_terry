@@ -59,3 +59,19 @@ class RateLimitMiddleware:
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+
+
+class NoCacheStaticMiddleware:
+    """
+    Только для DEBUG: запрещает браузеру кэшировать /static/, чтобы
+    изменения в css/js были видны сразу без ручной очистки кэша.
+    """
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        if request.path.startswith('/static/'):
+            response['Cache-Control'] = 'no-store'
+        return response

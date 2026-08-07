@@ -45,6 +45,9 @@ MIDDLEWARE = [
     'main.middleware.RateLimitMiddleware',  # Rate limiting для защиты от спама
 ]
 
+if DEBUG:
+    MIDDLEWARE.append('main.middleware.NoCacheStaticMiddleware')
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [

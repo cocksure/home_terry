@@ -4,11 +4,15 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
+import html
 import json
+import logging
 import requests
 import re
 
 from .models import Product, ProductCategory, BlogPost
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -182,6 +186,15 @@ def submit_contact_form(request):
         }
         type_label = type_labels.get(contact_type, '❓ Общий вопрос')
 
+        # Экранируем пользовательский ввод — сообщение отправляется с parse_mode=HTML,
+        # без экранирования можно внедрить кликабельную ссылку/теги в текст для Telegram
+        name_safe = html.escape(name)
+        phone_safe = html.escape(phone)
+        email_safe = html.escape(email)
+        company_safe = html.escape(company) if company else 'Не указана'
+        subject_safe = html.escape(subject)
+        message_safe = html.escape(message)
+
         # Формируем красивое сообщение для Telegram с HTML форматированием
         telegram_message = f"""
 🆕 <b>Новое сообщение с сайта HomeTerry</b>
@@ -189,15 +202,15 @@ def submit_contact_form(request):
 📋 <b>Тип обращения:</b> {type_label}
 ━━━━━━━━━━━━━━━━━━━━
 
-👤 <b>Имя:</b> {name}
-📱 <b>Телефон:</b> <code>{phone}</code>
-📧 <b>Email:</b> {email}
-🏢 <b>Компания:</b> {company if company else 'Не указана'}
+👤 <b>Имя:</b> {name_safe}
+📱 <b>Телефон:</b> <code>{phone_safe}</code>
+📧 <b>Email:</b> {email_safe}
+🏢 <b>Компания:</b> {company_safe}
 
-📌 <b>Тема:</b> {subject}
+📌 <b>Тема:</b> {subject_safe}
 
 💬 <b>Сообщение:</b>
-{message}
+{message_safe}
 
 ━━━━━━━━━━━━━━━━━━━━
 🌐 IP: {request.META.get('REMOTE_ADDR', 'Unknown')}
@@ -227,12 +240,14 @@ def submit_contact_form(request):
             'error': 'Неверный формат данных'
         }, status=400)
     except requests.exceptions.RequestException as e:
+        logger.error('Ошибка соединения с Telegram: %s', e)
         return JsonResponse({
             'success': False,
-            'error': f'Ошибка соединения с Telegram: {str(e)}'
+            'error': 'Ошибка соединения с Telegram. Попробуйте позже.'
         }, status=500)
     except Exception as e:
+        logger.error('Ошибка отправки формы контактов: %s', e)
         return JsonResponse({
             'success': False,
-            'error': f'Ошибка отправки: {str(e)}'
+            'error': 'Ошибка отправки. Попробуйте позже.'
         }, status=500)

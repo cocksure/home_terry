@@ -10,7 +10,7 @@
 {% block content %}
 
 	<!-- Enhanced Page Header -->
-	<section class="contact-hero py-5 position-relative overflow-hidden">
+	<section class="contact-hero py-4 position-relative overflow-hidden">
 		<div class="floating-contact contact-1">
 			<i class="fas fa-envelope-open-text fa-3x text-white opacity-25"></i>
 		</div>
@@ -54,13 +54,13 @@
 	</section>
 
 	<!-- Contact Section -->
-	<section class="py-5 my-5 reveal-element">
+	<section class="py-4 reveal-element">
 		<div class="container">
-			<div class="row g-5">
+			<div class="row g-4">
 				<!-- Enhanced Contact Information -->
 				<div class="col-lg-5">
 					<div class="contact-card h-100">
-						<div class="card-body p-4 p-md-5">
+						<div class="card-body p-4">
 							<div class="contact-badge">
 								<i class="fas fa-info-circle me-2"></i>
 								{% trans "Контактная информация" %}
@@ -70,12 +70,12 @@
 								{% trans "Наши контакты" %}
 							</h2>
 
-							<p class="text-muted mb-5">
+							<p class="text-muted mb-4">
 								{% trans "Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с выбором продукции и ответить на все вопросы." %}
 							</p>
 
 							<!-- Contact Items with Hover Effects -->
-							<div class="contact-info mb-4 pb-4 border-bottom">
+							<div class="contact-info mb-3 pb-3 border-bottom">
 								<div class="contact-icon">
 									<i class="fas fa-map-marker-alt"></i>
 								</div>
@@ -90,7 +90,7 @@
 								</a>
 							</div>
 
-							<div class="contact-info mb-4 pb-4 border-bottom">
+							<div class="contact-info mb-3 pb-3 border-bottom">
 								<div class="contact-icon">
 									<i class="fas fa-phone-volume"></i>
 								</div>
@@ -131,7 +131,7 @@
 								</div>
 							</div>
 
-							<div class="contact-info mb-4 pb-4 border-bottom">
+							<div class="contact-info mb-3 pb-3 border-bottom">
 								<div class="contact-icon">
 									<i class="fas fa-envelope-open-text"></i>
 								</div>
@@ -187,7 +187,7 @@
 							</div>
 
 							<!-- Social Media Enhanced -->
-							<div class="mt-5 pt-5 border-top">
+							<div class="mt-4 pt-4 border-top">
 								<h4 class="fw-bold mb-4">
 									<i class="fas fa-hashtag me-2 text-gradient"></i>
 									{% trans "Присоединяйтесь к нам" %}
@@ -199,7 +199,7 @@
 									<a href="https://www.facebook.com/profile.php?id=61585364337020" target="_blank" rel="noopener noreferrer" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;">
 										<i class="fab fa-facebook-f fa-lg"></i>
 									</a>
-									<a href="https://www.instagram.com/hometerryuz/" target="_blank" rel="noopener noreferrer" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;">
+									<a href="https://www.instagram.com/hometerrytextile/" target="_blank" rel="noopener noreferrer" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;">
 										<i class="fab fa-instagram fa-lg"></i>
 									</a>
 									<a href="#" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;" target="_blank" rel="noopener noreferrer">
@@ -217,7 +217,7 @@
 				<!-- Enhanced Contact Form -->
 				<div class="col-lg-7">
 					<div class="contact-card">
-						<div class="card-body p-4 p-md-5">
+						<div class="card-body p-4">
 							<div class="contact-badge">
 								<i class="fas fa-paper-plane me-2"></i>
 								{% trans "Форма обратной связи" %}
@@ -257,9 +257,8 @@
 											       class="form-control"
 											       id="name"
 											       required
-											       placeholder="{% trans 'Ваше имя' %}">
-											<label for="name">
-												<i class="fas fa-user me-2"></i>
+											       placeholder="{% trans 'Ваше имя' %} *">
+											<label for="name" class="visually-hidden">
 												{% trans "Ваше имя" %} *
 											</label>
 											<div class="invalid-feedback">
@@ -276,8 +275,7 @@
 											       required
 											       placeholder="+998 90 123 45 67"
 											       pattern="^\+998\d{9}$">
-											<label for="phone">
-												<i class="fas fa-phone me-2"></i>
+											<label for="phone" class="visually-hidden">
 												{% trans "Телефон" %} *
 											</label>
 											<div class="invalid-feedback">
@@ -293,8 +291,7 @@
 											       id="email"
 											       required
 											       placeholder="your@email.com">
-											<label for="email">
-												<i class="fas fa-envelope me-2"></i>
+											<label for="email" class="visually-hidden">
 												{% trans "Email" %} *
 											</label>
 											<div class="invalid-feedback">
@@ -309,8 +306,7 @@
 											       class="form-control"
 											       id="company"
 											       placeholder="{% trans 'Название компании' %}">
-											<label for="company">
-												<i class="fas fa-building me-2"></i>
+											<label for="company" class="visually-hidden">
 												{% trans "Компания" %}
 											</label>
 										</div>
@@ -322,9 +318,8 @@
 											       class="form-control"
 											       id="subject"
 											       required
-											       placeholder="{% trans 'Тема сообщения' %}">
-											<label for="subject">
-												<i class="fas fa-tag me-2"></i>
+											       placeholder="{% trans 'Тема сообщения' %} *">
+											<label for="subject" class="visually-hidden">
 												{% trans "Тема сообщения" %} *
 											</label>
 											<div class="invalid-feedback">
@@ -339,9 +334,8 @@
                                                   id="message"
                                                   rows="5"
                                                   required
-                                                  placeholder="{% trans 'Ваше сообщение' %}"></textarea>
-											<label for="message">
-												<i class="fas fa-comment-alt me-2"></i>
+                                                  placeholder="{% trans 'Ваше сообщение' %} *"></textarea>
+											<label for="message" class="visually-hidden">
 												{% trans "Сообщение" %} *
 											</label>
 											<div class="invalid-feedback">
@@ -421,9 +415,9 @@
 	</section>
 
 	<!-- Interactive Map Section -->
-	<section class="py-5 bg-light" id="map">
+	<section class="py-4 bg-light" id="map">
 		<div class="container">
-			<div class="row mb-5">
+			<div class="row mb-4">
 				<div class="col-lg-8 mx-auto text-center">
 					<h2 class="display-5 fw-bold mb-3">
 						<i class="fas fa-map-marked-alt me-3 text-gradient"></i>
@@ -476,9 +470,9 @@
 	</section>
 
 	<!-- Departments Section -->
-	<section class="py-5">
+	<section class="py-4">
 		<div class="container">
-			<h2 class="section-title text-center mb-5">
+			<h2 class="section-title text-center mb-4">
 				<i class="fas fa-users me-3 text-gradient"></i>
 				{% trans "Наши отделы" %}
 			</h2>
@@ -542,9 +536,9 @@
 	</section>
 
 	<!-- FAQ Section -->
-	<section class="py-5 bg-light">
+	<section class="py-4 bg-light">
 		<div class="container">
-			<h2 class="section-title text-center mb-5">
+			<h2 class="section-title text-center mb-4">
 				<i class="fas fa-question-circle me-3 text-gradient"></i>
 				{% trans "Частые вопросы" %}
 			</h2>
