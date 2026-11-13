@@ -381,7 +381,7 @@
     var ENTER_DELAY = 150;
 
     var x = 0, velocity = 0;
-    var isDragging = false, isHovered = false, autoScroll = false;
+    var isDragging = false, autoScroll = false;
     var dragStartX = 0, dragStartSX = 0;
     var touchStartX = 0, touchStartY = 0, lastTouchX = 0;
     var lastTs = null, kicked = false;
@@ -431,7 +431,7 @@
         var dt = lastTs !== null ? Math.min(ts - lastTs, 50) : 16;
         lastTs = ts;
         if (!isDragging) {
-            if (autoScroll && !isHovered) x -= (SPEED * dt) / 1000;
+            if (autoScroll) x -= (SPEED * dt) / 1000;
             if (Math.abs(velocity) > 0.05) { x += velocity; velocity *= 0.92; }
         }
         x = wrap(x);
@@ -500,9 +500,8 @@
         var pill = e.target.closest('.category-pill');
         if (pill && pill._dragged) e.preventDefault();
     }, true);
-    outer.addEventListener('mouseenter', function () { isHovered = true; });
     outer.addEventListener('mouseleave', function () {
-        isHovered = false; isDragging = false; outer.classList.remove('is-dragging');
+        isDragging = false; outer.classList.remove('is-dragging');
     });
 
     // ── Touch drag ────────────────────────────────────────────────────────────

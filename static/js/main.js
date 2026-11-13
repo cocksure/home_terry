@@ -347,33 +347,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const card = entry.target;
                 const image = card.querySelector('img.card-img-top');
-                const letters = card.querySelectorAll('.product-title-letter');
                 const searchIcon = card.querySelector('.product-card-search-icon');
 
                 if (image) {
-                    gsap.set(image, {
-                        clipPath: 'circle(0% at 50% 50%)',
-                        opacity: 0
-                    });
-                    gsap.to(image, {
-                        clipPath: 'circle(150% at 50% 50%)',
-                        opacity: 1,
-                        duration: 0.85,
-                        ease: 'power3.out'
-                    });
-                }
-
-                if (letters.length) {
-                    gsap.fromTo(letters, {
-                        y: 18,
-                        opacity: 0
+                    // Soft fade + slight zoom-out. The image is already hidden at init (see below),
+                    // so there's no visible -> hidden flash. Props are cleared afterwards to restore hover.
+                    gsap.fromTo(image, {
+                        opacity: 0,
+                        scale: 1.04,
+                        transition: 'none'
                     }, {
-                        y: 0,
                         opacity: 1,
-                        duration: 0.45,
+                        scale: 1,
+                        duration: 0.7,
                         ease: 'power2.out',
-                        stagger: 0.04,
-                        delay: 0.16
+                        clearProps: 'opacity,transform,transition'
                     });
                 }
 
@@ -391,13 +379,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 observerInstance.unobserve(card);
             });
         }, {
-            threshold: 0.18,
-            rootMargin: '0px 0px -15% 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px -40px 0px'
         });
 
         cards.forEach(card => {
             card.classList.add('product-card-animated');
             buildProductCardLens(card);
+            // Hide the image up front so it fades in once instead of showing, vanishing, then fading in
+            const image = card.querySelector('img.card-img-top');
+            if (image) gsap.set(image, { opacity: 0 });
             observer.observe(card);
             if (!supportsHover) {
                 card.classList.add('product-card-touch');
@@ -407,22 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function buildProductCardLens(card) {
         const imageLink = card.querySelector('a > img.card-img-top');
-        const title = card.querySelector('.card-title');
         const existingLens = card.querySelector('.product-card-lens');
-
-        if (title && !title.querySelector('.product-title-letter')) {
-            const textContainer = title.querySelector('a') || title;
-            const text = textContainer.textContent.trim();
-            const fragment = document.createDocumentFragment();
-            text.split('').forEach(character => {
-                const span = document.createElement('span');
-                span.className = 'product-title-letter';
-                span.textContent = character === ' ' ? '\u00a0' : character;
-                fragment.appendChild(span);
-            });
-            textContainer.innerHTML = '';
-            textContainer.appendChild(fragment);
-        }
 
         if (imageLink) {
             const wrapper = imageLink.parentElement;
