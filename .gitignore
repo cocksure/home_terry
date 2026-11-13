@@ -42,3 +42,7 @@ build/
 # Исключение: примеры .env файлов ДОЛЖНЫ быть в Git
 !.env.*.example
 /.claude_ignore
+
+# Дампы базы (содержат хэши паролей)
+data_prod.json
+data_backup.json
