@@ -1,7 +1,8 @@
 import os
+import uuid
 from io import BytesIO
 
-from PIL import Image
+from PIL import Image, ImageOps
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.validators import FileExtensionValidator
@@ -11,33 +12,92 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
 
-def process_image(image, upload_path, quality=95, max_size=(1024, 1024)):
+# Махру разглядывают через лупу, поэтому фото сжимаем почти без потерь
+# и не уменьшаем обычные снимки с телефона/камеры (до 4096px по длинной стороне).
+# PNG конвертируется в WebP без потерь (пиксель в пиксель), JPEG — с качеством 95.
+WEBP_QUALITY = 95
+THUMB_QUALITY = 90
+THUMB_SIZE = 800  # превью для карточек в сетке каталога
+PRODUCT_MAX_SIDE = 4096
+CATEGORY_MAX_SIDE = 2048
+BLOG_MAX_SIDE = 2560
+
+
+def _encode_webp(img, quality, lossless=False):
+    output = BytesIO()
+    params = {'format': 'WEBP', 'quality': quality, 'method': 6, 'lossless': lossless}
+    if lossless:
+        params['quality'] = 100  # в lossless-режиме это сила сжатия, а не качество
+    if img.info.get('icc_profile'):
+        params['icc_profile'] = img.info['icc_profile']
+    img.save(output, **params)
+    return output.getvalue()
+
+
+def process_image(image, max_side=None, quality=WEBP_QUALITY):
+    """Конвертирует загруженное фото в WebP. Возвращает (имя файла, ContentFile).
+
+    Уже готовый WebP без поворота и без уменьшения сохраняется байт в байт,
+    чтобы не терять качество на повторном сжатии.
+    """
     try:
-        img = Image.open(image)
+        image.seek(0)
+        original_bytes = image.read()
+        img = Image.open(BytesIO(original_bytes))
+        source_format = img.format
 
-        # Проверка формата
-        if img.format and img.format.lower() not in ['jpg', 'jpeg', 'png', 'webp']:
-            raise ValueError(f"Неподдерживаемый формат: {img.format}")
+        if source_format not in ('JPEG', 'PNG', 'WEBP'):
+            raise ValueError(f"Неподдерживаемый формат: {source_format}")
 
-        # Сжатие по размеру
-        if img.width > max_size[0] or img.height > max_size[1]:
-            img.thumbnail(max_size, Image.LANCZOS)
+        orientation = img.getexif().get(0x0112, 1)
+        img = ImageOps.exif_transpose(img)
+        if img.mode not in ('RGB', 'RGBA'):
+            has_alpha = 'A' in img.getbands() or 'transparency' in img.info
+            img = img.convert('RGBA' if has_alpha else 'RGB')
 
-        # Подготовка к сохранению
-        output = BytesIO()
-        img.save(output, format='WEBP', quality=quality, optimize=True)
-        output.seek(0)
+        resized = False
+        if max_side and max(img.size) > max_side:
+            img.thumbnail((max_side, max_side), Image.LANCZOS)
+            resized = True
 
-        # Генерация безопасного имени
+        if source_format == 'WEBP' and not resized and orientation == 1:
+            data = original_bytes
+        else:
+            data = _encode_webp(img, quality, lossless=source_format == 'PNG')
+
         filename_wo_ext = os.path.splitext(os.path.basename(image.name))[0]
-        safe_name = slugify(filename_wo_ext) + '.webp'
+        safe_name = (slugify(filename_wo_ext) or uuid.uuid4().hex[:12]) + '.webp'
 
-        full_path = os.path.join(upload_path, safe_name)
-
-        return full_path, ContentFile(output.read())
+        return safe_name, ContentFile(data)
 
     except Exception as e:
         raise ValueError(f"Ошибка при обработке изображения: {e}")
+
+
+def thumb_name(name):
+    stem, _ = os.path.splitext(name)
+    return f'{stem}_thumb.webp'
+
+
+def make_thumbnail(field_file, size=THUMB_SIZE):
+    """Создаёт уменьшенную копию рядом с оригиналом: <имя>_thumb.webp."""
+    storage = field_file.storage
+    with storage.open(field_file.name) as f:
+        img = Image.open(f)
+        img.load()
+    if img.mode not in ('RGB', 'RGBA'):
+        img = img.convert('RGB')
+    img.thumbnail((size, size), Image.LANCZOS)
+
+    name = thumb_name(field_file.name)
+    if storage.exists(name):
+        storage.delete(name)
+    storage.save(name, ContentFile(_encode_webp(img, THUMB_QUALITY)))
+
+
+def is_new_upload(field_file):
+    """True только для только что загруженного файла, а не при каждом save()."""
+    return bool(field_file) and not field_file._committed
 
 
 class ProductCategory(models.Model):
@@ -66,6 +126,11 @@ class ProductCategory(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+
+        if is_new_upload(self.image):
+            name, content = process_image(self.image, max_side=CATEGORY_MAX_SIDE)
+            self.image.save(name, content, save=False)
+
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -156,12 +221,23 @@ class ProductImage(models.Model):
         if self.is_main:
             ProductImage.objects.filter(product=self.product, is_main=True).update(is_main=False)
 
-        if self.image:
-            upload_path = 'products/'
-            full_path, content = process_image(self.image, upload_path, quality=85, max_size=(1200, 1200))
-            self.image.save(os.path.basename(full_path), content, save=False)
+        new_upload = is_new_upload(self.image)
+        if new_upload:
+            name, content = process_image(self.image, max_side=PRODUCT_MAX_SIDE)
+            self.image.save(name, content, save=False)
 
         super().save(*args, **kwargs)
+
+        if new_upload:
+            make_thumbnail(self.image)
+
+    @property
+    def thumb_url(self):
+        """Превью для карточек; если его ещё нет — полноразмерное фото."""
+        name = thumb_name(self.image.name)
+        if self.image.storage.exists(name):
+            return self.image.storage.url(name)
+        return self.image.url
 
 
 class BlogPost(models.Model):
@@ -198,10 +274,9 @@ class BlogPost(models.Model):
             from django.utils import timezone
             self.published_at = timezone.now()
 
-        if self.image:
-            upload_path = 'blog/'
-            full_path, content = process_image(self.image, upload_path, quality=80, max_size=(1200, 800))
-            self.image.save(os.path.basename(full_path), content, save=False)
+        if is_new_upload(self.image):
+            name, content = process_image(self.image, max_side=BLOG_MAX_SIDE)
+            self.image.save(name, content, save=False)
 
         super().save(*args, **kwargs)
 

@@ -19,6 +19,7 @@ urlpatterns = [
     # Статические страницы
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
+    path('privacy/', views.privacy, name='privacy'),
 ]
 
 # API endpoints (без языкового префикса)

@@ -1,0 +1,541 @@
+/* ========================================
+   Floating navbar
+   Капсула с отступом от края, скользящий индикатор активной ссылки,
+   прячется при прокрутке вниз и возвращается при прокрутке вверх.
+   ======================================== */
+
+.site-nav {
+    --nav-pill-h: 60px;
+    /* Стекло в стиле iOS: полупрозрачный фон + сильное размытие + блик по верхнему краю */
+    --nav-glass: rgba(255, 255, 255, 0.6);
+    --nav-glass-border: rgba(255, 255, 255, 0.6);
+    --nav-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    --nav-text: var(--text-secondary);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    padding: 12px 0 0;
+    background: transparent;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-nav.nav-hidden {
+    transform: translate3d(0, -120%, 0);
+}
+
+.site-nav > .container {
+    display: block;
+}
+
+.nav-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: var(--nav-pill-h);
+    padding: 6px 6px 6px 20px;
+    border-radius: 999px;
+    background: var(--nav-glass);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--nav-glass-border);
+    box-shadow: var(--nav-glass-highlight), 0 8px 28px rgba(15, 30, 50, 0.08);
+    transition: box-shadow 0.45s ease, background 0.45s ease, border-color 0.45s ease, min-height 0.35s ease;
+}
+
+.site-nav.scrolled .nav-shell {
+    --nav-pill-h: 54px;
+    box-shadow: var(--nav-glass-highlight), 0 14px 40px rgba(15, 30, 50, 0.14);
+}
+
+[data-theme="dark"] .site-nav {
+    --nav-glass: rgba(14, 24, 42, 0.55);
+    --nav-glass-border: rgba(255, 255, 255, 0.1);
+    --nav-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .site-nav.scrolled .nav-shell {
+    box-shadow: var(--nav-glass-highlight), 0 14px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Над тёмным видео на главной — тёмное стекло и светлый текст (как адаптивные панели в iOS) */
+.site-nav.nav-on-dark {
+    --nav-glass: rgba(8, 18, 32, 0.32);
+    --nav-glass-border: rgba(255, 255, 255, 0.16);
+    --nav-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    --nav-text: rgba(255, 255, 255, 0.82);
+}
+
+.site-nav.nav-on-dark .nav-burger span {
+    background: #fff;
+}
+
+.site-nav.nav-on-dark .nav-burger {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-shell { background: var(--navbar-bg); }
+}
+
+/* Главная: капсула парит над видео */
+body.page-home .site-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+body.page-home .hero-section {
+    padding-top: 110px !important;  /* высота капсулы + отступ */
+}
+
+/* ---------- Логотип ---------- */
+.site-nav .navbar-brand {
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.site-nav .logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-nav .navbar-brand:hover .logo-img {
+    transform: scale(1.04);
+}
+
+/* ---------- Ссылки + скользящий индикатор ---------- */
+.nav-links-wrap {
+    position: relative;
+    margin: 0 auto;
+}
+
+.site-nav .navbar-nav {
+    position: relative;
+    z-index: 1;
+    gap: 2px;
+}
+
+.nav-indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 38px;
+    width: 0;
+    border-radius: 999px;
+    background: rgba(var(--accent-rgb), 0.11);
+    transform: translate3d(0, -50%, 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s ease;
+}
+
+.nav-indicator.ready {
+    opacity: 1;
+}
+
+.site-nav .nav-link {
+    position: relative;
+    padding: 0.55rem 1rem !important;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    color: var(--nav-text);
+    transition: color 0.35s ease;
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus-visible {
+    color: var(--text-primary);
+}
+
+@media (min-width: 992px) {
+    .site-nav.nav-on-dark .nav-link:hover,
+    .site-nav.nav-on-dark .nav-link:focus-visible {
+        color: #fff;
+    }
+
+    .site-nav.nav-on-dark .nav-link.active {
+        color: #8EE0DC;
+    }
+
+    .site-nav.nav-on-dark .nav-indicator {
+        background: rgba(255, 255, 255, 0.14);
+    }
+}
+
+.site-nav .nav-link.active {
+    color: var(--primary-turquoise);
+    font-weight: 600;
+}
+
+/* ---------- Инструменты справа ---------- */
+.nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-icon-btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-icon-btn:hover,
+.nav-icon-btn[aria-expanded="true"] {
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--primary-turquoise);
+}
+
+.nav-icon-btn:active {
+    transform: scale(0.94);
+}
+
+.nav-lang-btn {
+    width: auto;
+    padding: 0 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.nav-lang-btn .fi {
+    font-size: 1rem;
+    border-radius: 2px;
+}
+
+.nav-lang-btn::after {
+    display: none;
+}
+
+/* Тема: луна ↔ солнце с поворотом */
+.theme-toggle i {
+    position: absolute;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.theme-toggle {
+    position: relative;
+}
+
+.theme-toggle .fa-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    opacity: 1;
+    transform: none;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+/* ---------- CTA ---------- */
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-left: 6px;
+    padding: 0 1.25rem;
+    height: 46px;
+    border-radius: 999px;
+    background: var(--turquoise-gradient);
+    color: #fff !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.32);
+    transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-cta i {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(var(--accent-rgb), 0.42);
+}
+
+/* Пульсация: кольцо мягко расходится от кнопки. Анимируется только transform/opacity.
+   Цвет кольца: бирюзовый, в палитре Samarkand — шафран (см. palettes.css) */
+.nav-cta {
+    position: relative;
+}
+
+.nav-cta::before,
+.nav-cta::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 2px solid rgba(var(--cta-ring-rgb, var(--accent-rgb)), 0.9);
+    pointer-events: none;
+    opacity: 0;
+    animation: cta-ring 2.8s cubic-bezier(0.25, 0.6, 0.4, 1) infinite;
+}
+
+.nav-cta::after {
+    animation-delay: 1.4s;
+}
+
+@keyframes cta-ring {
+    0%        { transform: scale(1, 1);       opacity: 0.95; }
+    45%       { opacity: 0.55; }
+    85%, 100% { transform: scale(1.1, 1.38);  opacity: 0; }
+}
+
+/* При наведении пульсация замирает — кнопка и так в фокусе */
+.nav-cta:hover::before,
+.nav-cta:hover::after {
+    animation: none;
+    opacity: 0;
+}
+
+.nav-cta:hover i {
+    transform: translateX(4px);
+}
+
+/* ---------- Бургер ---------- */
+.nav-burger {
+    width: 46px;
+    height: 46px;
+    margin-left: auto;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(var(--accent-rgb), 0.1);
+    position: relative;
+}
+
+.nav-burger:focus {
+    box-shadow: none;
+}
+
+.nav-burger span {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--text-primary);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), top 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-burger span:nth-child(1) { top: 18px; }
+.nav-burger span:nth-child(2) { top: 26px; }
+
+.nav-burger[aria-expanded="true"] span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { top: 22px; transform: rotate(-45deg); }
+
+/* ---------- Мобильное меню ---------- */
+.mobile-lang-switch {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mobile-lang-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-lang-btn.active {
+    color: var(--primary-turquoise);
+    background: rgba(var(--accent-rgb), 0.1);
+    border-color: rgba(var(--accent-rgb), 0.32);
+}
+
+.nav-mobile-label {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .site-nav {
+        padding-top: 10px;
+    }
+
+    .nav-shell {
+        --nav-pill-h: 58px;
+        padding: 6px 6px 6px 16px;
+        flex-wrap: nowrap;
+    }
+
+    .site-nav .logo-img {
+        height: 36px;
+    }
+
+    .site-nav .navbar-collapse {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        padding: 0.5rem;
+        border-radius: 22px;
+        background: var(--white);  /* в тёмной теме --white = тёмный фон */
+        border: 1px solid rgba(var(--accent-rgb), 0.14);
+        box-shadow: 0 24px 60px rgba(15, 30, 50, 0.18);
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        overflow-x: hidden;  /* кольцо пульсации CTA не должно давать горизонтальный скролл */
+    }
+
+    [data-theme="dark"] .site-nav .navbar-collapse {
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links-wrap {
+        margin: 0;
+    }
+
+    .nav-indicator {
+        display: none;
+    }
+
+    .site-nav .nav-link {
+        padding: 0.5rem 0.9rem !important;
+        border-radius: 14px;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .site-nav .nav-link.active {
+        background: rgba(var(--accent-rgb), 0.1);
+        color: var(--primary-turquoise);
+    }
+
+    /* Пункты появляются по очереди */
+    .site-nav .navbar-collapse.show .nav-item,
+    .site-nav .navbar-collapse.collapsing .nav-item {
+        animation: nav-item-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .site-nav .navbar-nav .nav-item:nth-child(2) { animation-delay: 0.04s; }
+    .site-nav .navbar-nav .nav-item:nth-child(3) { animation-delay: 0.08s; }
+    .site-nav .navbar-nav .nav-item:nth-child(4) { animation-delay: 0.12s; }
+    .site-nav .navbar-nav .nav-item:nth-child(5) { animation-delay: 0.16s; }
+
+    .nav-tools {
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.4rem;
+        padding: 0.5rem 0.25rem 0.25rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .site-nav .navbar-collapse {
+        --nav-text: var(--text-secondary);
+    }
+
+    .nav-tools .nav-icon-btn {
+        width: auto;
+        flex: 1;
+        height: 40px;
+        padding: 0 1rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .nav-tools .theme-toggle i {
+        position: static;
+    }
+
+    .nav-tools .theme-toggle .fa-sun,
+    [data-theme="dark"] .nav-tools .theme-toggle .fa-moon {
+        display: none;
+    }
+
+    [data-theme="dark"] .nav-tools .theme-toggle .fa-sun {
+        display: inline-block;
+    }
+
+    .nav-mobile-label {
+        display: inline;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .theme-label-dark { display: none; }
+    [data-theme="dark"] .theme-label-dark { display: inline; }
+    [data-theme="dark"] .theme-label-light { display: none; }
+
+    .mobile-lang-switch {
+        flex-basis: 100%;
+    }
+
+    .nav-cta {
+        flex-basis: 100%;
+        justify-content: center;
+        margin: 0.15rem 0 0;
+        height: 46px;
+    }
+
+    /* Кнопка на всю ширину: кольцо расходится в основном вверх-вниз */
+    .nav-cta::before,
+    .nav-cta::after {
+        animation-name: cta-ring-wide;
+    }
+
+    .mobile-lang-btn {
+        min-height: 40px;
+    }
+}
+
+@keyframes nav-item-in {
+    from { opacity: 0; transform: translate3d(0, 10px, 0); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes cta-ring-wide {
+    0%        { transform: scale(1, 1);       opacity: 0.95; }
+    45%       { opacity: 0.55; }
+    85%, 100% { transform: scale(1.03, 1.3);  opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-cta::before,
+    .nav-cta::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .site-nav,
+    .nav-indicator,
+    .nav-burger span,
+    .site-nav .nav-item {
+        transition: none !important;
+        animation: none !important;
+    }
+}

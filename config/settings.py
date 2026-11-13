@@ -65,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.i18n',
+                'main.context_processors.footer_categories',
+                'main.context_processors.site_palette',
             ],
         },
     },
@@ -149,6 +151,10 @@ if not DEBUG:
         'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
         'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'},
     }
+
+# Палитра сайта: 'samarkand' (новая) или 'turquoise' (исходная бирюзовая).
+# Вернуть бирюзовую — поменять значение здесь или задать SITE_PALETTE=turquoise в .env
+SITE_PALETTE = env('SITE_PALETTE', default='samarkand')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

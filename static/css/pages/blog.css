@@ -24,7 +24,7 @@
     box-shadow: var(--shadow-md);
     transition: all var(--transition-normal);
     height: 100%;
-    border: 1px solid rgba(0, 206, 209, 0.15);
+    border: 1px solid rgba(var(--accent-rgb),  0.15);
 }
 
 .blog-post-card:hover {

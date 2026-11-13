@@ -2,65 +2,38 @@
 // Professional interactions and animations with modern effects
 
 // ========================================
-// Lenis Smooth Scroll — initialize before DOMContentLoaded
+// Smooth scroll (Lenis)
+// lerp вместо фиксированной длительности: прокрутка сразу откликается
+// на колесо и мягко докатывается. На тач-экранах остаётся нативная.
 // ========================================
 let lenis = null;
-if (typeof Lenis !== 'undefined') {
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (typeof Lenis !== 'undefined' && !prefersReducedMotion) {
     lenis = new Lenis({
-        duration: 1.4,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo-out: fast start, buttery end
+        lerp: 0.09,
         smoothWheel: true,
-        wheelMultiplier: 1.0,
-        touchMultiplier: 1.5,
-        infinite: false,
+        wheelMultiplier: 0.95,
     });
 
-    // Drive Lenis via GSAP ticker for perfect sync with GSAP animations
-    if (typeof gsap !== 'undefined') {
-        gsap.ticker.add(time => lenis.raf(time * 1000));
-        gsap.ticker.lagSmoothing(0);
-    } else {
-        (function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        })(performance.now());
-    }
+    (function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    })(performance.now());
 
     window.__lenis = lenis;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-
-    // ========================================
-    // Cursor Ambient Glow
-    // ========================================
-    const cursorGlow = document.getElementById('cursorGlow');
-    if (cursorGlow) {
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let glowX = mouseX;
-        let glowY = mouseY;
-        let rafId;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        // Smooth follow with lerp
-        function animateGlow() {
-            glowX += (mouseX - glowX) * 0.1;
-            glowY += (mouseY - glowY) * 0.1;
-            cursorGlow.style.left = glowX + 'px';
-            cursorGlow.style.top  = glowY + 'px';
-            rafId = requestAnimationFrame(animateGlow);
-        }
-        animateGlow();
-
-        // Fade out when mouse leaves window
-        document.addEventListener('mouseleave', () => { cursorGlow.style.opacity = '0'; });
-        document.addEventListener('mouseenter', () => { cursorGlow.style.opacity = '1'; });
+function smoothScrollTo(target, offset = 0) {
+    if (lenis) {
+        lenis.scrollTo(target, { offset });
+    } else {
+        const top = typeof target === 'number' ? target : target.getBoundingClientRect().top + window.scrollY + offset;
+        window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
 
     // ========================================
     // Page Loader with Enhanced Animation
@@ -123,7 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (heroContentEl) heroContentEl.style.willChange = 'transform';
 
+    // Нижняя граница тёмного hero: пока навбар над ним — тёмное стекло
+    const darkHero = document.querySelector('body.page-home .hero-section');
+    let heroBottom = 0;
+    const measureHero = () => {
+        heroBottom = darkHero ? darkHero.offsetTop + darkHero.offsetHeight - 70 : 0;
+    };
+    measureHero();
+    window.addEventListener('resize', measureHero, { passive: true });
+
     let scrollTicking = false;
+    let lastScrollY = window.pageYOffset;
     let parallaxElements = [];
     let heroShapes = [];
 
@@ -132,15 +115,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (scrollProgress) {
             const total = document.documentElement.scrollHeight - window.innerHeight;
-            scrollProgress.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+            scrollProgress.style.transform = `scaleX(${total > 0 ? scrolled / total : 0})`;
         }
 
         if (navbar) {
-            navbar.classList.toggle('scrolled', scrolled > 50);
+            navbar.classList.toggle('scrolled', scrolled > 30);
+            navbar.classList.toggle('nav-on-dark', heroBottom > 0 && scrolled < heroBottom);
 
-            if (document.body.classList.contains('page-home') && window.innerWidth >= 992) {
-                navbar.classList.toggle('nav-revealed', scrolled > 0);
+            // Прячем навбар при прокрутке вниз, показываем при прокрутке вверх
+            const delta = scrolled - lastScrollY;
+            const menuOpen = navbar.querySelector('.navbar-collapse.show, .dropdown-menu.show');
+            if (scrolled < 160 || menuOpen || delta < -6) {
+                navbar.classList.remove('nav-hidden');
+            } else if (delta > 6) {
+                navbar.classList.add('nav-hidden');
             }
+            if (Math.abs(delta) > 6) lastScrollY = scrolled;
 
             if (heroContentEl && window.innerWidth >= 992 && scrolled < window.innerHeight) {
                 heroContentEl.style.transform = `translate3d(0, ${scrolled * 0.18}px, 0)`;
@@ -176,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTicking = false;
         });
     }, { passive: true });
+    updateScrollEffects();
 
     // ========================================
     // Animated Counter
@@ -257,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         glowButtons.forEach(button => {
             button.addEventListener('mouseenter', () => {
-                button.style.boxShadow = '0 0 30px rgba(0, 206, 209, 0.6)';
+                button.style.boxShadow = '0 0 30px rgba(var(--accent-rgb),  0.6)';
             });
 
             button.addEventListener('mouseleave', () => {
@@ -370,9 +361,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         y: 0,
                         opacity: 1,
                         scale: 1,
-                        duration: 0.55,
-                        ease: 'bounce.out',
-                        delay: 0.38
+                        duration: 0.6,
+                        ease: 'power3.out',
+                        delay: 0.35
                     });
                 }
 
@@ -410,16 +401,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!existingLens) {
                 const lens = document.createElement('div');
                 lens.className = 'product-card-lens';
-                lens.style.backgroundImage = `url('${imageLink.src}')`;
                 wrapper.appendChild(lens);
             }
 
             if (!card.querySelector('.product-card-search-icon')) {
                 const icon = document.createElement('div');
                 icon.className = 'product-card-search-icon';
-                icon.innerText = '🔎';
+                icon.setAttribute('aria-hidden', 'true');
+                icon.innerHTML = '<i class="fas fa-magnifying-glass-plus"></i>';
                 wrapper.appendChild(icon);
-                gsap.set(icon, { y: 12, opacity: 0, scale: 0.82 });
+                gsap.set(icon, { y: 6, opacity: 0, scale: 0.9 });
             }
 
             if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -436,6 +427,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let clientX = 0;
         let clientY = 0;
 
+        const zoomSrc = image.dataset.zoom || image.src;
+
         const updateLens = () => {
             const rect = wrapper.getBoundingClientRect();
             const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
@@ -446,12 +439,12 @@ document.addEventListener('DOMContentLoaded', function() {
             lens.style.left = `${x}px`;
             lens.style.top = `${y}px`;
             lens.style.backgroundPosition = `${px}% ${py}%`;
-            lens.style.backgroundImage = `url('${image.src}')`;
             lens.style.transform = `translate(-50%, -50%) scale(1)`;
             frame = null;
         };
 
         wrapper.addEventListener('mouseenter', () => {
+            if (!lens.style.backgroundImage) lens.style.backgroundImage = `url('${zoomSrc}')`;
             lens.classList.add('active');
         });
 
@@ -479,11 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             this.classList.add('animating');
 
-            if (lenis) {
-                lenis.scrollTo(0, { duration: 1.4 });
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            smoothScrollTo(0);
 
             setTimeout(() => {
                 this.classList.remove('animating');
@@ -504,11 +493,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     const navbarHeight = navbar ? navbar.offsetHeight : 0;
 
-                    if (lenis) {
-                        lenis.scrollTo(target, { offset: -(navbarHeight + 20), duration: 1.4 });
-                    } else {
-                        window.scrollTo({ top: target.offsetTop - navbarHeight - 20, behavior: 'smooth' });
-                    }
+                    smoothScrollTo(target, -(navbarHeight + 20));
                 }
             }
         });
@@ -552,61 +537,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 img.src = img.dataset.lowres;
             }
             imageObserver.observe(img);
-        });
-    }
-
-    // ========================================
-    // Enhanced Card Hover Effects with 3D + Inner Glow
-    // ========================================
-    function init3DCards() {
-        const cards = document.querySelectorAll('.product-card-3d, .card');
-
-        cards.forEach(card => {
-            // Inject glow layer once
-            if (!card.querySelector('.card-glow')) {
-                const glowEl = document.createElement('div');
-                glowEl.className = 'card-glow';
-                card.appendChild(glowEl);
-            }
-
-            const originalTransform = card.style.transform;
-
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const pctX = (x / rect.width  * 100).toFixed(1) + '%';
-                const pctY = (y / rect.height * 100).toFixed(1) + '%';
-
-                // Update inner glow position
-                const glowEl = card.querySelector('.card-glow');
-                if (glowEl) {
-                    glowEl.style.setProperty('--cx', pctX);
-                    glowEl.style.setProperty('--cy', pctY);
-                }
-
-                // 3D tilt only for product-card-3d
-                if (card.classList.contains('product-card-3d')) {
-                    const cx = rect.width / 2;
-                    const cy = rect.height / 2;
-                    const rotateY = ((x - cx) / cx) * 5;
-                    const rotateX = ((cy - y) / cy) * 5;
-                    card.style.transform = `${originalTransform} perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
-                }
-            });
-
-            card.addEventListener('mouseleave', () => {
-                if (card.classList.contains('product-card-3d')) {
-                    card.style.transform = originalTransform;
-                    card.style.transition = 'transform 0.5s ease';
-                }
-            });
-
-            card.addEventListener('mouseenter', () => {
-                if (card.classList.contains('product-card-3d')) {
-                    card.style.transition = 'transform 0.2s ease';
-                }
-            });
         });
     }
 
@@ -784,99 +714,89 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     window.changeMainImage = function(imageUrl, thumbnail) {
         const mainImage = document.getElementById('mainImage');
-        const imageContainer = mainImage ? mainImage.parentElement : null;
+        if (!mainImage) return;
 
-        if (mainImage && imageContainer) {
-            // Create new image element
-            const newImage = new Image();
-            newImage.src = imageUrl;
-            newImage.className = 'gallery-image';
-            newImage.style.opacity = '0';
-            newImage.style.position = 'absolute';
-            newImage.style.top = '0';
-            newImage.style.left = '0';
-            newImage.style.width = '100%';
-            newImage.style.height = '100%';
-            newImage.style.objectFit = 'cover';
-            newImage.style.transition = 'opacity 0.3s ease';
+        document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+        if (thumbnail) thumbnail.classList.add('active');
 
-            // Add to container
-            imageContainer.appendChild(newImage);
-
-            // Fade in new image
-            setTimeout(() => {
-                newImage.style.opacity = '1';
-            }, 10);
-
-            // Remove old image after transition
-            setTimeout(() => {
-                if (mainImage.parentElement === imageContainer) {
-                    mainImage.remove();
-                }
-                newImage.id = 'mainImage';
-                newImage.removeAttribute('style');
-            }, 300);
-
-            // Update active thumbnail with animation
-            document.querySelectorAll('.thumbnail').forEach(t => {
-                t.classList.remove('active');
-                t.style.transform = 'scale(0.9)';
-            });
-
-            if (thumbnail) {
-                thumbnail.classList.add('active');
-                thumbnail.style.transform = 'scale(1.1)';
-
-                // Add click effect
-                thumbnail.style.animation = 'thumbnailClick 0.3s ease';
-                setTimeout(() => {
-                    thumbnail.style.animation = '';
-                }, 300);
-            }
-        }
+        mainImage.style.transition = 'opacity 0.2s ease';
+        mainImage.style.opacity = '0';
+        const next = new Image();
+        next.onload = () => {
+            mainImage.src = imageUrl;
+            mainImage.style.opacity = '1';
+        };
+        next.src = imageUrl;
     };
 
     // ========================================
     // Mobile Menu with Animation
     // ========================================
     function initMobileMenu() {
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const collapseEl = document.getElementById('navbarNav');
+        if (!collapseEl || typeof bootstrap === 'undefined') return;
+        const collapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
 
-        if (navbarToggler && navbarCollapse) {
-            navbarToggler.addEventListener('click', () => {
-                const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
-
-                // Animate hamburger icon
-                const icon = navbarToggler.querySelector('.navbar-toggler-icon');
-                if (icon) {
-                    icon.style.transition = 'transform 0.3s ease';
-                    icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(90deg)';
-                }
+        collapseEl.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 992) collapse.hide();
             });
+        });
 
-            // Close menu on link click with animation
-            const navLinks = navbarCollapse.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 992) {
-                        // Animate out
-                        navbarCollapse.style.transform = 'translateX(100%)';
-                        navbarCollapse.style.opacity = '0';
+        document.addEventListener('click', e => {
+            if (collapseEl.classList.contains('show') && !navbar.contains(e.target)) collapse.hide();
+        });
+    }
 
-                        setTimeout(() => {
-                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                            if (bsCollapse) {
-                                bsCollapse.hide();
-                            }
-                            // Reset styles
-                            navbarCollapse.style.transform = '';
-                            navbarCollapse.style.opacity = '';
-                        }, 300);
-                    }
-                });
-            });
-        }
+    // ========================================
+    // Nav indicator: капсула скользит за курсором и возвращается к активной ссылке
+    // ========================================
+    function initNavIndicator() {
+        const indicator = document.querySelector('.nav-indicator');
+        const links = Array.from(document.querySelectorAll('.site-nav .navbar-nav .nav-link'));
+        if (!indicator || !links.length) return;
+
+        const active = links.find(l => l.classList.contains('active'));
+
+        const moveTo = link => {
+            if (!link || window.innerWidth < 992) {
+                indicator.classList.remove('ready');
+                return;
+            }
+            indicator.style.width = link.offsetWidth + 'px';
+            indicator.style.transform = `translate3d(${link.offsetLeft}px, -50%, 0)`;
+            indicator.classList.add('ready');
+        };
+
+        // Первая установка без анимации
+        indicator.style.transition = 'none';
+        moveTo(active);
+        requestAnimationFrame(() => requestAnimationFrame(() => { indicator.style.transition = ''; }));
+
+        links.forEach(link => link.addEventListener('mouseenter', () => moveTo(link)));
+        links[0].closest('.nav-links-wrap').addEventListener('mouseleave', () => moveTo(active));
+        window.addEventListener('resize', () => moveTo(active), { passive: true });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => moveTo(active));
+    }
+
+    // ========================================
+    // Floating contact button
+    // ========================================
+    function initContactFab() {
+        const fab = document.getElementById('contactFab');
+        if (!fab) return;
+        const btn = fab.querySelector('.contact-fab-btn');
+        const items = fab.querySelectorAll('.contact-fab-item');
+
+        const setOpen = open => {
+            fab.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', String(open));
+            items.forEach(a => a.tabIndex = open ? 0 : -1);
+        };
+
+        btn.addEventListener('click', () => setOpen(!fab.classList.contains('open')));
+        document.addEventListener('click', e => { if (!fab.contains(e.target)) setOpen(false); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
     }
 
     // ========================================
@@ -926,9 +846,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function initPageEntrance() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-        const entranceElements = document.querySelectorAll(
+        // Только то, что видно при загрузке: остальное проявляет initScrollReveal при прокрутке.
+        // Иначе карточки ниже экрана «появлялись» невидимо при загрузке, а потом анимировались второй раз.
+        const vh = window.innerHeight;
+        const entranceElements = Array.from(document.querySelectorAll(
             '.category-card, .feature-card, .department-card, .contact-card, .form-floating-custom'
-        );
+        )).filter(el => el.getBoundingClientRect().top < vh * 0.92);
 
         entranceElements.forEach((el, index) => {
             el.classList.add('page-enter');
@@ -950,10 +873,11 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollReveal();
         animateCounter();
         initParallax();
-        init3DCards();
         initFloatingCards();
         initGlowButtons();
         initMobileMenu();
+        initNavIndicator();
+        initContactFab();
         initMagneticButtons();
     }
 
@@ -963,8 +887,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     // Console Easter Egg
     // ========================================
-    console.log('%c🏠 HomeTerry Premium', 'color: #00CED1; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
-    console.log('%c✨ Modern E-commerce Experience', 'color: #00A5A8; font-size: 16px;');
+    console.log('%c🏠 HomeTerry Premium', 'color: var(--primary-turquoise); font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);');
+    console.log('%c✨ Modern E-commerce Experience', 'color: var(--dark-turquoise); font-size: 16px;');
     console.log('%cMade with ❤️ and cutting-edge animations', 'color: #6B7280; font-size: 14px;');
 
     // Performance monitoring
@@ -1070,14 +994,14 @@ enhancedStyles.textContent = `
     /* Loading animation */
     .loading-progress-bar {
         height: 100%;
-        background: linear-gradient(90deg, #7FFFD4, #00CED1);
+        background: linear-gradient(90deg, var(--light-turquoise), var(--primary-turquoise));
         width: 0%;
         transition: width 0.8s ease;
     }
     
     /* Form validation styles */
     .is-valid {
-        border-color: #00CED1 !important;
+        border-color: var(--primary-turquoise) !important;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2300CED1' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") !important;
     }
     
@@ -1106,7 +1030,7 @@ enhancedStyles.textContent = `
         top: -10px;
         left: 10px;
         font-size: 0.8rem;
-        color: #00CED1;
+        color: var(--primary-turquoise);
         background: white;
         padding: 0 5px;
     }
@@ -1121,7 +1045,7 @@ enhancedStyles.textContent = `
     }
     
     .custom-tooltip .tooltip-arrow::before {
-        border-top-color: #00CED1;
+        border-top-color: var(--primary-turquoise);
     }
     
     /* Mobile filter animation */

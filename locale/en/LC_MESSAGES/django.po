@@ -373,8 +373,8 @@ msgid "Условия использования"
 msgstr "Terms of Use"
 
 #: templates/main/about.html:22
-msgid "С 2015 года"
-msgstr "Since 2015"
+msgid "С 2014 года"
+msgstr "Since 2014"
 
 #: templates/main/about.html:25
 msgid "Home Terry Textile"
@@ -553,8 +553,8 @@ msgid "Лет на рынке"
 msgstr "Years on the Market"
 
 #: templates/main/about.html:261
-msgid "с 2015 года"
-msgstr "since 2015"
+msgid "с 2014 года"
+msgstr "since 2014"
 
 #: templates/main/about.html:271
 msgid "Тысяч товаров"
@@ -1132,8 +1132,8 @@ msgid "Качественные полотенца из натуральных �
 msgstr "High-Quality Towels Made from Natural Materials"
 
 #: templates/main/home.html:23
-msgid "Премиум качество с 2015"
-msgstr "Premium Quality Since 2015"
+msgid "Премиум качество с 2014"
+msgstr "Premium Quality Since 2014"
 
 #: templates/main/home.html:26
 msgid "Искусство комфорта"
@@ -1311,3 +1311,27 @@ msgstr "Share:"
 #: templates/main/product_detail.html:153
 msgid "Похожие товары"
 msgstr "Related Products"
+
+msgid "Язык"
+msgstr "Language"
+
+msgid "Наверх"
+msgstr "Back to top"
+
+msgid "Закрыть видео"
+msgstr "Close video"
+
+msgid "Основное меню"
+msgstr "Main menu"
+
+msgid "Открыть меню"
+msgstr "Open menu"
+
+msgid "Сменить тему"
+msgstr "Switch theme"
+
+msgid "Запросить прайс"
+msgstr "Request a price list"
+
+msgid "Телефон с кодом страны"
+msgstr "Phone with country code"

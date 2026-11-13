@@ -32,25 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // Phone Input Mask - Автоматическое форматирование номера
-    // ========================================
-    if (typeof IMask !== 'undefined' && phoneInput) {
-        const phoneMask = IMask(phoneInput, {
-            mask: '+998 00 000 00 00',
-            lazy: false,  // Показывать маску всегда
-            placeholderChar: '_'
-        });
-
-        // Обновляем значение для валидации
-        phoneInput.addEventListener('blur', function() {
-            const unmasked = phoneMask.unmaskedValue;
-            if (unmasked.length === 12) { // +998 + 9 цифр
-                phoneInput.value = '+998' + unmasked.slice(3);
-            }
-        });
-    }
-
-    // ========================================
     // Character Counter for Message
     // ========================================
     messageInput.addEventListener('input', function() {
@@ -122,9 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Проверка телефона
-        const phoneValue = phoneInput.value.replace(/\s/g, '');
-        if (!phoneValue || phoneValue.length < 13) {
-            showValidationError(phoneInput, '❌ Введите правильный номер телефона в формате +998 XX XXX XX XX');
+        // Любая страна: необязательный «+» и 7–15 цифр (международный формат E.164)
+        const phoneValue = phoneInput.value.replace(/[\s\-().]/g, '');
+        if (!/^\+?\d{7,15}$/.test(phoneValue)) {
+            showValidationError(phoneInput, '❌ Введите номер с кодом страны, например +49 30 1234567');
             return false;
         }
 
@@ -253,18 +235,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
-    // ========================================
-    // WhatsApp Chat Bubble
-    // ========================================
-    const chatBubble = document.querySelector('.chat-bubble');
-    if (chatBubble) {
-        chatBubble.addEventListener('click', function() {
-            const phone = '998901234567';
-            const message = encodeURIComponent(chatBubble.getAttribute('data-message') || 'Hello! I have a question about HomeTerry products.');
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-        });
-    }
 
     // ========================================
     // Initialize Bootstrap Tooltips

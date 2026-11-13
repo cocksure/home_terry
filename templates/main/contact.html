@@ -4,7 +4,7 @@
 {% block title %}{% trans "Контакты" %} - Home Terry Textile{% endblock %}
 
 {% block extra_css %}
-	<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}?v=2">
+	<link rel="stylesheet" href="{% static 'css/pages/contact.css' %}?v=8">
 {% endblock %}
 
 {% block content %}
@@ -57,181 +57,103 @@
 	<section class="py-4 reveal-element">
 		<div class="container">
 			<div class="row g-4">
-				<!-- Enhanced Contact Information -->
+				<!-- Contact Information -->
 				<div class="col-lg-5">
-					<div class="contact-card h-100">
+					<div class="contact-card contact-card-compact h-100">
 						<div class="card-body p-4">
 							<div class="contact-badge">
 								<i class="fas fa-info-circle me-2"></i>
 								{% trans "Контактная информация" %}
 							</div>
+							<h2 class="contact-card-title">{% trans "Наши контакты" %}</h2>
 
-							<h2 class="display-6 fw-bold mb-4">
-								{% trans "Наши контакты" %}
-							</h2>
+							<ul class="contact-list">
+								<li class="contact-row">
+									<span class="contact-row-icon"><i class="fas fa-map-marker-alt"></i></span>
+									<div class="contact-row-body">
+										<span class="contact-row-label">{% trans "Адрес офиса" %}</span>
+										<span class="contact-row-value">{% trans "ул. Буюк Ипак Йули 7, Самарканд, Самаркандская область, Узбекистан" %}</span>
+										<a href="#map" class="contact-row-link">
+											<i class="fas fa-directions me-1"></i>{% trans "Проложить маршрут" %}
+										</a>
+									</div>
+								</li>
 
-							<p class="text-muted mb-4">
-								{% trans "Свяжитесь с нами удобным для вас способом. Наша команда готова помочь с выбором продукции и ответить на все вопросы." %}
-							</p>
+								<li class="contact-row">
+									<span class="contact-row-icon"><i class="fas fa-phone-volume"></i></span>
+									<div class="contact-row-body">
+										<span class="contact-row-label">{% trans "Телефоны" %}</span>
+										<a href="tel:+998937230505" class="contact-row-value">+998 93 723 05 05</a>
+										<span class="contact-row-note">{% trans "Общие вопросы" %}</span>
+										<a href="tel:+998878113333" class="contact-row-value mt-1">+998 87 811 33 33</a>
+										<span class="contact-row-note">{% trans "Отдел продаж" %}</span>
+									</div>
+								</li>
 
-							<!-- Contact Items with Hover Effects -->
-							<div class="contact-info mb-3 pb-3 border-bottom">
-								<div class="contact-icon">
-									<i class="fas fa-map-marker-alt"></i>
-								</div>
-								<h4 class="fw-bold mb-3">{% trans "Адрес офиса" %}</h4>
-								<p class="mb-2 text-muted">
-									<i class="fas fa-building me-2"></i>
-									<strong>{% trans "ул. Буюк Ипак Йули 7, Самарканд, Самаркандская область, Узбекистан" %}</strong>
-								</p>
-								<a href="#map" class="btn btn-sm btn-outline-primary mt-3">
-									<i class="fas fa-directions me-1"></i>
-									{% trans "Проложить маршрут" %}
+								<li class="contact-row">
+									<span class="contact-row-icon"><i class="fas fa-envelope-open-text"></i></span>
+									<div class="contact-row-body">
+										<span class="contact-row-label">{% trans "Электронная почта" %}</span>
+										<a href="mailto:sales@hometerry.uz" class="contact-row-value">sales@hometerry.uz</a>
+										<span class="contact-row-note">{% trans "Для заказов и прайсов" %}</span>
+										<a href="mailto:info@hometerry.uz" class="contact-row-value mt-1">info@hometerry.uz</a>
+										<span class="contact-row-note">{% trans "Для общих вопросов" %}</span>
+										<a href="mailto:support@hometerry.uz" class="contact-row-value mt-1">support@hometerry.uz</a>
+										<span class="contact-row-note">{% trans "Техническая поддержка" %}</span>
+									</div>
+								</li>
+
+								<li class="contact-row">
+									<span class="contact-row-icon"><i class="fas fa-clock"></i></span>
+									<div class="contact-row-body">
+										<span class="contact-row-label">{% trans "Режим работы" %}</span>
+										<div class="contact-hours">
+											<span class="contact-hours-chip"><b>{% trans "Пн-Пт" %}</b> 9:00–18:00</span>
+											<span class="contact-hours-chip"><b>{% trans "Суббота" %}</b> 10:00–16:00</span>
+											<span class="contact-hours-chip is-off"><b>{% trans "Воскресенье" %}</b> {% trans "Выходной" %}</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+
+							<div class="contact-social">
+								<span class="contact-row-label">{% trans "Присоединяйтесь к нам" %}</span>
+								<div class="contact-social-links">
+								<a href="https://www.facebook.com/profile.php?id=61585364337020" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="Facebook">
+									<i class="fab fa-facebook-f"></i>
 								</a>
-							</div>
-
-							<div class="contact-info mb-3 pb-3 border-bottom">
-								<div class="contact-icon">
-									<i class="fas fa-phone-volume"></i>
-								</div>
-								<h4 class="fw-bold mb-3">{% trans "Телефоны" %}</h4>
-								<div class="contact-numbers">
-									<div class="d-flex align-items-center mb-2">
-										<div class="number-badge">{% trans "Общие вопросы" %}</div>
-									</div>
-									<p class="mb-2">
-										<a href="tel:+998937230505"
-										   class="text-decoration-none text-dark hover-text-turquoise">
-											<i class="fas fa-phone-alt me-2"></i>
-											<strong>+998 (93) 723 05 05</strong>
-										</a>
-									</p>
-
-									<div class="d-flex align-items-center mb-2 mt-3">
-										<div class="number-badge">{% trans "Отдел продаж" %}</div>
-									</div>
-									<p class="mb-2">
-										<a href="tel:+998878113333"
-										   class="text-decoration-none text-dark hover-text-turquoise">
-											<i class="fas fa-phone-alt me-2"></i>
-											<strong>+998 87 811 33 33</strong>
-										</a>
-									</p>
-
-									<div class="d-flex align-items-center mb-2 mt-3">
-										<div class="number-badge">{% trans "Вайбер/Телеграм" %}</div>
-									</div>
-									<p class="mb-0">
-										<a href="https://wa.me/998878113333"
-										   class="text-decoration-none text-dark hover-text-turquoise">
-											<i class="fab fa-whatsapp me-2"></i>
-											<strong>+998 87 811 33 33</strong>
-										</a>
-									</p>
-								</div>
-							</div>
-
-							<div class="contact-info mb-3 pb-3 border-bottom">
-								<div class="contact-icon">
-									<i class="fas fa-envelope-open-text"></i>
-								</div>
-								<h4 class="fw-bold mb-3">{% trans "Электронная почта" %}</h4>
-								<p class="mb-2">
-									<a href="mailto:info@hometerry.uz"
-									   class="text-decoration-none text-dark hover-text-turquoise">
-										<i class="fas fa-envelope me-2"></i>
-										<strong>info@hometerry.uz</strong>
-									</a>
-									<br>
-									<small class="text-muted">{% trans "Для общих вопросов" %}</small>
-								</p>
-								<p class="mb-2">
-									<a href="mailto:sales@hometerry.uz"
-									   class="text-decoration-none text-dark hover-text-turquoise">
-										<i class="fas fa-envelope me-2"></i>
-										<strong>sales@hometerry.uz</strong>
-									</a>
-									<br>
-									<small class="text-muted">{% trans "Для заказов и прайсов" %}</small>
-								</p>
-								<p class="mb-0">
-									<a href="mailto:support@hometerry.uz"
-									   class="text-decoration-none text-dark hover-text-turquoise">
-										<i class="fas fa-envelope me-2"></i>
-										<strong>support@hometerry.uz</strong>
-									</a>
-									<br>
-									<small class="text-muted">{% trans "Техническая поддержка" %}</small>
-								</p>
-							</div>
-
-							<div class="contact-info">
-								<div class="contact-icon">
-									<i class="fas fa-clock"></i>
-								</div>
-								<h4 class="fw-bold mb-3">{% trans "Режим работы" %}</h4>
-								<div class="schedule">
-									<div class="schedule-item">
-										<span class="schedule-day">{% trans "Пн-Пт" %}</span>
-										<span class="schedule-time">9:00 - 18:00</span>
-									</div>
-									<div class="schedule-item">
-										<span class="schedule-day">{% trans "Суббота" %}</span>
-										<span class="schedule-time">10:00 - 16:00</span>
-									</div>
-									<div class="schedule-item">
-										<span class="schedule-day">{% trans "Воскресенье" %}</span>
-										<span class="schedule-time">{% trans "Выходной" %}</span>
-									</div>
-								</div>
-							</div>
-
-							<!-- Social Media Enhanced -->
-							<div class="mt-4 pt-4 border-top">
-								<h4 class="fw-bold mb-4">
-									<i class="fas fa-hashtag me-2 text-gradient"></i>
-									{% trans "Присоединяйтесь к нам" %}
-								</h4>
-								<p class="text-muted mb-4">
-									{% trans "Подписывайтесь на наши социальные сети, чтобы быть в курсе новинок и акций" %}
-								</p>
-								<div class="d-flex gap-3">
-									<a href="https://www.facebook.com/profile.php?id=61585364337020" target="_blank" rel="noopener noreferrer" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;">
-										<i class="fab fa-facebook-f fa-lg"></i>
-									</a>
-									<a href="https://www.instagram.com/hometerrytextile/" target="_blank" rel="noopener noreferrer" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;">
-										<i class="fab fa-instagram fa-lg"></i>
-									</a>
-									<a href="#" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;" target="_blank" rel="noopener noreferrer">
-										<i class="fab fa-telegram-plane fa-lg"></i>
-									</a>
-									<a href="#" class="social-link" style="width: 50px; height: 50px; border-radius: 50%; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center; color: white; transition: all 0.3s ease; text-decoration: none;" target="_blank" rel="noopener noreferrer">
-										<i class="fab fa-linkedin-in fa-lg"></i>
-									</a>
+								<a href="https://www.instagram.com/hometerrytextile/" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="Instagram">
+									<i class="fab fa-instagram"></i>
+								</a>
+								<a href="https://t.me/hometerrytextile" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="Telegram">
+									<i class="fab fa-telegram-plane"></i>
+								</a>
+								<a href="https://wa.me/998878113333" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="WhatsApp">
+									<i class="fab fa-whatsapp"></i>
+								</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 				<!-- Enhanced Contact Form -->
 				<div class="col-lg-7">
-					<div class="contact-card">
+					<div class="contact-card contact-card-form h-100">
 						<div class="card-body p-4">
 							<div class="contact-badge">
 								<i class="fas fa-paper-plane me-2"></i>
 								{% trans "Форма обратной связи" %}
 							</div>
 
-							<h2 class="display-6 fw-bold mb-1">
+							<h2 class="contact-card-title mb-1">
 								{% trans "Отправьте нам сообщение" %}
 							</h2>
-							<p class="text-muted mb-4">
+							<p class="contact-form-lead">
 								{% trans "Заполните форму ниже, и мы свяжемся с вами в ближайшее время" %}
 							</p>
 
 							<!-- Quick Contact Buttons -->
-							<div class="quick-contacts mb-4">
+							<div class="quick-contacts">
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-outline-primary active" data-type="general">
 										<i class="fas fa-question-circle me-2"></i>
@@ -273,8 +195,9 @@
 											       class="form-control"
 											       id="phone"
 											       required
-											       placeholder="+998 87 811 33 33"
-											       pattern="^\+998\d{9}$">
+											       inputmode="tel"
+											       autocomplete="tel"
+											       placeholder="{% trans 'Телефон с кодом страны' %} *">
 											<label for="phone" class="visually-hidden">
 												{% trans "Телефон" %} *
 											</label>
@@ -332,7 +255,7 @@
 										<div class="form-floating-custom">
                                         <textarea class="form-control"
                                                   id="message"
-                                                  rows="5"
+                                                  rows="4"
                                                   required
                                                   placeholder="{% trans 'Ваше сообщение' %} *"></textarea>
 											<label for="message" class="visually-hidden">
@@ -352,6 +275,21 @@
 									</div>
 
 
+									<div class="col-12">
+										<div class="form-check">
+											<input class="form-check-input"
+											       type="checkbox"
+											       id="privacyPolicy"
+											       required>
+											<label class="form-check-label small text-muted" for="privacyPolicy">
+												{% trans "Я согласен с" %}
+												<a href="{% url 'main:privacy' %}" target="_blank" rel="noopener"
+												   class="text-decoration-none">{% trans "политикой конфиденциальности" %}</a>
+												{% trans "и даю согласие на обработку персональных данных" %}
+											</label>
+										</div>
+									</div>
+
 									<!-- Submit Button with Loading -->
 									<div class="col-12">
 										<button type="submit"
@@ -367,27 +305,12 @@
                                         </span>
 										</button>
 									</div>
-
-									<div class="col-12">
-										<div class="form-check">
-											<input class="form-check-input"
-											       type="checkbox"
-											       id="privacyPolicy"
-											       required>
-											<label class="form-check-label small text-muted" for="privacyPolicy">
-												{% trans "Я согласен с" %}
-												<a href="#"
-												   class="text-decoration-none">{% trans "политикой конфиденциальности" %}</a>
-												{% trans "и даю согласие на обработку персональных данных" %}
-											</label>
-										</div>
-									</div>
 								</div>
 							</form>
 
 							<!-- Success/Error Messages -->
-							<div id="formMessages" class="mt-4">
-								<div id="successMessage" class="alert alert-success d-none" role="alert">
+							<div id="formMessages">
+								<div id="successMessage" class="alert alert-success d-none mt-3 mb-0" role="alert">
 									<div class="d-flex align-items-center">
 										<i class="fas fa-check-circle fa-2x me-3"></i>
 										<div>
@@ -397,7 +320,7 @@
 									</div>
 								</div>
 
-								<div id="errorMessage" class="alert alert-danger d-none" role="alert">
+								<div id="errorMessage" class="alert alert-danger d-none mt-3 mb-0" role="alert">
 									<div class="d-flex align-items-center">
 										<i class="fas fa-exclamation-circle fa-2x me-3"></i>
 										<div>
@@ -456,8 +379,8 @@
 								{% trans "Пн-Пт: 9:00-18:00" %}<br>
 								<small class="text-muted">{% trans "Сб: 10:00-16:00" %}</small>
 							</p>
-							<a href="https://goo.gl/maps/example"
-							   target="_blank"
+							<a href="https://www.google.com/maps/dir/?api=1&destination=39.65773,66.92235"
+							   target="_blank" rel="noopener noreferrer"
 							   class="btn btn-primary btn-sm">
 								<i class="fas fa-directions me-2"></i>
 								{% trans "Проложить маршрут" %}
@@ -593,16 +516,9 @@
 		</div>
 	</section>
 
-	<!-- Chat Bubble -->
-	<div class="chat-bubble" data-bs-toggle="tooltip" data-bs-placement="left"
-	     title="{% trans 'Написать в WhatsApp' %}">
-		<i class="fab fa-whatsapp"></i>
-	</div>
 
 {% endblock %}
 
 {% block extra_js %}
-	<!-- IMask для маски телефона -->
-	<script defer src="https://unpkg.com/imask"></script>
-	<script defer src="{% static 'js/pages/contact.js' %}?v=2"></script>
+	<script defer src="{% static 'js/pages/contact.js' %}?v=3"></script>
 {% endblock %}

@@ -1,0 +1,175 @@
+/* ========================================
+   Палитры сайта
+   ----------------------------------------
+   Активная палитра задаётся в config/settings.py: SITE_PALETTE.
+     'turquoise' — исходная бирюзовая (все значения из :root в style.css)
+     'samarkand' — изразцовая бирюза + лазурит + хлопково-белый + шафран
+   Посмотреть любую без изменения настроек: ?palette=turquoise / ?palette=samarkand
+   ======================================== */
+
+/* ---------- Samarkand: светлая ---------- */
+html[data-palette="samarkand"] {
+    --primary-turquoise: #0E9AA7;
+    --vibrant-turquoise: #17B3BE;
+    --dark-turquoise: #0A6E79;
+    --light-turquoise: #6CCFCC;
+    --pale-turquoise: #E4F2F1;
+
+    --accent-rgb: 14, 154, 167;
+    --accent-deep-rgb: 10, 110, 121;
+    --accent-light-rgb: 108, 207, 204;
+
+    --lapis: #16325C;
+    --lapis-deep: #0E2242;
+    --highlight: #D6A23B;          /* шафран — только для пульсаций и тонких акцентов */
+    --highlight-rgb: 214, 162, 59;
+    --cta-ring-rgb: 214, 162, 59;
+
+    --turquoise-gradient: linear-gradient(135deg, #12A5B1 0%, #0A6E79 100%);
+    --turquoise-gradient-soft: linear-gradient(135deg, #EEF6F5 0%, #DCEFED 100%);
+    --turquoise-gradient-vibrant: linear-gradient(135deg, #17B3BE 0%, #0E9AA7 50%, #0A6E79 100%);
+    --dark-gradient: linear-gradient(135deg, #0E2242 0%, #16325C 55%, #0B4F5C 100%);
+
+    --surface-bg: #F6F7F4;
+    --surface-card: rgba(255, 255, 255, 0.96);
+    --text-primary: #172235;
+    --text-secondary: #556274;
+    --black: #172235;
+    --footer-bg: #0E2242;
+
+    --font-heading: 'Cormorant Garamond', 'Times New Roman', serif;
+    --shadow-glow: 0 0 30px rgba(14, 154, 167, 0.22);
+}
+
+/* ---------- Samarkand: тёмная («ночной Регистан») ---------- */
+html[data-palette="samarkand"][data-theme="dark"] {
+    --surface-bg: #0A1424;
+    --surface-card: rgba(16, 31, 54, 0.92);
+    --text-primary: #E8ECF2;
+    --text-secondary: #9AA8BC;
+    --black: #E8ECF2;
+    --footer-bg: #060D19;
+    --white: #0F1E36;
+    --pale-turquoise: #0D2C35;
+    --turquoise-gradient-soft: linear-gradient(135deg, #0D2C35 0%, #12324A 100%);
+    --primary-turquoise: #22B5BF;
+    --accent-rgb: 34, 181, 191;
+}
+
+/* ---------- Типографика ---------- */
+/* Cormorant — только для крупных заголовков; карточки и мелкие заголовки остаются на Inter */
+html[data-palette="samarkand"] h1,
+html[data-palette="samarkand"] h2,
+html[data-palette="samarkand"] h3,
+html[data-palette="samarkand"] .display-5 {
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1.08;
+}
+
+html[data-palette="samarkand"] h2,
+html[data-palette="samarkand"] .section-title {
+    font-size: clamp(2.1rem, 4.2vw, 2.9rem);
+}
+
+html[data-palette="samarkand"] h4,
+html[data-palette="samarkand"] h5,
+html[data-palette="samarkand"] h6,
+html[data-palette="samarkand"] .card-title {
+    font-family: var(--font-body);
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Hero ---------- */
+html[data-palette="samarkand"] .hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.02;
+}
+
+/* Курсивная бирюзовая строка + шафрановая линия, которая «прошивается» при загрузке */
+html[data-palette="samarkand"] .hero-title .gradient-text {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 500;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: #8EE0DC;
+    animation: none;
+    padding-bottom: 0.08em;
+}
+
+html[data-palette="samarkand"] .hero-title .gradient-text::after {
+    content: '';
+    position: absolute;
+    left: 0.04em;
+    right: 0.04em;
+    bottom: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: repeating-linear-gradient(90deg, var(--highlight) 0 14px, transparent 14px 22px);
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: stitch-in 1.4s cubic-bezier(0.65, 0, 0.35, 1) 0.9s forwards;
+}
+
+@keyframes stitch-in {
+    to { transform: scaleX(1); }
+}
+
+html[data-palette="samarkand"] .hero-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(var(--highlight-rgb), 0.45);
+    color: #F3E3BF;
+}
+
+/* ---------- Кнопки, бейджи, разделители ---------- */
+html[data-palette="samarkand"] .section-divider {
+    background: linear-gradient(90deg, var(--primary-turquoise), var(--highlight));
+}
+
+html[data-palette="samarkand"] .product-badge {
+    background: var(--lapis);
+    color: #F3E3BF;
+}
+
+html[data-palette="samarkand"] .btn-pulse {
+    animation-name: pulse-ring-highlight;
+}
+
+@keyframes pulse-ring-highlight {
+    0%   { box-shadow: 0 0 0 0    rgba(var(--highlight-rgb), 0.55), 0 6px 28px rgba(var(--accent-rgb), 0.35); }
+    65%  { box-shadow: 0 0 0 16px rgba(var(--highlight-rgb), 0),    0 6px 28px rgba(var(--accent-rgb), 0.35); }
+    100% { box-shadow: 0 0 0 0    rgba(var(--highlight-rgb), 0),    0 6px 28px rgba(var(--accent-rgb), 0.35); }
+}
+
+html[data-palette="samarkand"] .scroll-progress {
+    background: linear-gradient(90deg, var(--primary-turquoise), var(--highlight));
+    box-shadow: none;
+}
+
+/* style.css задаёт тёмной теме собственные slate-цвета — для Samarkand берём лазурит */
+html[data-palette="samarkand"][data-theme="dark"] body {
+    background-color: var(--surface-bg);
+}
+
+html[data-palette="samarkand"][data-theme="dark"] .card {
+    background: var(--surface-card);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Подписи категорий: в каталоге — крупный Cormorant, в бегущей строке — Inter (мелкий serif читается хуже) */
+html[data-palette="samarkand"] .catalog-pill-name {
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    html[data-palette="samarkand"] .catalog-pill-name {
+        font-size: 1.45rem;
+    }
+}
+
+html[data-palette="samarkand"] .category-pill-name {
+    font-family: var(--font-body);
+}

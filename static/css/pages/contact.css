@@ -6,8 +6,8 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg,
-        rgba(0, 150, 168, 0.95) 0%,
-        rgba(0, 120, 140, 0.95) 100%);
+        rgba(var(--accent-deep-rgb),  0.95) 0%,
+        rgba(var(--accent-deep-rgb),  0.95) 100%);
     background-size: cover;
 }
 
@@ -87,7 +87,7 @@
 .form-floating-custom textarea:focus,
 .form-floating-custom select:focus {
     border-color: var(--primary-turquoise);
-    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb),  0.12);
     background: var(--surface-bg);
 }
 
@@ -302,4 +302,262 @@
     border-radius: 12px;
     font-size: 0.78rem;
     font-weight: 600;
+}
+/* ========================================
+   Compact contact card
+   ======================================== */
+
+.contact-card-compact .card-body {
+    padding: 1.6rem !important;
+}
+
+.contact-card-title {
+    font-size: clamp(1.6rem, 2.6vw, 2rem);
+    margin-bottom: 1.1rem;
+}
+
+/* Обе карточки одной высоты (h-100): соцсети прижаты к низу левой карточки */
+.contact-card-compact .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.contact-card-compact .contact-social {
+    margin-top: auto;
+}
+
+.contact-card-compact .contact-list {
+    margin-bottom: 0.4rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-row {
+    display: flex;
+    gap: 0.9rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-row:first-child {
+    border-top: none;
+    padding-top: 0.25rem;
+}
+
+.contact-row-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--primary-turquoise);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-row:hover .contact-row-icon {
+    background: var(--turquoise-gradient);
+    color: #fff;
+    transform: scale(1.06);
+}
+
+.contact-row-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.contact-row-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+}
+
+.contact-row-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+a.contact-row-value:hover {
+    color: var(--primary-turquoise);
+}
+
+.contact-row-note {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+.contact-row-link {
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary-turquoise);
+}
+
+.contact-hours {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.15rem;
+}
+
+.contact-hours-chip {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.contact-hours-chip b {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 0.2rem;
+}
+
+.contact-hours-chip.is-off {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+}
+
+.contact-social {
+    margin-top: 0.4rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.contact-social .contact-row-label {
+    margin: 0;
+}
+
+.contact-social-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.contact-social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--turquoise-gradient);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.contact-social-link:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(var(--accent-rgb), 0.35);
+}
+
+/* ========================================
+   Compact form card
+   ======================================== */
+
+.contact-card-form .card-body {
+    padding: 1.6rem !important;
+}
+
+.contact-form-lead {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Тип заявки — компактный переключатель */
+.contact-card-form .quick-contacts {
+    margin-bottom: 1.1rem;
+}
+
+.contact-card-form .quick-contacts .btn-outline-primary {
+    padding: 0.5rem 0.95rem;
+    border-width: 1.5px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.contact-card-form .quick-contacts .btn-outline-primary.active {
+    transform: none;
+}
+
+.contact-card-form .quick-contacts .btn-outline-primary:hover {
+    transform: none;
+}
+
+/* Поля: без двойного отступа (у .row уже есть g-3) и пониже */
+.contact-card-form .form-floating-custom {
+    margin-bottom: 0;
+}
+
+.contact-card-form .form-floating-custom input,
+.contact-card-form .form-floating-custom textarea {
+    padding: 0.72rem 1rem;
+}
+
+.contact-card-form .form-text {
+    margin-top: 0.35rem !important;
+}
+
+.contact-card-form #submitBtn {
+    padding: 0.8rem 1rem !important;
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+.contact-card-compact .contact-badge {
+    align-self: flex-start;
+}
+
+/* Низ формы всегда на уровне левой панели: свободная высота
+   равномерно распределяется между строками полей */
+@media (min-width: 992px) {
+    .contact-card-form .card-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .contact-card-form #contactForm {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-card-form #contactForm > .row {
+        flex: 1;
+        align-content: space-between;
+    }
+}
+
+.contact-card-form .contact-badge {
+    align-self: flex-start;
+}
+
+/* Bootstrap .btn-group срезает внутренние скругления — у нас отдельные «пилюли» */
+.contact-card-form .quick-contacts .btn-group > .btn {
+    border-radius: 999px !important;
+    margin-left: 0 !important;
 }

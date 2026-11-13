@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Политика конфиденциальности" %} - Home Terry Textile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/legal.css' %}?v=2">
+{% endblock %}
+
+{% block content %}
+{# Текст политики длинный, поэтому три языка лежат прямо в шаблоне, а не в .po-файлах. #}
+{# При изменении обработки данных (аналитика, CRM, новый хостинг) обновите все три версии и дату. #}
+
+<section class="legal-hero">
+	<div class="container">
+		<h1 class="legal-title">{% trans "Политика конфиденциальности" %}</h1>
+		<p class="legal-updated">
+			{% if LANGUAGE_CODE == 'en' %}Last updated: 13 November 2026
+			{% elif LANGUAGE_CODE == 'uz' %}Oxirgi yangilanish: 2026-yil 13-noyabr
+			{% else %}Последнее обновление: 13 ноября 2026 года{% endif %}
+		</p>
+	</div>
+</section>
+
+<section class="legal-body">
+	<div class="container">
+		<article class="legal-article">
+{% if LANGUAGE_CODE == 'en' %}
+
+			<p class="legal-lead">This policy explains what personal data HOME TERRY TEXTILE LLC collects through the website hometerry.uz, why we collect it and how you can control it. We collect only what we need to answer your request.</p>
+
+			<h2>1. Who we are</h2>
+			<p>The operator of your personal data is <strong>HOME TERRY TEXTILE LLC</strong> (OOO "HOME TERRY TEXTILE"), 7 Buyuk Ipak Yuli St., Samarkand, Republic of Uzbekistan. Contact for any privacy question: <a href="mailto:info@hometerry.uz">info@hometerry.uz</a>.</p>
+
+			<h2>2. What data we collect</h2>
+			<p><strong>When you send the contact form:</strong> your name, phone number, email, company name (optional), subject, message text and the type of request you chose.</p>
+			<p><strong>Technical data:</strong> your IP address. We use it to protect the form from spam (no more than 3 requests per minute from one address) and it is included in the request so we can detect abuse. Like any website, our server also keeps standard access logs.</p>
+			<p>We do not ask for passport data, payment card details, biometric or any other sensitive data. Please do not include such data in your message.</p>
+
+			<h2>3. Why we use it</h2>
+			<ul>
+				<li>to answer your question and send you a price list or a commercial offer;</li>
+				<li>to discuss and fulfil an order or cooperation you asked about;</li>
+				<li>to protect the website from spam and abuse.</li>
+			</ul>
+			<p>We do not send advertising mailings and do not sell or rent your data to anyone.</p>
+
+			<h2>4. Legal basis</h2>
+			<p>We process your data on the basis of your consent, which you give by ticking the box in the contact form, in accordance with the Law of the Republic of Uzbekistan "On Personal Data" No. ZRU-547 of 2 July 2019. For visitors from the European Union, the basis is your consent and steps taken at your request before entering into a contract (Article 6(1)(a) and (b) GDPR).</p>
+
+			<h2>5. Where your request goes</h2>
+			<p>Requests from the form are delivered to the company's internal work chat in the <strong>Telegram</strong> messenger, which is operated by Telegram (servers outside Uzbekistan). By sending the form you agree to this transfer. Only employees who handle client requests have access to this chat.</p>
+			<p>We may disclose data to state authorities only when required by law.</p>
+
+			<h2>6. How long we keep it</h2>
+			<p>We keep requests for as long as needed to answer them and to continue the cooperation you asked about, but no longer than 3 years after your last contact with us. After that, the requests are deleted.</p>
+
+			<h2>7. Cookies and browser storage</h2>
+			<ul>
+				<li><strong>csrftoken</strong> — a technical cookie that protects forms from forgery;</li>
+				<li><strong>django_language</strong> — remembers the language you chose;</li>
+				<li><strong>theme, fontSize</strong> — stored only in your browser (localStorage) to remember the dark/light theme and text size.</li>
+			</ul>
+			<p>We do not use advertising or analytics cookies. If this changes, we will update this policy.</p>
+
+			<h2>8. Your rights</h2>
+			<p>You can at any time ask us to tell you what data we hold about you, correct it, delete it or stop processing it, and you can withdraw your consent. Write to <a href="mailto:info@hometerry.uz">info@hometerry.uz</a> — we will reply within 30 days. Visitors from the EU may also lodge a complaint with their local data protection authority.</p>
+
+			<h2>9. Security</h2>
+			<p>The website works over an encrypted HTTPS connection, the form is protected from spam and forgery, and access to requests is limited to the employees who need it.</p>
+
+			<h2>10. Changes to this policy</h2>
+			<p>We may update this policy, for example when we add new services. The current version is always available on this page; the date of the last update is shown at the top.</p>
+
+{% elif LANGUAGE_CODE == 'uz' %}
+
+			<p class="legal-lead">Ushbu siyosat "HOME TERRY TEXTILE" MChJ hometerry.uz sayti orqali qanday shaxsga doir ma'lumotlarni to'plashi, ularni nima uchun ishlatishi va siz ularni qanday boshqarishingiz mumkinligini tushuntiradi. Biz faqat so'rovingizga javob berish uchun kerakli ma'lumotlarni to'playmiz.</p>
+
+			<h2>1. Biz kimmiz</h2>
+			<p>Shaxsga doir ma'lumotlaringiz operatori — <strong>"HOME TERRY TEXTILE" MChJ</strong>, O'zbekiston Respublikasi, Samarqand sh., Buyuk Ipak Yo'li ko'chasi, 7. Maxfiylik bo'yicha har qanday savol uchun: <a href="mailto:info@hometerry.uz">info@hometerry.uz</a>.</p>
+
+			<h2>2. Qanday ma'lumotlarni to'playmiz</h2>
+			<p><strong>Aloqa formasini yuborganingizda:</strong> ismingiz, telefon raqamingiz, email, kompaniya nomi (ixtiyoriy), mavzu, xabar matni va siz tanlagan so'rov turi.</p>
+			<p><strong>Texnik ma'lumotlar:</strong> IP-manzilingiz. U formani spamdan himoya qilish uchun ishlatiladi (bitta manzildan daqiqasiga 3 tadan ortiq so'rov emas) va suiiste'mollarni aniqlash uchun so'rovga qo'shiladi. Har qanday sayt kabi, serverimiz standart kirish jurnallarini yuritadi.</p>
+			<p>Biz pasport ma'lumotlari, bank karta rekvizitlari, biometrik yoki boshqa maxsus ma'lumotlarni so'ramaymiz. Iltimos, ularni xabarga yozmang.</p>
+
+			<h2>3. Ma'lumotlardan nima uchun foydalanamiz</h2>
+			<ul>
+				<li>savolingizga javob berish, narxlar ro'yxati yoki tijorat taklifini yuborish uchun;</li>
+				<li>siz so'ragan buyurtma yoki hamkorlikni muhokama qilish va bajarish uchun;</li>
+				<li>saytni spam va suiiste'mollardan himoya qilish uchun.</li>
+			</ul>
+			<p>Biz reklama xabarlarini yubormaymiz va ma'lumotlaringizni hech kimga sotmaymiz yoki ijaraga bermaymiz.</p>
+
+			<h2>4. Huquqiy asos</h2>
+			<p>Ma'lumotlaringiz O'zbekiston Respublikasining 2019-yil 2-iyuldagi O'RQ-547-son "Shaxsga doir ma'lumotlar to'g'risida"gi Qonuniga muvofiq, aloqa formasida belgi qo'yish orqali bergan roziligingiz asosida qayta ishlanadi. Yevropa Ittifoqidan tashrif buyuruvchilar uchun asos — roziligingiz va shartnoma tuzishdan oldin sizning so'rovingiz bo'yicha amalga oshiriladigan harakatlar (GDPR 6(1)(a) va (b)-moddasi).</p>
+
+			<h2>5. So'rovingiz qayerga boradi</h2>
+			<p>Formadan kelgan so'rovlar kompaniyaning <strong>Telegram</strong> messenjeridagi ichki ishchi chatiga yetkaziladi (serverlar O'zbekistondan tashqarida joylashgan). Formani yuborish orqali siz ushbu uzatishga rozilik bildirasiz. Bu chatga faqat mijozlar so'rovlari bilan ishlaydigan xodimlar kira oladi.</p>
+			<p>Ma'lumotlar davlat organlariga faqat qonunda nazarda tutilgan hollarda berilishi mumkin.</p>
+
+			<h2>6. Qancha vaqt saqlaymiz</h2>
+			<p>So'rovlar ularga javob berish va siz so'ragan hamkorlikni davom ettirish uchun zarur bo'lgan muddat davomida, lekin oxirgi murojaatingizdan keyin 3 yildan ko'p bo'lmagan muddatda saqlanadi. Shundan so'ng so'rovlar o'chiriladi.</p>
+
+			<h2>7. Cookie va brauzer xotirasi</h2>
+			<ul>
+				<li><strong>csrftoken</strong> — formalarni soxtalashtirishdan himoya qiluvchi texnik cookie;</li>
+				<li><strong>django_language</strong> — siz tanlagan tilni eslab qoladi;</li>
+				<li><strong>theme, fontSize</strong> — faqat brauzeringizda (localStorage) saqlanadi va tungi/kunduzgi mavzu hamda matn o'lchamini eslab qoladi.</li>
+			</ul>
+			<p>Biz reklama yoki analitika cookie'laridan foydalanmaymiz. Bu o'zgarsa, ushbu siyosatni yangilaymiz.</p>
+
+			<h2>8. Sizning huquqlaringiz</h2>
+			<p>Istalgan vaqtda biz siz haqingizda qanday ma'lumotlarni saqlayotganimizni bilishni, ularni tuzatishni, o'chirishni yoki qayta ishlashni to'xtatishni so'rashingiz, shuningdek roziligingizni qaytarib olishingiz mumkin. <a href="mailto:info@hometerry.uz">info@hometerry.uz</a> manziliga yozing — 30 kun ichida javob beramiz. YeIdan tashrif buyuruvchilar o'z mamlakatidagi ma'lumotlarni himoya qilish organiga shikoyat qilishlari ham mumkin.</p>
+
+			<h2>9. Xavfsizlik</h2>
+			<p>Sayt shifrlangan HTTPS ulanishi orqali ishlaydi, forma spam va soxtalashtirishdan himoyalangan, so'rovlarga faqat ularga ehtiyoji bor xodimlar kira oladi.</p>
+
+			<h2>10. Siyosatdagi o'zgarishlar</h2>
+			<p>Biz ushbu siyosatni, masalan, yangi xizmatlar qo'shganda yangilashimiz mumkin. Joriy versiya har doim shu sahifada mavjud; oxirgi yangilanish sanasi yuqorida ko'rsatilgan.</p>
+
+{% else %}
+
+			<p class="legal-lead">Эта политика объясняет, какие персональные данные ООО «HOME TERRY TEXTILE» собирает через сайт hometerry.uz, зачем они нужны и как вы можете ими управлять. Мы собираем только то, что нужно, чтобы ответить на ваш запрос.</p>
+
+			<h2>1. Кто мы</h2>
+			<p>Оператор ваших персональных данных — <strong>ООО «HOME TERRY TEXTILE»</strong>, Республика Узбекистан, г. Самарканд, ул. Буюк Ипак Йули, 7. По любым вопросам о персональных данных: <a href="mailto:info@hometerry.uz">info@hometerry.uz</a>.</p>
+
+			<h2>2. Какие данные мы собираем</h2>
+			<p><strong>Когда вы отправляете форму обратной связи:</strong> имя, номер телефона, email, название компании (по желанию), тему, текст сообщения и выбранный тип запроса.</p>
+			<p><strong>Технические данные:</strong> IP-адрес. Он нужен для защиты формы от спама (не более 3 запросов в минуту с одного адреса) и прикладывается к заявке, чтобы выявлять злоупотребления. Как и любой сайт, наш сервер ведёт стандартные журналы обращений.</p>
+			<p>Мы не запрашиваем паспортные данные, реквизиты банковских карт, биометрические и другие специальные данные. Пожалуйста, не указывайте их в сообщении.</p>
+
+			<h2>3. Зачем мы их используем</h2>
+			<ul>
+				<li>чтобы ответить на ваш вопрос и отправить прайс-лист или коммерческое предложение;</li>
+				<li>чтобы обсудить и выполнить заказ или сотрудничество, о котором вы спросили;</li>
+				<li>чтобы защищать сайт от спама и злоупотреблений.</li>
+			</ul>
+			<p>Мы не делаем рекламных рассылок и не продаём и не передаём ваши данные в аренду.</p>
+
+			<h2>4. Правовое основание</h2>
+			<p>Мы обрабатываем данные на основании вашего согласия, которое вы даёте, отмечая галочку в форме, в соответствии с Законом Республики Узбекистан «О персональных данных» № ЗРУ-547 от 2 июля 2019 года. Для посетителей из Европейского союза основание — ваше согласие и действия по вашему запросу до заключения договора (статья 6(1)(a) и (b) GDPR).</p>
+
+			<h2>5. Куда попадает ваша заявка</h2>
+			<p>Заявки из формы приходят во внутренний рабочий чат компании в мессенджере <strong>Telegram</strong> (серверы находятся за пределами Узбекистана). Отправляя форму, вы соглашаетесь на такую передачу. Доступ к чату есть только у сотрудников, которые работают с заявками клиентов.</p>
+			<p>Данные могут быть переданы государственным органам только в случаях, предусмотренных законом.</p>
+
+			<h2>6. Сколько мы их храним</h2>
+			<p>Заявки хранятся столько, сколько нужно, чтобы ответить на них и продолжить сотрудничество, о котором вы просили, но не дольше 3 лет с момента вашего последнего обращения. После этого заявки удаляются.</p>
+
+			<h2>7. Cookies и хранилище браузера</h2>
+			<ul>
+				<li><strong>csrftoken</strong> — технический cookie, защищающий формы от подделки;</li>
+				<li><strong>django_language</strong> — запоминает выбранный язык;</li>
+				<li><strong>theme, fontSize</strong> — хранятся только в вашем браузере (localStorage) и запоминают тёмную/светлую тему и размер текста.</li>
+			</ul>
+			<p>Мы не используем рекламные и аналитические cookies. Если это изменится, мы обновим эту политику.</p>
+
+			<h2>8. Ваши права</h2>
+			<p>Вы в любой момент можете попросить сообщить, какие данные о вас у нас есть, исправить их, удалить или прекратить обработку, а также отозвать согласие. Напишите на <a href="mailto:info@hometerry.uz">info@hometerry.uz</a> — мы ответим в течение 30 дней. Посетители из ЕС также могут подать жалобу в орган по защите данных своей страны.</p>
+
+			<h2>9. Безопасность</h2>
+			<p>Сайт работает по зашифрованному соединению HTTPS, форма защищена от спама и подделки, а доступ к заявкам есть только у сотрудников, которым он нужен для работы.</p>
+
+			<h2>10. Изменения политики</h2>
+			<p>Мы можем обновлять эту политику, например при подключении новых сервисов. Актуальная версия всегда доступна на этой странице, дата последнего обновления указана вверху.</p>
+
+{% endif %}
+		</article>
+	</div>
+</section>
+{% endblock %}

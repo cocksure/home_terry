@@ -46,7 +46,7 @@
                 <article class="card h-100 hover-lift">
                     <a href="{% url 'main:blog_detail' post.slug %}" class="text-decoration-none">
                         {% if post.image %}
-                        <img src="{{ post.image.url }}"
+                        <img src="{{ post.image.url }}" loading="lazy" decoding="async"
                              class="card-img-top"
                              alt="{{ post.title }}">
                         {% else %}

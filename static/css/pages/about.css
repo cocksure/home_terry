@@ -6,8 +6,8 @@
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg,
-        rgba(0, 150, 168, 0.95) 0%,
-        rgba(0, 120, 140, 0.95) 100%);
+        rgba(var(--accent-deep-rgb),  0.95) 0%,
+        rgba(var(--accent-deep-rgb),  0.95) 100%);
     background-size: cover;
 }
 

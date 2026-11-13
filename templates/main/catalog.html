@@ -4,7 +4,7 @@
 {% block title %}{% trans "Каталог" %} - Home Terry Textile{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/catalog.css' %}?v=4">
+<link rel="stylesheet" href="{% static 'css/pages/catalog.css' %}?v=5">
 {% endblock %}
 
 {% block content %}
@@ -30,7 +30,7 @@
             <a href="{% url 'main:category_detail' category.slug %}" class="catalog-pill">
                 <div class="catalog-pill-img">
                     {% if category.image %}
-                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy" decoding="async">
                     {% else %}
                     <div class="catalog-pill-placeholder">
                         <i class="fas fa-spa"></i>

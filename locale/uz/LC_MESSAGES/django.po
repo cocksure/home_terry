@@ -376,8 +376,8 @@ msgid "Условия использования"
 msgstr "Foydalanish shartlari"
 
 #: templates/main/about.html:22
-msgid "С 2015 года"
-msgstr "2015 yildan beri"
+msgid "С 2014 года"
+msgstr "2014 yildan beri"
 
 #: templates/main/about.html:25
 msgid "Home Terry Textile"
@@ -561,8 +561,8 @@ msgid "Лет на рынке"
 msgstr "Bozor yillari"
 
 #: templates/main/about.html:261
-msgid "с 2015 года"
-msgstr "2015 yildan"
+msgid "с 2014 года"
+msgstr "2014 yildan"
 
 #: templates/main/about.html:271
 msgid "Тысяч товаров"
@@ -1147,8 +1147,8 @@ msgid "Качественные полотенца из натуральных �
 msgstr "Tabiiy materiallardan tayyorlangan sifatli sochiqlar"
 
 #: templates/main/home.html:23
-msgid "Премиум качество с 2015"
-msgstr "2015-yildan beri premium sifat"
+msgid "Премиум качество с 2014"
+msgstr "2014-yildan beri premium sifat"
 
 #: templates/main/home.html:26
 msgid "Искусство комфорта"
@@ -1328,3 +1328,27 @@ msgstr "Ulashish:"
 #: templates/main/product_detail.html:153
 msgid "Похожие товары"
 msgstr "O‘xshash mahsulotlar"
+
+msgid "Язык"
+msgstr "Til"
+
+msgid "Наверх"
+msgstr "Yuqoriga"
+
+msgid "Закрыть видео"
+msgstr "Videoni yopish"
+
+msgid "Основное меню"
+msgstr "Asosiy menyu"
+
+msgid "Открыть меню"
+msgstr "Menyuni ochish"
+
+msgid "Сменить тему"
+msgstr "Mavzuni almashtirish"
+
+msgid "Запросить прайс"
+msgstr "Narxlar ro'yxatini so'rash"
+
+msgid "Телефон с кодом страны"
+msgstr "Davlat kodi bilan telefon"

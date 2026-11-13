@@ -47,7 +47,7 @@ def category_products(request, slug):
 
     # Сортировка
     sort = request.GET.get('sort', '-created_at')
-    if sort in ['price', '-price', 'name', '-name']:
+    if sort in ['created_at', '-created_at', 'name', '-name']:
         products = products.order_by(sort)
 
     # Пагинация
@@ -127,6 +127,11 @@ def contact(request):
     return render(request, 'main/contact.html')
 
 
+def privacy(request):
+    """Политика конфиденциальности"""
+    return render(request, 'main/privacy.html')
+
+
 @require_POST
 def submit_contact_form(request):
     """Обработка контактной формы с отправкой в Telegram"""
@@ -164,9 +169,9 @@ def submit_contact_form(request):
                 'error': 'Неправильный формат email адреса'
             }, status=400)
 
-        # Проверка формата телефона
-        phone_clean = phone.replace(' ', '').replace('-', '').replace('(', '').replace(')', '')
-        if not phone_clean.startswith('+998') or len(phone_clean) != 13:
+        # Проверка формата телефона: клиенты из разных стран — необязательный «+» и 7–15 цифр (E.164)
+        phone_clean = re.sub(r'[\s\-().]', '', phone)
+        if not re.fullmatch(r'\+?\d{7,15}', phone_clean):
             return JsonResponse({
                 'success': False,
                 'error': 'Неправильный формат номера телефона'

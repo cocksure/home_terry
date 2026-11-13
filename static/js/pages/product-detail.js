@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbnail.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    const imageUrl = this.querySelector('img').src;
+                    const imageUrl = this.dataset.full;
                     if (typeof changeMainImage === 'function') {
                         changeMainImage(imageUrl, this);
                     }
@@ -44,8 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     // Product Image Magnifier Lens
     // ========================================
+    // Увеличение = реальное разрешение фото / размер на экране (от 2x до 3.5x),
+    // поэтому в лупе видны настоящие пиксели снимка, а не растянутая картинка.
     const mainImage = document.getElementById('mainImage');
-    if (mainImage) {
+    if (mainImage && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
         const imageContainer = mainImage.parentElement;
         imageContainer.style.position = 'relative';
         imageContainer.style.overflow = 'hidden';
@@ -55,116 +57,39 @@ document.addEventListener('DOMContentLoaded', function() {
         lens.className = 'product-detail-lens';
         imageContainer.appendChild(lens);
 
-        let naturalWidth = 0;
-        let naturalHeight = 0;
-        const magnifyScale = 2.2;
+        let frame = null;
+        let lastEvent = null;
 
-        const updateNaturalSize = () => {
-            if (mainImage.naturalWidth && mainImage.naturalHeight) {
-                naturalWidth = mainImage.naturalWidth;
-                naturalHeight = mainImage.naturalHeight;
-            } else {
-                const preload = new Image();
-                preload.src = mainImage.src;
-                preload.onload = () => {
-                    naturalWidth = preload.width;
-                    naturalHeight = preload.height;
-                };
-            }
-        };
+        const updateLens = () => {
+            frame = null;
+            const imgRect = mainImage.getBoundingClientRect();
+            const boxRect = imageContainer.getBoundingClientRect();
+            const mx = lastEvent.clientX - imgRect.left;
+            const my = lastEvent.clientY - imgRect.top;
 
-        const updateLensBackground = () => {
-            lens.style.backgroundImage = `url('${mainImage.src}')`;
-            lens.style.backgroundSize = `${naturalWidth * magnifyScale}px ${naturalHeight * magnifyScale}px`;
-        };
-
-        updateNaturalSize();
-        mainImage.addEventListener('load', () => {
-            updateNaturalSize();
-            updateLensBackground();
-        });
-
-        const updateLens = (event) => {
-            const rect = imageContainer.getBoundingClientRect();
-            const mx = event.clientX - rect.left;
-            const my = event.clientY - rect.top;
-            const isInside = mx > 0 && my > 0 && mx < rect.width && my < rect.height;
-
-            if (!isInside) {
+            if (mx < 0 || my < 0 || mx > imgRect.width || my > imgRect.height) {
                 lens.classList.remove('active');
                 return;
             }
 
-            const px = mx / rect.width;
-            const py = my / rect.height;
-            const bgX = Math.round((naturalWidth * magnifyScale - lens.offsetWidth) * px * -1);
-            const bgY = Math.round((naturalHeight * magnifyScale - lens.offsetHeight) * py * -1);
+            const zoom = Math.min(3.5, Math.max(2, (mainImage.naturalWidth || 0) / imgRect.width));
+            const half = lens.offsetWidth / 2;
 
-            lens.style.left = `${mx}px`;
-            lens.style.top = `${my}px`;
-            lens.style.backgroundPosition = `${bgX}px ${bgY}px`;
-            lens.style.backgroundImage = `url('${mainImage.src}')`;
+            lens.style.backgroundImage = `url('${mainImage.currentSrc || mainImage.src}')`;
+            lens.style.backgroundSize = `${imgRect.width * zoom}px ${imgRect.height * zoom}px`;
+            lens.style.backgroundPosition = `${half - mx * zoom}px ${half - my * zoom}px`;
+            lens.style.left = `${lastEvent.clientX - boxRect.left}px`;
+            lens.style.top = `${lastEvent.clientY - boxRect.top}px`;
             lens.classList.add('active');
         };
 
-        imageContainer.addEventListener('mouseenter', () => {
-            updateLensBackground();
+        imageContainer.addEventListener('mousemove', (event) => {
+            lastEvent = event;
+            if (!frame) frame = requestAnimationFrame(updateLens);
         });
-        imageContainer.addEventListener('mousemove', updateLens);
         imageContainer.addEventListener('mouseleave', () => {
             lens.classList.remove('active');
         });
     }
 
-    // ========================================
-    // Share Buttons Functionality
-    // ========================================
-    const shareButtons = document.querySelectorAll('.btn[href*="facebook"], .btn[href*="twitter"], .btn[href*="telegram"], .btn[href*="whatsapp"]');
-    if (shareButtons.length > 0) {
-        const currentUrl = encodeURIComponent(window.location.href);
-        const pageTitle = encodeURIComponent(document.title);
-
-        shareButtons.forEach(button => {
-            const href = button.getAttribute('href');
-
-            if (href === '#') {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    const icon = this.querySelector('i');
-                    let shareUrl = '';
-
-                    if (icon.classList.contains('fa-facebook-f')) {
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-                    } else if (icon.classList.contains('fa-twitter')) {
-                        shareUrl = `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-                    } else if (icon.classList.contains('fa-telegram-plane')) {
-                        shareUrl = `https://t.me/share/url?url=${currentUrl}&text=${pageTitle}`;
-                    } else if (icon.classList.contains('fa-whatsapp')) {
-                        shareUrl = `https://wa.me/?text=${pageTitle}%20${currentUrl}`;
-                    }
-
-                    if (shareUrl) {
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                    }
-                });
-            }
-        });
-    }
-
-    // ========================================
-    // Related Products Hover Effect
-    // ========================================
-    const relatedProductCards = document.querySelectorAll('.product-card');
-    if (relatedProductCards.length > 0) {
-        relatedProductCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    }
 });

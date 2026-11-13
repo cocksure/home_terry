@@ -4,7 +4,7 @@
 {% block title %}{% trans "О нас" %} - Home Terry Textile{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/pages/about.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'css/pages/about.css' %}?v=4">
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
         <div class="row align-items-center py-4 my-lg-3">
             <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-badge mb-4">
-                    <span>{% trans "С 2015 года" %}</span>
+                    <span>{% trans "С 2014 года" %}</span>
                 </div>
                 <h1 class="display-4 display-lg-3 fw-bold mb-4 text-white">
                     <span style="color: #fff;">{% trans "Home Terry Textile" %}</span><br>
@@ -56,7 +56,7 @@
 
                 <div class="timeline">
                     <div class="timeline-item stagger-element">
-                        <div class="timeline-year">2015</div>
+                        <div class="timeline-year">2014</div>
                         <div class="timeline-content">
                             <h4>{% trans "Начало пути" %}</h4>
                             <p>{% trans "Основание компании в Ташкенте с маленькой мастерской" %}</p>
@@ -93,14 +93,14 @@
                 <div class="position-relative">
                     <!-- Плавающие карточки только на десктопе -->
                     <div class="floating-card card-1 d-none d-lg-block">
-                        <img src="{% static 'images/about-1.png' %}"
+                        <img src="{% static 'images/about-1.webp' %}" loading="lazy" decoding="async"
                              alt="{% trans 'Производство' %}"
                              onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMDBDRUQxIi8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+UHJvZHVjdGlvbjwvdGV4dD4KPC9zdmc+';">
                         <div class="floating-badge">{% trans "Качество" %}</div>
                     </div>
 
                     <div class="floating-card card-2 d-none d-lg-block">
-                        <img src="{% static 'images/about-2.png' %}"
+                        <img src="{% static 'images/about-2.webp' %}" loading="lazy" decoding="async"
                              alt="{% trans 'Материалы' %}"
                              onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjMDBBN0E4Ii8+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+TWF0ZXJpYWxzPC90ZXh0Pgo8L3N2Zz4+';">
                         <div class="floating-badge">{% trans "Эко" %}</div>
@@ -111,7 +111,7 @@
                         <div class="image-placeholder" style="height: 300px; background: var(--turquoise-gradient); display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-spa fa-4x text-white opacity-50"></i>
                         </div>
-                        <img src="{% static 'images/about-hero.png' %}"
+                        <img src="{% static 'images/about-hero.webp' %}"
                              alt="{% trans 'О компании' %}"
                              class="img-fluid w-100 d-none"
                              style="height: 300px; object-fit: cover;"
@@ -184,7 +184,7 @@
                         {% trans "Гарантия сроков поставки, индивидуальные условия, поддержка 24/7." %}
                     </p>
                     <div class="feature-stats">
-                        <span class="stat">9+</span>
+                        <span class="stat">12+</span>
                         <span class="stat-label">{% trans "лет опыта" %}</span>
                     </div>
                 </div>
@@ -256,9 +256,9 @@
                     <div class="stat-icon">
                         <i class="fas fa-calendar-check"></i>
                     </div>
-                    <div class="stat-number" data-count="9">0</div>
+                    <div class="stat-number" data-count="12">0</div>
                     <div class="stat-text">{% trans "Лет на рынке" %}</div>
-                    <div class="stat-subtext">{% trans "с 2015 года" %}</div>
+                    <div class="stat-subtext">{% trans "с 2014 года" %}</div>
                 </div>
             </div>
 
